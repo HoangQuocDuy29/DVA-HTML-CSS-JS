@@ -1,6 +1,6 @@
 // Players page functionality
 
-// Sample player data - in real app, this would come from an API
+// Updated player data with new fields
 const playersData = {
     middle: [
         {
@@ -9,119 +9,156 @@ const playersData = {
             number: 29,
             position: "Setter",
             height: "160cm",
-            address: "Thái Bình, Việt Nam",
+            reachHeight: "285cm",
+            address: "Hưng Yên",
+            born: "2003",
             age: 22,
-            avatar: "images/players/HoangQuocDuy.png"
+            avatar: "images/players/HoangQuocDuyyy.png",
+            isCaptain: true
         },
         {
             id: 2,
-            name: "Alex Rodriguez",
-            number: 8,
+            name: "Nùng Gia Bảo",
+            number: 12,
             position: "Middle Blocker",
-            height: "203cm",
-            address: "New York, USA",
-            age: 27,
-            avatar: "https://via.placeholder.com/300x300/764ba2/ffffff?text=AR"
+            height: "170cm",
+            reachHeight: "295cm",
+            address: "Lai Châu",
+            born: "2005",
+            age: 18,
+            avatar: "images/players/NungGiaBaoo.png"
         },
         {
             id: 3,
-            name: "David Chen",
+            name: "Trịnh Văn Huy",
             number: 5,
-            position: "Setter",
-            height: "185cm",
-            address: "Los Angeles, USA",
-            age: 24,
-            avatar: "https://via.placeholder.com/300x300/e74c3c/ffffff?text=DC"
+            position: "Outside Hitter",
+            height: "178cm",
+            reachHeight: "300cm",
+            address: "Ninh Bình",
+            born: "2002",
+            age: 23,
+            avatar: "images/players/TrinhVanHuy.png"
         },
         {
             id: 4,
-            name: "Ryan Thompson",
-            number: 15,
-            position: "Libero",
-            height: "175cm",
-            address: "Texas, USA",
-            age: 23,
-            avatar: "https://via.placeholder.com/300x300/f39c12/ffffff?text=RT"
+            name: "Hà Xuân Quân",
+            number: 27,
+            position: "Opposite Hitter",
+            height: "177cm",
+            reachHeight: "308cm",
+            address: "Thanh Hoá",
+            born: "2006",
+            age: 19,
+            avatar: "images/players/HaXuanQuan.png"
         },
         {
             id: 5,
-            name: "James Wilson",
-            number: 9,
-            position: "Opposite",
-            height: "198cm",
-            address: "Florida, USA",
+            name: "Dương Văn Đại",
+            number: 20,
+            position: "Middle Blocker",
+            height: "180cm",
+            reachHeight: "315cm",
+            address: "Hưng Yên",
+            born: "1998",
             age: 26,
-            avatar: "https://via.placeholder.com/300x300/27ae60/ffffff?text=JW"
+            avatar: "images/players/DuongVanDai.png"
         },
         {
             id: 6,
-            name: "Kevin Martinez",
-            number: 3,
+            name: "Nguyễn Đình Vũ",
+            number: 24,
+            position: "Middle Blocker",
+            height: "175cm",
+            reachHeight: "305cm",
+            address: "Hải Phòng",
+            born: "2005",
+            age: 20,
+            avatar: "images/players/NguyenDinhVu.png"
+        },
+        {
+            id: 7,
+            name: "Nguyễn Quang Hưng",
+            number: 9,
             position: "Outside Hitter",
-            height: "190cm",
-            address: "Arizona, USA",
-            age: 25,
-            avatar: "https://via.placeholder.com/300x300/9b59b6/ffffff?text=KM"
+            height: "180cm",
+            reachHeight: "330cm",
+            address: "Phú Thọ",
+            born: "2004",
+            age: 21,
+            avatar: "images/players/NguyenQuangHung.png"
         }
     ],
     junior: [
         {
-            id: 7,
+            id: 8,
             name: "Artiukh Lyubov",
             number: 1,
             position: "Outside Hitter",
             height: "176cm",
+            reachHeight: "302cm",
             address: "Moscow, Russia",
+            born: "2005",
             age: 19,
             avatar: "images/players/Lyuba.png"
         },
         {
-            id: 8,
+            id: 9,
             name: "Phạm Thị Thanh Bình",
             number: 20,
             position: "Libero",
             height: "160cm",
-            address: "Quảng Bình",
+            reachHeight: "280cm",
+            address: "Quảng Bình, Việt Nam",
+            born: "2006",
             age: 18,
             avatar: "images/players/PhamThiThanhBinhh.png"
         },
         {
-            id: 9,
+            id: 10,
             name: "Sam Davis",
             number: 4,
             position: "Setter",
             height: "180cm",
+            reachHeight: "295cm",
             address: "Nevada, USA",
+            born: "2007",
             age: 17,
             avatar: "https://via.placeholder.com/300x300/2980b9/ffffff?text=SD"
         },
         {
-            id: 10,
+            id: 11,
             name: "Chris Brown",
             number: 14,
             position: "Libero",
             height: "172cm",
+            reachHeight: "285cm",
             address: "Colorado, USA",
+            born: "2006",
             age: 18,
             avatar: "https://via.placeholder.com/300x300/d35400/ffffff?text=CB"
         },
         {
-            id: 11,
+            id: 12,
             name: "Noah Garcia",
             number: 6,
             position: "Opposite",
             height: "192cm",
+            reachHeight: "325cm",
             address: "Utah, USA",
+            born: "2005",
             age: 19,
             avatar: "https://via.placeholder.com/300x300/8e44ad/ffffff?text=NG"
         },
         {
-            id: 12,
+            id: 13,
             name: "Ethan Lee",
             number: 10,
             position: "Middle Blocker",
             height: "195cm",
+            reachHeight: "330cm",
             address: "Idaho, USA",
+            born: "2006",
             age: 18,
             avatar: "https://via.placeholder.com/300x300/c0392b/ffffff?text=EL"
         }
@@ -264,10 +301,18 @@ function filterPlayers(players) {
     });
 }
 
-// Create player card HTML
+// Create modern player card HTML - Without footer
 function createPlayerCard(player) {
+    const captainBadge = player.isCaptain ? `
+        <div class="captain-badge">
+            <i class="fas fa-crown"></i>
+            <span>C</span>
+        </div>
+    ` : '';
+    
     return `
         <div class="player-card fade-in" data-player-id="${player.id}">
+            ${captainBadge}
             <div class="player-avatar">
                 <img src="${player.avatar}" alt="${player.name}" 
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -278,30 +323,49 @@ function createPlayerCard(player) {
                 <div class="player-number">${player.number}</div>
             </div>
             <div class="player-info">
-                <h3 class="player-name">${player.name}</h3>
-                <div class="player-position">${player.position}</div>
-                <div class="player-details">
-                    <div class="detail-item">
-                        <i class="fas fa-ruler-vertical"></i>
-                        <span><strong>Height:</strong> ${player.height}</span>
+                <div class="player-header">
+                    <h3 class="player-name">${player.name}</h3>
+                    <div class="player-position">${player.position}</div>
+                </div>
+                
+                <div class="player-stats">
+                    <div class="stat-row primary-stats">
+                        <div class="stat-item height-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-ruler-vertical"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value">${player.height}</span>
+                                <span class="stat-label">Height</span>
+                            </div>
+                        </div>
+                        <div class="stat-item reach-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-hand-paper"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value">${player.reachHeight}</span>
+                                <span class="stat-label">Reach</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span><strong>From:</strong> ${player.address}</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-birthday-cake"></i>
-                        <span><strong>Age:</strong> ${player.age}</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tshirt"></i>
-                        <span><strong>Jersey:</strong> #${player.number}</span>
+                    
+                    <div class="stat-row secondary-stats">
+                        <div class="detail-item location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${player.address}</span>
+                        </div>
+                        <div class="detail-item birth">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>Born ${player.born}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     `;
 }
+
 
 // Render players grid
 function renderPlayers() {
@@ -339,7 +403,10 @@ function renderPlayers() {
         
         // Add click event listeners to player cards
         container.querySelectorAll('.player-card').forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking on action buttons
+                if (e.target.closest('.action-btn')) return;
+                
                 const playerId = card.dataset.playerId;
                 handlePlayerClick(playerId);
             });
@@ -347,8 +414,10 @@ function renderPlayers() {
         
         // Trigger fade in animation
         setTimeout(() => {
-            container.querySelectorAll('.fade-in').forEach(el => {
-                el.classList.add('visible');
+            container.querySelectorAll('.fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 100);
             });
         }, 100);
         
@@ -362,7 +431,100 @@ function handlePlayerClick(playerId) {
     
     if (player) {
         // In a real app, this would navigate to a player detail page
-        alert(`Viewing details for ${player.name}\nPosition: ${player.position}\nHeight: ${player.height}`);
+        showPlayerModal(player);
+    }
+}
+
+// Show player modal (enhanced version)
+function showPlayerModal(player) {
+    const modalHTML = `
+        <div class="player-modal-overlay" onclick="closePlayerModal()">
+            <div class="player-modal" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <h2>${player.name}</h2>
+                    <button class="modal-close" onclick="closePlayerModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-avatar">
+                        <img src="${player.avatar}" alt="${player.name}" 
+                             onerror="this.src='https://via.placeholder.com/200x200/667eea/ffffff?text=${player.name.split(' ').map(n => n[0]).join('')}'">
+                        <div class="modal-number">#${player.number}</div>
+                    </div>
+                    <div class="modal-info">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Position:</span>
+                                <span class="info-value">${player.position}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Height:</span>
+                                <span class="info-value">${player.height}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Reach Height:</span>
+                                <span class="info-value">${player.reachHeight}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Born:</span>
+                                <span class="info-value">${player.born}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">From:</span>
+                                <span class="info-value">${player.address}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Jersey:</span>
+                                <span class="info-value">#${player.number}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    document.body.style.overflow = 'hidden';
+}
+
+// Close player modal
+function closePlayerModal() {
+    const modal = document.querySelector('.player-modal-overlay');
+    if (modal) {
+        modal.remove();
+        document.body.style.overflow = '';
+    }
+}
+
+// Player action functions
+function viewPlayerStats(playerId) {
+    const player = [...playersData.middle, ...playersData.junior]
+        .find(p => p.id == playerId);
+    
+    if (player) {
+        alert(`Viewing stats for ${player.name}`);
+        // In real app, this would show detailed statistics
+    }
+}
+
+function sharePlayer(playerId) {
+    const player = [...playersData.middle, ...playersData.junior]
+        .find(p => p.id == playerId);
+    
+    if (player && navigator.share) {
+        navigator.share({
+            title: `DVA Club - ${player.name}`,
+            text: `Check out ${player.name}, ${player.position} for DVA Club`,
+            url: window.location.href
+        });
+    } else if (player) {
+        // Fallback for browsers without native sharing
+        const text = `Check out ${player.name}, ${player.position} for DVA Club - ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Player info copied to clipboard!');
+        });
     }
 }
 
@@ -387,6 +549,11 @@ function getPlayersByPosition(position) {
 document.addEventListener('DOMContentLoaded', () => {
     initPlayersPage();
 });
+
+// Make functions available globally
+window.viewPlayerStats = viewPlayerStats;
+window.sharePlayer = sharePlayer;
+window.closePlayerModal = closePlayerModal;
 
 // Export functions for testing
 if (typeof module !== 'undefined' && module.exports) {

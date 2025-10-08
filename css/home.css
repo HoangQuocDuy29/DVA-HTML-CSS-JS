@@ -675,3 +675,530 @@
         height: 150px;
     }
 }
+/* Founder & Management Section */
+.founder-management {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    position: relative;
+}
+
+.founder-management::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(231,76,60,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+}
+
+.founder-content {
+    position: relative;
+    z-index: 2;
+}
+
+.founder-card {
+    background: white;
+    border-radius: 30px;
+    padding: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Founder Avatar Section */
+.founder-avatar-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-avatar-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.avatar-border-animation {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease-in-out infinite;
+    padding: 6px;
+    z-index: 2;
+}
+
+.avatar-inner-border {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: white;
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.founder-avatar:hover {
+    transform: scale(1.05);
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.avatar-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.founder-title-badge {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    z-index: 2;
+    position: relative;
+}
+
+.founder-title-badge i {
+    color: #ffd700;
+    font-size: 1.3rem;
+    animation: pulse 2s infinite;
+}
+
+/* Founder Info Section */
+.founder-info {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.founder-header {
+    text-align: center;
+    border-bottom: 3px solid #f1f1f1;
+    padding-bottom: 25px;
+}
+
+.founder-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.founder-role {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Founder Details */
+.founder-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border-left: 4px solid #e74c3c;
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.detail-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* Founder Description */
+.founder-description {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.founder-description blockquote {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 0;
+    position: relative;
+    font-style: italic;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.founder-description blockquote p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0;
+    padding-left: 40px;
+}
+
+.founder-story h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.founder-story p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Founder Achievements */
+.founder-achievements h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.achievement-item {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.achievement-item:hover {
+    background: white;
+    border-color: #e74c3c;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.achievement-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.achievement-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e74c3c;
+    line-height: 1;
+}
+
+.achievement-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+/* Founder Contact */
+.founder-contact h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid;
+}
+
+.contact-btn.facebook {
+    background: #1877f2;
+    color: white;
+    border-color: #1877f2;
+}
+
+.contact-btn.facebook:hover {
+    background: #166fe5;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+}
+
+.contact-btn.email {
+    background: #ea4335;
+    color: white;
+    border-color: #ea4335;
+}
+
+.contact-btn.email:hover {
+    background: #d93025;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(234, 67, 53, 0.3);
+}
+
+.contact-btn.phone {
+    background: #25d366;
+    color: white;
+    border-color: #25d366;
+}
+
+.contact-btn.phone:hover {
+    background: #22c55e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+/* Animations */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .founder-card {
+        grid-template-columns: 350px 1fr;
+        max-width: 1000px;
+    }
+    
+    .founder-info {
+        padding: 40px;
+        gap: 30px;
+    }
+    
+    .founder-avatar-container {
+        padding: 50px 30px;
+    }
+    
+    .avatar-border-animation {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .founder-management {
+        padding: 80px 0;
+    }
+    
+    .founder-card {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 20px;
+    }
+    
+    .founder-avatar-container {
+        padding: 40px;
+    }
+    
+    .avatar-border-animation {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .founder-info {
+        padding: 30px;
+        gap: 25px;
+    }
+    
+    .founder-name {
+        font-size: 2rem;
+    }
+    
+    .detail-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .founder-card {
+        margin: 0 15px;
+    }
+    
+    .founder-avatar-container {
+        padding: 30px 20px;
+    }
+    
+    .avatar-border-animation {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .founder-info {
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    .founder-name {
+        font-size: 1.8rem;
+    }
+    
+    .detail-item {
+        padding: 15px;
+    }
+    
+    .achievement-item {
+        padding: 20px;
+    }
+    
+    .founder-description blockquote {
+        padding: 25px;
+    }
+    
+    .founder-description blockquote p {
+        font-size: 1rem;
+        padding-left: 35px;
+    }
+}
+
