@@ -81,7 +81,7 @@ const playersData = {
             number: 20,
             position: "Libero",
             height: "160cm",
-            address: "Quảng Bình, Việt Nam",
+            address: "Quảng Bình",
             age: 18,
             avatar: "images/players/PhamThiThanhBinhh.png"
         },

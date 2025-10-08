@@ -263,3 +263,415 @@
         font-size: 8rem;
     }
 }
+/* Club Info Section */
+.club-info {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.club-info-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.facility-equipment {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Info Cards */
+.info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+/* Schedule Card */
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.schedule-item.highlight {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.schedule-item.highlight:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+.schedule-item .day {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.schedule-item .time {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #e74c3c;
+}
+
+.schedule-item.highlight .time {
+    color: white;
+}
+
+.schedule-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #856404;
+}
+
+.schedule-note i {
+    color: #f39c12;
+    font-size: 1.2rem;
+}
+
+/* Team Structure Card */
+.team-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.team-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.team-detail:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.detail-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.detail-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.detail-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Facility & Equipment Cards */
+.facility-content,
+.equipment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.facility-image,
+.equipment-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.facility-image img,
+.equipment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.facility-image:hover img,
+.equipment-image:hover img {
+    transform: scale(1.05);
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.placeholder-image i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.facility-info h4,
+.equipment-info h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.facility-info p,
+.equipment-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.facility-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.feature-tag {
+    background: #e8f5e8;
+    color: #27ae60;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.equipment-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.spec-item i {
+    color: #f39c12;
+    width: 16px;
+}
+
+/* CTA Section */
+.club-cta {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    color: white;
+    margin-top: 3rem;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: #e74c3c;
+    border-color: white;
+}
+
+.cta-buttons .btn-primary:hover {
+    background: #f8f9fa;
+    color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.cta-buttons .btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: white;
+    color: #e74c3c;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .club-info-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .facility-equipment {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .club-info {
+        padding: 60px 0;
+    }
+    
+    .info-card {
+        padding: 2rem;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .team-detail {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .facility-content,
+    .equipment-content {
+        text-align: center;
+    }
+    
+    .club-cta {
+        padding: 2rem;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .facility-image,
+    .equipment-image {
+        height: 150px;
+    }
+}
