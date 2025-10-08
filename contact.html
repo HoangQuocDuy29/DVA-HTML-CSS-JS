@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DVA Volleyball Club - Contact</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/contact.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="nav-logo">
+                        <i class="fas fa-volleyball-ball"></i>
+                        <span>DVA Club</span>
+                    </a>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranking.html" class="nav-link">Ranking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="players.html" class="nav-link">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="learn.html" class="nav-link">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="contact-hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Get In Touch</h1>
+                        <p>Ready to start your volleyball journey? We're here to
+                            help!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Methods -->
+            <section class="contact-methods">
+                <div class="container">
+                    <div class="methods-grid">
+                        <div class="method-card fade-in">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Call Us</h3>
+                            <div class="method-details">
+                                <p><strong>Main Office:</strong></p>
+                                <a href="tel:+841234567890">+84 123 456 7890</a>
+
+                                <p><strong>Training Inquiries:</strong></p>
+                                <a href="tel:+841234567891">+84 123 456 7891</a>
+                            </div>
+                            <div class="method-hours">
+                                <p><i class="fas fa-clock"></i> Mon-Fri: 6AM -
+                                    10PM</p>
+                                <p><i class="fas fa-clock"></i> Sat-Sun: 8AM -
+                                    8PM</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card fade-in">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email Us</h3>
+                            <div class="method-details">
+                                <p><strong>General Info:</strong></p>
+                                <a
+                                    href="mailto:info@dvavolleyball.com">info@dvavolleyball.com</a>
+
+                                <p><strong>Training Programs:</strong></p>
+                                <a
+                                    href="mailto:training@dvavolleyball.com">training@dvavolleyball.com</a>
+
+                                <p><strong>Team Inquiries:</strong></p>
+                                <a
+                                    href="mailto:teams@dvavolleyball.com">teams@dvavolleyball.com</a>
+                            </div>
+                            <div class="method-response">
+                                <p><i class="fas fa-reply"></i> Response within
+                                    24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card fade-in">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Visit Us</h3>
+                            <div class="method-details">
+                                <p><strong>Main Training Center:</strong></p>
+                                <address>
+                                    123 Sports Complex Drive<br>
+                                    District 1, Ho Chi Minh City<br>
+                                    Vietnam 70000
+                                </address>
+
+                                <p><strong>Secondary Facility:</strong></p>
+                                <address>
+                                    456 Athletic Center Blvd<br>
+                                    District 3, Ho Chi Minh City<br>
+                                    Vietnam 70000
+                                </address>
+                            </div>
+                        </div>
+
+                        <div class="method-card fade-in">
+                            <div class="method-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Live Chat</h3>
+                            <div class="method-details">
+                                <p><strong>Instant Support:</strong></p>
+                                <p>Chat with our team for quick answers to your
+                                    questions</p>
+
+                                <button class="chat-btn"
+                                    onclick="openLiveChat()">
+                                    <i class="fas fa-comment-dots"></i>
+                                    Start Live Chat
+                                </button>
+                            </div>
+                            <div class="method-hours">
+                                <p><i class="fas fa-clock"></i> Available: 9AM -
+                                    9PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Forms Section -->
+            <section class="contact-forms">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Send Us a Message</h2>
+                        <p>Choose the form that best fits your inquiry</p>
+                    </div>
+
+                    <div class="form-tabs">
+                        <button class="form-tab active"
+                            data-form="general">General Inquiry</button>
+                        <button class="form-tab" data-form="training">Training
+                            Programs</button>
+                        <button class="form-tab" data-form="membership">Club
+                            Membership</button>
+                        <button class="form-tab"
+                            data-form="partnership">Partnerships</button>
+                    </div>
+
+                    <div class="form-container">
+                        <!-- General Inquiry Form -->
+                        <form class="contact-form active" id="general-form"
+                            data-form="general">
+                            <div class="form-header">
+                                <h3>General Inquiry</h3>
+                                <p>Have a question? We'd love to hear from
+                                    you!</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="gen-name">Full Name *</label>
+                                    <input type="text" id="gen-name" name="name"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gen-email">Email *</label>
+                                    <input type="email" id="gen-email"
+                                        name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gen-phone">Phone Number</label>
+                                    <input type="tel" id="gen-phone"
+                                        name="phone">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gen-subject">Subject *</label>
+                                    <select id="gen-subject" name="subject"
+                                        required>
+                                        <option value>Select a subject</option>
+                                        <option value="information">General
+                                            Information</option>
+                                        <option value="facility">Facility
+                                            Information</option>
+                                        <option value="events">Events &
+                                            Tournaments</option>
+                                        <option value="media">Media
+                                            Inquiries</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="gen-message">Message *</label>
+                                <textarea id="gen-message" name="message"
+                                    rows="5"
+                                    placeholder="Tell us how we can help you..."
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+
+                        <!-- Training Programs Form -->
+                        <form class="contact-form" id="training-form"
+                            data-form="training">
+                            <div class="form-header">
+                                <h3>Training Program Inquiry</h3>
+                                <p>Interested in our coaching programs? Let us
+                                    know!</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="train-name">Full Name *</label>
+                                    <input type="text" id="train-name"
+                                        name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="train-email">Email *</label>
+                                    <input type="email" id="train-email"
+                                        name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="train-phone">Phone Number
+                                        *</label>
+                                    <input type="tel" id="train-phone"
+                                        name="phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="train-age">Age</label>
+                                    <input type="number" id="train-age"
+                                        name="age" min="8" max="60">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="train-program">Interested
+                                        Program *</label>
+                                    <select id="train-program" name="program"
+                                        required>
+                                        <option value>Select a program</option>
+                                        <option value="foundation">Foundation
+                                            Program</option>
+                                        <option value="skills">Skills
+                                            Development</option>
+                                        <option value="elite">Elite
+                                            Training</option>
+                                        <option value="custom">Custom
+                                            Training</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="train-experience">Volleyball
+                                        Experience *</label>
+                                    <select id="train-experience"
+                                        name="experience" required>
+                                        <option value>Select experience
+                                            level</option>
+                                        <option value="none">Complete
+                                            Beginner</option>
+                                        <option value="basic">Some Basic
+                                            Knowledge</option>
+                                        <option value="intermediate">Played
+                                            Before</option>
+                                        <option value="advanced">Competitive
+                                            Experience</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="train-goals">Training Goals</label>
+                                <textarea id="train-goals" name="goals" rows="4"
+                                    placeholder="What do you hope to achieve? Any specific skills you want to improve?"></textarea>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="train-schedule">Preferred
+                                    Schedule</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="schedule"
+                                            value="weekday-morning">
+                                        <span>Weekday Mornings</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="schedule"
+                                            value="weekday-evening">
+                                        <span>Weekday Evenings</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="schedule"
+                                            value="weekend">
+                                        <span>Weekends</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-dumbbell"></i>
+                                Request Training Info
+                            </button>
+                        </form>
+
+                        <!-- Club Membership Form -->
+                        <form class="contact-form" id="membership-form"
+                            data-form="membership">
+                            <div class="form-header">
+                                <h3>Club Membership Application</h3>
+                                <p>Join our competitive teams and
+                                    tournaments!</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="mem-name">Full Name *</label>
+                                    <input type="text" id="mem-name" name="name"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mem-email">Email *</label>
+                                    <input type="email" id="mem-email"
+                                        name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mem-phone">Phone Number
+                                        *</label>
+                                    <input type="tel" id="mem-phone"
+                                        name="phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mem-age">Age *</label>
+                                    <input type="number" id="mem-age" name="age"
+                                        min="16" max="35" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mem-position">Primary Position
+                                        *</label>
+                                    <select id="mem-position" name="position"
+                                        required>
+                                        <option value>Select position</option>
+                                        <option value="outside-hitter">Outside
+                                            Hitter</option>
+                                        <option value="middle-blocker">Middle
+                                            Blocker</option>
+                                        <option value="setter">Setter</option>
+                                        <option value="libero">Libero</option>
+                                        <option
+                                            value="opposite">Opposite</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mem-height">Height (cm)</label>
+                                    <input type="number" id="mem-height"
+                                        name="height" min="150" max="220">
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="mem-experience">Playing Experience
+                                    *</label>
+                                <textarea id="mem-experience" name="experience"
+                                    rows="4"
+                                    placeholder="Tell us about your volleyball background, teams you've played for, tournaments, achievements..."
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label
+                                    for="mem-availability">Availability</label>
+                                <textarea id="mem-availability"
+                                    name="availability" rows="3"
+                                    placeholder="When are you available for training and matches?"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-users"></i>
+                                Apply for Membership
+                            </button>
+                        </form>
+
+                        <!-- Partnership Form -->
+                        <form class="contact-form" id="partnership-form"
+                            data-form="partnership">
+                            <div class="form-header">
+                                <h3>Partnership Opportunities</h3>
+                                <p>Let's work together to grow volleyball!</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="part-name">Contact Name
+                                        *</label>
+                                    <input type="text" id="part-name"
+                                        name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="part-email">Email *</label>
+                                    <input type="email" id="part-email"
+                                        name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label
+                                        for="part-company">Organization/Company
+                                        *</label>
+                                    <input type="text" id="part-company"
+                                        name="company" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="part-phone">Phone Number
+                                        *</label>
+                                    <input type="tel" id="part-phone"
+                                        name="phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="part-type">Partnership Type
+                                        *</label>
+                                    <select id="part-type" name="type" required>
+                                        <option value>Select partnership
+                                            type</option>
+                                        <option
+                                            value="sponsorship">Sponsorship</option>
+                                        <option value="equipment">Equipment
+                                            Partner</option>
+                                        <option value="venue">Venue
+                                            Partnership</option>
+                                        <option value="tournament">Tournament
+                                            Organization</option>
+                                        <option value="media">Media
+                                            Partnership</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="part-website">Website</label>
+                                    <input type="url" id="part-website"
+                                        name="website"
+                                        placeholder="https://yourcompany.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="part-proposal">Partnership Proposal
+                                    *</label>
+                                <textarea id="part-proposal" name="proposal"
+                                    rows="5"
+                                    placeholder="Describe your partnership idea and how we can work together..."
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-handshake"></i>
+                                Submit Partnership Proposal
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Location & Facilities -->
+            <section class="location-facilities">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Our Facilities</h2>
+                        <p>State-of-the-art training centers designed for
+                            excellence</p>
+                    </div>
+
+                    <div class="facilities-grid">
+                        <div class="facility-card fade-in">
+                            <div class="facility-image">
+                                <i class="fas fa-volleyball-ball"></i>
+                            </div>
+                            <div class="facility-info">
+                                <h3>Main Training Center</h3>
+                                <div class="facility-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    123 Sports Complex Drive, District 1
+                                </div>
+                                <div class="facility-features">
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>4 Professional Courts</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Modern Equipment</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Locker Rooms & Showers</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Parking Available</span>
+                                    </div>
+                                </div>
+                                <div class="facility-hours">
+                                    <h4>Operating Hours:</h4>
+                                    <p><strong>Mon-Fri:</strong> 6:00 AM - 10:00
+                                        PM</p>
+                                    <p><strong>Sat-Sun:</strong> 8:00 AM - 8:00
+                                        PM</p>
+                                </div>
+                                <button class="directions-btn"
+                                    onclick="openDirections('main')">
+                                    <i class="fas fa-directions"></i>
+                                    Get Directions
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="facility-card fade-in">
+                            <div class="facility-image">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="facility-info">
+                                <h3>Secondary Training Center</h3>
+                                <div class="facility-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    456 Athletic Center Blvd, District 3
+                                </div>
+                                <div class="facility-features">
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>2 Training Courts</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Fitness Training Area</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Video Analysis Room</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Refreshment Area</span>
+                                    </div>
+                                </div>
+                                <div class="facility-hours">
+                                    <h4>Operating Hours:</h4>
+                                    <p><strong>Mon-Fri:</strong> 5:00 PM - 10:00
+                                        PM</p>
+                                    <p><strong>Sat-Sun:</strong> 9:00 AM - 6:00
+                                        PM</p>
+                                </div>
+                                <button class="directions-btn"
+                                    onclick="openDirections('secondary')">
+                                    <i class="fas fa-directions"></i>
+                                    Get Directions
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Map Placeholder -->
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h4>Interactive Map</h4>
+                            <p>Find us easily with our interactive location
+                                map</p>
+                            <button class="map-btn" onclick="openMap()">
+                                <i class="fas fa-external-link-alt"></i>
+                                View on Google Maps
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Frequently Asked Questions</h2>
+                        <p>Quick answers to common questions</p>
+                    </div>
+
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What age groups do you accept for
+                                    training?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We welcome players of all ages from 8 to 60+
+                                    years old. Our programs are designed for
+                                    different age groups and skill levels,
+                                    ensuring everyone receives age-appropriate
+                                    training.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Do I need to bring my own
+                                    equipment?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>For training sessions, we provide all
+                                    necessary equipment including volleyballs,
+                                    nets, and training aids. For competitive
+                                    play, we recommend bringing your own knee
+                                    pads and athletic shoes.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What are your payment options?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept cash, bank transfers, credit cards,
+                                    and monthly payment plans. We also offer
+                                    family discounts and early bird pricing for
+                                    seasonal programs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Can I try a class before
+                                    committing?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely! We offer free trial sessions for
+                                    all new students. This allows you to
+                                    experience our training style and meet our
+                                    coaches before making a commitment.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I join a competitive team?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Team selection is based on skill assessment,
+                                    training dedication, and tryout performance.
+                                    We hold tryouts twice a year and also scout
+                                    from our training programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Media & Newsletter -->
+            <section class="social-newsletter">
+                <div class="container">
+                    <div class="social-newsletter-grid">
+                        <div class="social-section fade-in">
+                            <h3>Follow Us</h3>
+                            <p>Stay connected and get the latest updates</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link facebook"
+                                    target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="#" class="social-link instagram"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="#" class="social-link youtube"
+                                    target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                    <span>YouTube</span>
+                                </a>
+                                <a href="#" class="social-link tiktok"
+                                    target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                    <span>TikTok</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="newsletter-section fade-in">
+                            <h3>Newsletter Signup</h3>
+                            <p>Get training tips, event updates, and exclusive
+                                offers</p>
+                            <form class="newsletter-form" id="newsletter-form">
+                                <div class="newsletter-input">
+                                    <input type="email"
+                                        placeholder="Enter your email address"
+                                        required>
+                                    <button type="submit"
+                                        title="Subscribe to Newsletter">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                                <div class="newsletter-consent">
+                                    <label class="consent-checkbox">
+                                        <input type="checkbox" required>
+                                        <span>I agree to receive marketing
+                                            emails and updates</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-volleyball-ball"></i>
+                            <span>DVA Club</span>
+                        </a>
+                        <p>DVA Volleyball Club - Where talents are nurtured and
+                            victories are achieved.</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="ranking.html">Ranking</a></li>
+                            <li><a href="players.html">Players</a></li>
+                            <li><a href="learn.html">Learn</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0768 299 329</li>
+                                </li>
+                            <li><i class="fas fa-envelope"></i>
+                                dvavolleyball@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 155 Trường Chinh - Thanh Xuân - Hà Nội</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 DVA Volleyball Club</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/common.js"></script>
+        <script src="js/contact.js"></script>
+    </body>
+</html>

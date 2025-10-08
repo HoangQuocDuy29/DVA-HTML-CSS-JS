@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DVA Volleyball Club - Learn</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/learn.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="nav-logo">
+                        <i class="fas fa-volleyball-ball"></i>
+                        <span>DVA Club</span>
+                    </a>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranking.html" class="nav-link">Ranking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="players.html" class="nav-link">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="learn.html" class="nav-link">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="learn-hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Learn Volleyball with DVA</h1>
+                        <p>Professional coaching programs designed to elevate
+                            your game</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="number">500+</span>
+                                <span class="label">Students Trained</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">15+</span>
+                                <span class="label">Expert Coaches</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">8</span>
+                                <span class="label">Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Training -->
+            <section class="training-overview">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Why Choose DVA Training?</h2>
+                        <p>Our comprehensive volleyball training programs cater
+                            to all skill levels</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Professional Coaching</h3>
+                            <p>Learn from experienced coaches who have competed
+                                at national and international levels</p>
+                        </div>
+
+                        <div class="feature-card fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Small Group Classes</h3>
+                            <p>Personalized attention with maximum 8 students
+                                per class for optimal learning</p>
+                        </div>
+
+                        <div class="feature-card fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3>Modern Equipment</h3>
+                            <p>State-of-the-art training facilities with
+                                professional-grade equipment</p>
+                        </div>
+
+                        <div class="feature-card fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Progress Tracking</h3>
+                            <p>Regular assessments and performance monitoring to
+                                track your improvement</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Training Programs -->
+            <section class="training-programs">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Training Programs</h2>
+                        <p>Choose the program that fits your skill level and
+                            goals</p>
+                    </div>
+
+                    <div class="programs-grid">
+                        <div class="program-card fade-in">
+                            <div class="program-header">
+                                <div class="program-level">Beginner</div>
+                                <h3>Foundation Program</h3>
+                            </div>
+                            <div class="program-price">
+                                <span class="currency">$</span>
+                                <span class="amount">80</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="program-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Basic techniques and rules</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Serving and receiving
+                                        fundamentals</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>2 sessions per week</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Equipment provided</span>
+                                </div>
+                            </div>
+                            <button class="program-btn"
+                                onclick="openEnrollmentModal('foundation')">Enroll
+                                Now</button>
+                        </div>
+
+                        <div class="program-card popular fade-in">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="program-header">
+                                <div class="program-level">Intermediate</div>
+                                <h3>Skills Development</h3>
+                            </div>
+                            <div class="program-price">
+                                <span class="currency">$</span>
+                                <span class="amount">120</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="program-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Advanced techniques training</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Strategic gameplay</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>3 sessions per week</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Performance analysis</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Competitive opportunities</span>
+                                </div>
+                            </div>
+                            <button class="program-btn"
+                                onclick="openEnrollmentModal('intermediate')">Enroll
+                                Now</button>
+                        </div>
+
+                        <div class="program-card fade-in">
+                            <div class="program-header">
+                                <div class="program-level">Advanced</div>
+                                <h3>Elite Training</h3>
+                            </div>
+                            <div class="program-price">
+                                <span class="currency">$</span>
+                                <span class="amount">180</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <div class="program-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Professional-level coaching</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Tournament preparation</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>5 sessions per week</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Individual training sessions</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Scholarship opportunities</span>
+                                </div>
+                            </div>
+                            <button class="program-btn"
+                                onclick="openEnrollmentModal('advanced')">Enroll
+                                Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Meet Our Coaches -->
+            <section class="coaches-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Meet Our Expert Coaches</h2>
+                        <p>Learn from the best in the business</p>
+                    </div>
+
+                    <div class="coaches-grid" id="coaches-container">
+                        <!-- Coaches will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>What Our Students Say</h2>
+                        <p>Success stories from our training programs</p>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>"DVA's training program transformed my game completely. The coaches are incredibly knowledgeable and supportive. I went from a complete beginner to making my school team in just 6 months!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <span>SJ</span>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Foundation Program Graduate</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>"The Skills Development program is amazing. Coach Maria's attention to detail and personalized feedback helped me improve my attack technique significantly. Highly recommended!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <span>ML</span>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Mike Liu</h4>
+                                    <span>Skills Development Student</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>"Elite Training at DVA prepared me for college volleyball. The intensity and professionalism of the program is unmatched. I received a scholarship offer thanks to their training!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <span>AR</span>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Alex Rodriguez</h4>
+                                    <span>Elite Training Graduate</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule & Pricing -->
+            <section class="schedule-pricing">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Class Schedule</h2>
+                        <p>Find the perfect time slot for your training</p>
+                    </div>
+
+                    <div class="schedule-container">
+                        <div class="schedule-tabs">
+                            <button class="schedule-tab active"
+                                data-day="weekdays">Weekdays</button>
+                            <button class="schedule-tab"
+                                data-day="weekends">Weekends</button>
+                        </div>
+
+                        <div class="schedule-content">
+                            <div class="schedule-grid active"
+                                id="weekdays-schedule">
+                                <div class="time-slot">
+                                    <div class="time">6:00 AM - 7:30 AM</div>
+                                    <div class="program">Foundation
+                                        Program</div>
+                                    <div class="availability">
+                                        <span class="spots">3 spots left</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">7:45 AM - 9:15 AM</div>
+                                    <div class="program">Skills
+                                        Development</div>
+                                    <div class="availability">
+                                        <span class="spots">2 spots left</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">4:00 PM - 5:30 PM</div>
+                                    <div class="program">Foundation
+                                        Program</div>
+                                    <div class="availability">
+                                        <span class="spots">5 spots left</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">6:00 PM - 7:30 PM</div>
+                                    <div class="program">Skills
+                                        Development</div>
+                                    <div class="availability">
+                                        <span class="spots full">Full</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">7:45 PM - 9:15 PM</div>
+                                    <div class="program">Elite Training</div>
+                                    <div class="availability">
+                                        <span class="spots">1 spot left</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="schedule-grid" id="weekends-schedule">
+                                <div class="time-slot">
+                                    <div class="time">8:00 AM - 10:00 AM</div>
+                                    <div class="program">Foundation
+                                        Program</div>
+                                    <div class="availability">
+                                        <span class="spots">4 spots left</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">10:30 AM - 12:30 PM</div>
+                                    <div class="program">Skills
+                                        Development</div>
+                                    <div class="availability">
+                                        <span class="spots">2 spots left</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">1:00 PM - 3:00 PM</div>
+                                    <div class="program">Elite Training</div>
+                                    <div class="availability">
+                                        <span class="spots">3 spots left</span>
+                                    </div>
+                                </div>
+
+                                <div class="time-slot">
+                                    <div class="time">3:30 PM - 5:30 PM</div>
+                                    <div class="program">Special Workshops</div>
+                                    <div class="availability">
+                                        <span class="spots">6 spots left</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Coach Detail Modal -->
+        <div id="coachModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body" id="coachModalBody">
+                    <!-- Coach details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Enrollment Modal -->
+        <div id="enrollmentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <h3>Enroll in Training Program</h3>
+                    <form id="enrollmentForm" class="enrollment-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" min="8"
+                                max="60" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Volleyball
+                                Experience</label>
+                            <select id="experience" name="experience" required>
+                                <option value>Select Experience Level</option>
+                                <option value="none">Complete Beginner</option>
+                                <option value="basic">Some Basic
+                                    Knowledge</option>
+                                <option value="intermediate">Played
+                                    Before</option>
+                                <option value="advanced">Competitive
+                                    Experience</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program">Selected Program</label>
+                            <input type="text" id="program" name="program"
+                                readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="goals">Training Goals</label>
+                            <textarea id="goals" name="goals" rows="3"
+                                placeholder="What do you hope to achieve from this program?"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit
+                            Enrollment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-volleyball-ball"></i>
+                            <span>DVA Club</span>
+                        </a>
+                        <p>DVA Volleyball Club - Where talents are nurtured and
+                            victories are achieved.</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="ranking.html">Ranking</a></li>
+                            <li><a href="players.html">Players</a></li>
+                            <li><a href="learn.html">Learn</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0768 299 329</li>
+                            <li><i class="fas fa-envelope"></i>
+                                dvavolleyball@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 155 Trường
+                                Chinh - Thanh Xuân - Hà Nội</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 DVA Volleyball Club</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/common.js"></script>
+        <script src="js/learn.js"></script>
+    </body>
+</html>
+/* Learn Page Styles */

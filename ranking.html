@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DVA Volleyball Club - Rankings</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/ranking.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="nav-logo">
+                        <i class="fas fa-volleyball-ball"></i>
+                        <span>DVA Club</span>
+                    </a>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranking.html" class="nav-link">Ranking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="players.html" class="nav-link">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="learn.html" class="nav-link">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Page Header -->
+            <section class="ranking-header">
+                <div class="container">
+                    <h1>Rankings & Standings</h1>
+                    <p>Track team performance and tournament standings</p>
+                </div>
+            </section>
+
+            <!-- Ranking Categories -->
+            <section class="ranking-categories">
+                <div class="container">
+                    <div class="category-tabs">
+                        <button class="category-btn active"
+                            data-category="league">League Standings</button>
+                        <button class="category-btn"
+                            data-category="tournament">Tournament
+                            Brackets</button>
+                        <button class="category-btn"
+                            data-category="player">Player Stats</button>
+                        <button class="category-btn"
+                            data-category="season">Season Records</button>
+                    </div>
+
+                    <!-- League Standings -->
+                    <div class="ranking-content active" id="league-content">
+                        <div class="season-selector">
+                            <h3>Current Season - 2025</h3>
+                            <select id="season-select" class="season-dropdown"
+                                title="Select Season">
+                                <option value="2025">2025 Season</option>
+                                <option value="2024">2024 Season</option>
+                                <option value="2023">2023 Season</option>
+                            </select>
+                        </div>
+
+                        <!-- DVA Teams Performance -->
+                        <div class="dva-teams-section">
+                            <h3>DVA Teams Performance</h3>
+                            <div class="dva-teams-grid">
+                                <div class="team-performance-card fade-in">
+                                    <div class="team-header">
+                                        <h4>DVA Middle</h4>
+                                        <div class="rank-badge rank-2">2nd</div>
+                                    </div>
+                                    <div class="performance-stats">
+                                        <div class="stat">
+                                            <span class="label">Matches</span>
+                                            <span class="value">18</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Wins</span>
+                                            <span class="value">14</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Win Rate</span>
+                                            <span class="value">77.8%</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Points</span>
+                                            <span class="value">42</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-form">
+                                        <span class="form-label">Recent:</span>
+                                        <div class="form-indicators">
+                                            <span
+                                                class="form-result win">W</span>
+                                            <span
+                                                class="form-result win">W</span>
+                                            <span
+                                                class="form-result loss">L</span>
+                                            <span
+                                                class="form-result win">W</span>
+                                            <span
+                                                class="form-result win">W</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="team-performance-card fade-in">
+                                    <div class="team-header">
+                                        <h4>DVA Junior</h4>
+                                        <div class="rank-badge rank-5">5th</div>
+                                    </div>
+                                    <div class="performance-stats">
+                                        <div class="stat">
+                                            <span class="label">Matches</span>
+                                            <span class="value">16</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Wins</span>
+                                            <span class="value">9</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Win Rate</span>
+                                            <span class="value">56.3%</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Points</span>
+                                            <span class="value">27</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-form">
+                                        <span class="form-label">Recent:</span>
+                                        <div class="form-indicators">
+                                            <span
+                                                class="form-result win">W</span>
+                                            <span
+                                                class="form-result loss">L</span>
+                                            <span
+                                                class="form-result win">W</span>
+                                            <span
+                                                class="form-result loss">L</span>
+                                            <span
+                                                class="form-result win">W</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Full League Table -->
+                        <div class="league-table-section">
+                            <h3>Premier Division Standings</h3>
+                            <div class="table-controls">
+                                <div class="table-filters">
+                                    <button class="filter-btn active"
+                                        data-filter="all">All Teams</button>
+                                    <button class="filter-btn"
+                                        data-filter="top6">Top 6</button>
+                                    <button class="filter-btn"
+                                        data-filter="bottom6">Bottom 6</button>
+                                </div>
+                                <div class="table-view-toggle">
+                                    <button class="view-btn active"
+                                        data-view="detailed">Detailed</button>
+                                    <button class="view-btn"
+                                        data-view="compact">Compact</button>
+                                </div>
+                            </div>
+
+                            <div class="table-wrapper">
+                                <table class="league-table" id="league-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="sortable"
+                                                data-sort="position">#</th>
+                                            <th class="sortable"
+                                                data-sort="team">Team</th>
+                                            <th class="sortable"
+                                                data-sort="played">MP</th>
+                                            <th class="sortable"
+                                                data-sort="wins">W</th>
+                                            <th class="sortable"
+                                                data-sort="losses">L</th>
+                                            <th class="sortable"
+                                                data-sort="sets-for">SF</th>
+                                            <th class="sortable"
+                                                data-sort="sets-against">SA</th>
+                                            <th class="sortable"
+                                                data-sort="set-diff">SD</th>
+                                            <th class="sortable"
+                                                data-sort="points">Pts</th>
+                                            <th>Form</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="league-table-body">
+                                        <!-- Table rows will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color champions"></span>
+                                    <span>Champions League</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color playoffs"></span>
+                                    <span>Playoffs</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span
+                                        class="legend-color relegation"></span>
+                                    <span>Relegation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tournament Brackets -->
+                    <div class="ranking-content" id="tournament-content">
+                        <div class="tournament-selector">
+                            <h3>Current Tournaments</h3>
+                            <div class="tournament-tabs">
+                                <button class="tournament-btn active"
+                                    data-tournament="championship">Championship
+                                    Cup</button>
+                                <button class="tournament-btn"
+                                    data-tournament="regional">Regional
+                                    League</button>
+                                <button class="tournament-btn"
+                                    data-tournament="youth">Youth
+                                    Tournament</button>
+                            </div>
+                        </div>
+
+                        <div class="bracket-container"
+                            id="championship-bracket">
+                            <div class="bracket-header">
+                                <h4>Championship Cup - Quarterfinals</h4>
+                                <p>Single elimination format</p>
+                            </div>
+
+                            <div class="bracket-rounds">
+                                <!-- Quarterfinals -->
+                                <div class="bracket-round">
+                                    <h5>Quarterfinals</h5>
+                                    <div class="matches">
+                                        <div class="match-card">
+                                            <div class="match-teams">
+                                                <div class="team home winner">
+                                                    <span
+                                                        class="team-name">Thunder
+                                                        Bolts</span>
+                                                    <span class="score">3</span>
+                                                </div>
+                                                <div class="team away">
+                                                    <span
+                                                        class="team-name">Lightning
+                                                        Strikes</span>
+                                                    <span class="score">1</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 12,
+                                                    2025</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-card">
+                                            <div class="match-teams">
+                                                <div
+                                                    class="team home winner dva-team">
+                                                    <span class="team-name">DVA
+                                                        Middle</span>
+                                                    <span class="score">3</span>
+                                                </div>
+                                                <div class="team away">
+                                                    <span
+                                                        class="team-name">Phoenix
+                                                        Fire</span>
+                                                    <span class="score">2</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 12,
+                                                    2025</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-card">
+                                            <div class="match-teams">
+                                                <div class="team home">
+                                                    <span
+                                                        class="team-name">Storm
+                                                        Eagles</span>
+                                                    <span class="score">2</span>
+                                                </div>
+                                                <div class="team away winner">
+                                                    <span class="team-name">Wave
+                                                        Riders</span>
+                                                    <span class="score">3</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 13,
+                                                    2025</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-card">
+                                            <div class="match-teams">
+                                                <div class="team home winner">
+                                                    <span
+                                                        class="team-name">Cyber
+                                                        Wolves</span>
+                                                    <span class="score">3</span>
+                                                </div>
+                                                <div class="team away">
+                                                    <span class="team-name">Ice
+                                                        Bears</span>
+                                                    <span class="score">0</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 13,
+                                                    2025</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Semifinals -->
+                                <div class="bracket-round">
+                                    <h5>Semifinals</h5>
+                                    <div class="matches">
+                                        <div class="match-card upcoming">
+                                            <div class="match-teams">
+                                                <div class="team home">
+                                                    <span
+                                                        class="team-name">Thunder
+                                                        Bolts</span>
+                                                    <span class="score">-</span>
+                                                </div>
+                                                <div class="team away dva-team">
+                                                    <span class="team-name">DVA
+                                                        Middle</span>
+                                                    <span class="score">-</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 19,
+                                                    2025</span>
+                                                <span
+                                                    class="match-time">19:00</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="match-card upcoming">
+                                            <div class="match-teams">
+                                                <div class="team home">
+                                                    <span class="team-name">Wave
+                                                        Riders</span>
+                                                    <span class="score">-</span>
+                                                </div>
+                                                <div class="team away">
+                                                    <span
+                                                        class="team-name">Cyber
+                                                        Wolves</span>
+                                                    <span class="score">-</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 19,
+                                                    2025</span>
+                                                <span
+                                                    class="match-time">21:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Final -->
+                                <div class="bracket-round">
+                                    <h5>Final</h5>
+                                    <div class="matches">
+                                        <div class="match-card final upcoming">
+                                            <div class="match-teams">
+                                                <div class="team home">
+                                                    <span
+                                                        class="team-name">TBD</span>
+                                                    <span class="score">-</span>
+                                                </div>
+                                                <div class="team away">
+                                                    <span
+                                                        class="team-name">TBD</span>
+                                                    <span class="score">-</span>
+                                                </div>
+                                            </div>
+                                            <div class="match-info">
+                                                <span class="match-date">Oct 26,
+                                                    2025</span>
+                                                <span
+                                                    class="match-time">20:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Player Stats -->
+                    <div class="ranking-content" id="player-content">
+                        <div class="stats-categories">
+                            <button class="stats-btn active"
+                                data-stats="top-scorers">Top Scorers</button>
+                            <button class="stats-btn"
+                                data-stats="best-attackers">Best
+                                Attackers</button>
+                            <button class="stats-btn"
+                                data-stats="best-blockers">Best
+                                Blockers</button>
+                            <button class="stats-btn"
+                                data-stats="best-setters">Best Setters</button>
+                        </div>
+
+                        <div class="player-stats-grid"
+                            id="player-stats-container">
+                            <!-- Player stats will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Season Records -->
+                    <div class="ranking-content" id="season-content">
+                        <div class="records-section">
+                            <h3>Season Achievements</h3>
+
+                            <div class="achievements-grid">
+                                <div class="achievement-card fade-in">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <h4>Best Win Streak</h4>
+                                    <div class="achievement-value">8 games</div>
+                                    <div class="achievement-holder">DVA Middle
+                                        Team</div>
+                                    <div class="achievement-date">Sept 15 - Oct
+                                        5, 2025</div>
+                                </div>
+
+                                <div class="achievement-card fade-in">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <h4>Most Points in Match</h4>
+                                    <div class="achievement-value">28
+                                        points</div>
+                                    <div class="achievement-holder">Michael
+                                        Johnson</div>
+                                    <div class="achievement-date">vs Phoenix
+                                        Fire</div>
+                                </div>
+
+                                <div class="achievement-card fade-in">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h4>Best Block Performance</h4>
+                                    <div class="achievement-value">12
+                                        blocks</div>
+                                    <div class="achievement-holder">Alex
+                                        Rodriguez</div>
+                                    <div class="achievement-date">vs Thunder
+                                        Bolts</div>
+                                </div>
+
+                                <div class="achievement-card fade-in">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <h4>Best Attack Success</h4>
+                                    <div class="achievement-value">89.5%</div>
+                                    <div class="achievement-holder">James
+                                        Wilson</div>
+                                    <div class="achievement-date">Season
+                                        Average</div>
+                                </div>
+                            </div>
+
+                            <div class="season-milestones">
+                                <h4>Season Milestones</h4>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">March
+                                            2025</div>
+                                        <div class="timeline-content">
+                                            <h5>Season Start</h5>
+                                            <p>DVA teams begin 2025 championship
+                                                campaign</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">June
+                                            2025</div>
+                                        <div class="timeline-content">
+                                            <h5>Mid-Season Break</h5>
+                                            <p>DVA Middle sits 2nd in league
+                                                standings</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">October
+                                            2025</div>
+                                        <div class="timeline-content">
+                                            <h5>Playoff Qualification</h5>
+                                            <p>Both DVA teams qualify for
+                                                championship playoffs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-volleyball-ball"></i>
+                            <span>DVA Club</span>
+                        </a>
+                        <p>DVA Volleyball Club - Where talents are nurtured and
+                            victories are achieved.</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="ranking.html">Ranking</a></li>
+                            <li><a href="players.html">Players</a></li>
+                            <li><a href="learn.html">Learn</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0768 299 329
+                            </li>
+                            <li><i class="fas fa-envelope"></i>
+                                dvavolleyball@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 155 T155
+                                Trường Chinh - Thanh Xuân - Hà Nội
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 DVA Volleyball Club</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/common.js"></script>
+        <script src="js/ranking.js"></script>
+    </body>
+</html>

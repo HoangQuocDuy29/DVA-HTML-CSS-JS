@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DVA Volleyball Club - Players</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/players.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="nav-logo">
+                        <i class="fas fa-volleyball-ball"></i>
+                        <span>DVA Club</span>
+                    </a>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranking.html" class="nav-link">Ranking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="players.html" class="nav-link">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="learn.html" class="nav-link">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="players-header">
+                <div class="container">
+                    <h1>Our Players</h1>
+                    <p>Meet the talented athletes of DVA Volleyball Club</p>
+                </div>
+            </div>
+
+            <section class="players-section">
+                <div class="container">
+                    <!-- Filters and Search -->
+                    <div class="filters-container">
+                        <div class="search-bar">
+                            <input type="text" id="search-input"
+                                placeholder="Search players..."
+                                class="search-input">
+                            <i class="fas fa-search"></i>
+                        </div>
+
+                        <div class="filters">
+                            <select id="position-filter" class="filter-select"
+                                title="Filter by position">
+                                <option value>All Positions</option>
+                                <option value="Outside Hitter">Outside
+                                    Hitter</option>
+                                <option value="Middle Blocker">Middle
+                                    Blocker</option>
+                                <option value="Setter">Setter</option>
+                                <option value="Libero">Libero</option>
+                                <option value="Opposite">Opposite</option>
+                            </select>
+
+                            <select id="height-filter" class="filter-select"
+                                title="Filter by height">
+                                <option value>All Heights</option>
+                                <option value="under-180">Under 180cm</option>
+                                <option value="180-190">180-190cm</option>
+                                <option value="over-190">Over 190cm</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Team Tabs -->
+                    <div class="team-tabs">
+                        <button class="tab-button active" data-team="middle">DVA
+                            Middle</button>
+                        <button class="tab-button" data-team="junior">DVA
+                            Junior</button>
+                    </div>
+
+                    <!-- DVA Middle Team -->
+                    <div class="team-content active" id="middle-team">
+                        <div class="section-header">
+                            <h2>DVA Middle Team</h2>
+                            <p>Our experienced players competing at the highest
+                                level</p>
+                        </div>
+
+                        <div class="players-grid" id="middle-players">
+                            <!-- Players will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- DVA Junior Team -->
+                    <div class="team-content" id="junior-team">
+                        <div class="section-header">
+                            <h2>DVA Junior Team</h2>
+                            <p>Rising stars and future champions</p>
+                        </div>
+
+                        <div class="players-grid" id="junior-players">
+                            <!-- Players will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-volleyball-ball"></i>
+                            <span>DVA Club</span>
+                        </a>
+                        <p>DVA Volleyball Club - Where talents are nurtured and
+                            victories are achieved.</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="ranking.html">Ranking</a></li>
+                            <li><a href="players.html">Players</a></li>
+                            <li><a href="learn.html">Learn</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0768 299 329</li>
+                            <li><i class="fas fa-envelope"></i>
+                                dvavolleyball@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 155 Trường
+                                Chinh - Thanh Xuân - Hà Nội</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 DVA Volleyball Club</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/common.js"></script>
+        <script src="js/players.js"></script>
+    </body>
+</html>
