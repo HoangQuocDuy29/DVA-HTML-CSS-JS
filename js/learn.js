@@ -492,3 +492,387 @@ if (typeof module !== 'undefined' && module.exports) {
         coachesData
     };
 }
+// Position data for learning
+const learnPositionData = {
+    1: {
+        name: "Position 1 - Right Back",
+        role: "Server/Right Back Defender", 
+        description: "The primary server position. Must have consistent serving technique and strong back-row defense skills.",
+        responsibilities: [
+            "Serve to start each rally",
+            "Right-side back row defense", 
+            "Cover right corner attacks",
+            "Communicate with teammates"
+        ],
+        skills: ["Serving accuracy", "Defensive positioning", "Court awareness", "Communication"]
+    },
+    2: {
+        name: "Position 2 - Right Side Hitter",
+        role: "Right Side Attacker/Blocker",
+        description: "Versatile position requiring both offensive and defensive skills. Often the secondary attacker.",
+        responsibilities: [
+            "Right-side attacking",
+            "Blocking opposing outside hitters",
+            "Setting when setter is in back row",
+            "Serve receive coverage"
+        ],
+        skills: ["Attacking technique", "Blocking timing", "Setting ability", "Court vision"]
+    },
+    3: {
+        name: "Position 3 - Middle Blocker", 
+        role: "Middle Attacker/Primary Blocker",
+        description: "The defensive anchor and quick attack specialist. Usually the tallest player.",
+        responsibilities: [
+            "Quick attacks in the middle",
+            "Primary blocking responsibility",
+            "Reading opponent's offense",
+            "Transition blocking"
+        ],
+        skills: ["Quick attack timing", "Blocking technique", "Reading skills", "Footwork"]
+    },
+    4: {
+        name: "Position 4 - Outside Hitter",
+        role: "Primary Attacker/Passer",
+        description: "The go-to attacker and primary ball handler. Most versatile position on court.",
+        responsibilities: [
+            "Primary attacking option",
+            "Serve receive passing",
+            "Left-side blocking", 
+            "Back-row attacking when rotated"
+        ],
+        skills: ["Attacking power", "Passing accuracy", "Ball control", "Leadership"]
+    },
+    5: {
+        name: "Position 5 - Left Back",
+        role: "Left Back Defender",
+        description: "Defensive specialist covering the left side of the court and supporting serve receive.",
+        responsibilities: [
+            "Left-side back row defense",
+            "Serve receive support",
+            "Covering deep court areas",
+            "Transition defense"
+        ],
+        skills: ["Defensive positioning", "Digging technique", "Court coverage", "Anticipation"]
+    },
+    6: {
+        name: "Position 6 - Middle Back/Libero",
+        role: "Defensive Specialist/Libero", 
+        description: "The defensive anchor, often played by the libero. Controls the back court defense.",
+        responsibilities: [
+            "Middle back defense coordination",
+            "Serve receive leadership", 
+            "Covering tips and roll shots",
+            "Defensive communication"
+        ],
+        skills: ["Digging expertise", "Passing consistency", "Court leadership", "Reading opponent"]
+    }
+};
+
+// Quiz questions for learning
+const learningQuizData = [
+    {
+        question: "How many players are on the court for each team during play?",
+        options: ["5 players", "6 players", "7 players", "8 players"],
+        correct: 1,
+        explanation: "Each volleyball team has exactly 6 players on the court at any time - 3 in the front row and 3 in the back row."
+    },
+    {
+        question: "What is the standard height of the net for men's volleyball?",
+        options: ["2.24 meters", "2.43 meters", "2.50 meters", "2.35 meters"],
+        correct: 1,
+        explanation: "The standard net height for men's volleyball is 2.43 meters (7 feet 11⅝ inches)."
+    },
+    {
+        question: "What does a '5-1' rotation system mean?",
+        options: ["5 attackers and 1 setter", "5 sets and 1 match", "5 substitutions allowed", "5 timeouts per set"],
+        correct: 0,
+        explanation: "A 5-1 rotation means there are 5 attackers and 1 setter who sets from all positions as they rotate."
+    },
+    {
+        question: "Which position is NOT allowed to attack above the net height from the back row?",
+        options: ["Outside Hitter", "Setter", "Libero", "Middle Blocker"],
+        correct: 2,
+        explanation: "The Libero is a defensive specialist who cannot attack the ball above net height from anywhere on court."
+    },
+    {
+        question: "How many times can a team touch the ball before sending it over the net?",
+        options: ["2 touches maximum", "3 touches maximum", "4 touches maximum", "Unlimited touches"],
+        correct: 1,
+        explanation: "A team can touch the ball a maximum of 3 times before sending it over the net (not counting blocks)."
+    }
+];
+
+// Initialize learning interactive tools
+function initLearningTools() {
+    // Set up position guide interactions
+    setupPositionGuide();
+    
+    // Initialize quiz system
+    initLearningQuiz();
+    
+    console.log('🎓 Learning tools initialized');
+}
+
+// Setup position guide interactions
+function setupPositionGuide() {
+    const positions = document.querySelectorAll('.court-position');
+    positions.forEach(position => {
+        position.addEventListener('click', showLearnPositionInfo);
+        position.addEventListener('mouseenter', highlightPosition);
+        position.addEventListener('mouseleave', removeHighlight);
+    });
+}
+
+// Show position information in learning context
+function showLearnPositionInfo(e) {
+    const position = e.currentTarget.dataset.position;
+    const info = learnPositionData[position];
+    
+    if (!info) return;
+    
+    // Remove active class from all positions
+    document.querySelectorAll('.court-position').forEach(pos => {
+        pos.classList.remove('active');
+    });
+    
+    // Add active class to clicked position
+    e.currentTarget.classList.add('active');
+    
+    const infoPanel = document.getElementById('learn-position-content');
+    
+    infoPanel.innerHTML = `
+        <div class="position-details">
+            <h5 class="position-title">${info.name}</h5>
+            <div class="position-role-badge">${info.role}</div>
+            
+            <p class="position-description">${info.description}</p>
+            
+            <div class="responsibilities-section">
+                <h6><i class="fas fa-tasks"></i> Key Responsibilities:</h6>
+                <ul class="responsibilities-list">
+                    ${info.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="skills-section">
+                <h6><i class="fas fa-star"></i> Required Skills:</h6>
+                <div class="skills-tags">
+                    ${info.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                </div>
+            </div>
+            
+            <div class="position-tip">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Learning Tip:</strong> Practice the specific skills for this position during training sessions.
+            </div>
+        </div>
+    `;
+}
+
+// Highlight position on hover
+function highlightPosition(e) {
+    if (!e.currentTarget.classList.contains('active')) {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 5px 15px rgba(231, 76, 60, 0.3)';
+    }
+}
+
+// Remove highlight on mouse leave
+function removeHighlight(e) {
+    if (!e.currentTarget.classList.contains('active')) {
+        e.currentTarget.style.transform = '';
+        e.currentTarget.style.boxShadow = '';
+    }
+}
+
+// Initialize learning quiz
+function initLearningQuiz() {
+    // Quiz will be initialized when startLearningQuiz is called
+    console.log('📝 Learning quiz system ready');
+}
+
+// Start learning quiz
+function startLearningQuiz() {
+    const modal = document.getElementById('learning-quiz-modal');
+    const container = document.getElementById('learning-quiz-container');
+    
+    if (!modal || !container) {
+        console.error('Quiz modal elements not found');
+        return;
+    }
+    
+    // Reset quiz state
+    window.currentQuizQuestion = 0;
+    window.quizScore = 0;
+    window.quizAnswers = [];
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Start first question
+    renderLearningQuiz();
+    
+    console.log('🎯 Learning quiz started');
+}
+
+// Render learning quiz question
+function renderLearningQuiz() {
+    const container = document.getElementById('learning-quiz-container');
+    
+    if (window.currentQuizQuestion >= learningQuizData.length) {
+        showLearningQuizResults();
+        return;
+    }
+    
+    const question = learningQuizData[window.currentQuizQuestion];
+    const progress = ((window.currentQuizQuestion + 1) / learningQuizData.length) * 100;
+    
+    container.innerHTML = `
+        <div class="quiz-progress">
+            <div class="progress-bar">
+                <div class="progress" style="width: ${progress}%"></div>
+            </div>
+            <span class="progress-text">Question ${window.currentQuizQuestion + 1} of ${learningQuizData.length}</span>
+        </div>
+        
+        <div class="quiz-question">
+            <h4>${question.question}</h4>
+            <div class="quiz-options">
+                ${question.options.map((option, index) => `
+                    <button class="quiz-option" onclick="selectLearningAnswer(${index})">
+                        <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                        <span class="option-text">${option}</span>
+                    </button>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// Handle learning quiz answer selection
+function selectLearningAnswer(selectedIndex) {
+    const question = learningQuizData[window.currentQuizQuestion];
+    const isCorrect = selectedIndex === question.correct;
+    
+    if (isCorrect) {
+        window.quizScore++;
+    }
+    
+    window.quizAnswers.push({
+        question: window.currentQuizQuestion,
+        selected: selectedIndex,
+        correct: isCorrect
+    });
+    
+    // Show feedback
+    const options = document.querySelectorAll('.quiz-option');
+    options.forEach((option, index) => {
+        option.disabled = true;
+        if (index === question.correct) {
+            option.classList.add('correct');
+        } else if (index === selectedIndex && !isCorrect) {
+            option.classList.add('incorrect');
+        }
+    });
+    
+    // Show explanation and next button
+    const container = document.getElementById('learning-quiz-container');
+    container.innerHTML += `
+        <div class="quiz-feedback">
+            <div class="feedback-result ${isCorrect ? 'correct' : 'incorrect'}">
+                <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                <span>${isCorrect ? 'Correct!' : 'Incorrect'}</span>
+            </div>
+            <div class="explanation">
+                <h5>Explanation:</h5>
+                <p>${question.explanation}</p>
+            </div>
+            <button class="next-question-btn" onclick="nextLearningQuestion()">
+                ${window.currentQuizQuestion + 1 >= learningQuizData.length ? 'See Results' : 'Next Question'}
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    `;
+}
+
+// Go to next learning quiz question
+function nextLearningQuestion() {
+    window.currentQuizQuestion++;
+    renderLearningQuiz();
+}
+
+// Show learning quiz results
+function showLearningQuizResults() {
+    const container = document.getElementById('learning-quiz-container');
+    const percentage = Math.round((window.quizScore / learningQuizData.length) * 100);
+    
+    let resultMessage = '';
+    let resultClass = '';
+    
+    if (percentage >= 80) {
+        resultMessage = 'Excellent! You have a strong understanding of volleyball fundamentals.';
+        resultClass = 'excellent';
+    } else if (percentage >= 60) {
+        resultMessage = 'Good job! You have a solid foundation in volleyball knowledge.';
+        resultClass = 'good';
+    } else {
+        resultMessage = 'Keep studying! Review the learning materials to improve your understanding.';
+        resultClass = 'needs-work';
+    }
+    
+    container.innerHTML = `
+        <div class="quiz-results ${resultClass}">
+            <div class="result-icon">
+                <i class="fas ${percentage >= 60 ? 'fa-trophy' : 'fa-book'}"></i>
+            </div>
+            <h3>Quiz Complete!</h3>
+            <div class="score-display">
+                <div class="score-circle">
+                    <span class="score-number">${percentage}%</span>
+                    <span class="score-text">${window.quizScore}/${learningQuizData.length}</span>
+                </div>
+            </div>
+            <p class="result-message">${resultMessage}</p>
+            
+            <div class="quiz-actions">
+                <button class="quiz-action-btn primary" onclick="startLearningQuiz()">
+                    <i class="fas fa-redo"></i>
+                    Try Again
+                </button>
+                <button class="quiz-action-btn secondary" onclick="closeLearningQuiz()">
+                    <i class="fas fa-times"></i>
+                    Close
+                </button>
+            </div>
+            
+            <div class="learning-suggestions">
+                <h5>📚 Continue Learning:</h5>
+                <ul>
+                    <li>Practice with the Position Guide above</li>
+                    <li>Review volleyball rules and techniques</li>
+                    <li>Watch instructional videos</li>
+                    <li>Join training sessions at DVA Club</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+// Close learning quiz
+function closeLearningQuiz() {
+    const modal = document.getElementById('learning-quiz-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Make functions globally available
+window.startLearningQuiz = startLearningQuiz;
+window.selectLearningAnswer = selectLearningAnswer;
+window.nextLearningQuestion = nextLearningQuestion;
+window.closeLearningQuiz = closeLearningQuiz;
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initLearningTools();
+});

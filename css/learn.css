@@ -791,3 +791,483 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+/* Interactive Learning Tools */
+.interactive-tools {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.learning-card {
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 2;
+}
+
+.card-content {
+    padding: 40px;
+    position: relative;
+}
+
+.card-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    padding-right: 80px;
+}
+
+.card-content p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Quiz Stats */
+.quiz-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.quiz-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.quiz-stats .stat i {
+    color: #e74c3c;
+    font-size: 1rem;
+}
+
+.quiz-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.quiz-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+}
+
+.quiz-preview {
+    background: #f8f9fa;
+    padding: 25px;
+    border-top: 1px solid #eee;
+}
+
+.quiz-preview h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.quiz-preview ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz-preview li {
+    padding: 8px 0;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+}
+
+.quiz-preview li::before {
+    content: '❓';
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+/* Position Features */
+.position-features {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.position-features .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.position-features .feature i {
+    color: #e74c3c;
+    font-size: 1rem;
+}
+
+/* Interactive Court */
+.interactive-court {
+    padding: 40px;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.court-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: start;
+}
+
+.volleyball-court {
+    width: 400px;
+    height: 280px;
+    background: #2c5aa0;
+    border-radius: 15px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(44, 90, 160, 0.3);
+}
+
+.court-position {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.court-position:hover {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    transform: scale(1.05);
+    border-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.court-position.active {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.position-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.position-role {
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.net-line {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background: #f1c40f;
+    transform: translateY(-50%);
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.3);
+}
+
+/* Position Info Panel */
+.position-info-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.info-header i {
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+.info-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.info-content p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.position-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-color.front-row {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.legend-color.back-row {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+/* Learning Quiz Modal */
+.learning-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.learning-modal.active {
+    display: flex;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: modalSlideUp 0.3s ease;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.quiz-container {
+    text-align: center;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .court-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .volleyball-court {
+        width: 350px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .interactive-tools {
+        padding: 60px 0;
+    }
+    
+    .card-content {
+        padding: 30px;
+    }
+    
+    .card-content h3 {
+        font-size: 1.5rem;
+        padding-right: 60px;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        top: 25px;
+        right: 25px;
+    }
+    
+    .quiz-stats,
+    .position-features {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .volleyball-court {
+        width: 300px;
+        height: 200px;
+    }
+    
+    .position-info-panel {
+        padding: 20px;
+    }
+    
+    .modal-container {
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: 20px 25px;
+    }
+    
+    .modal-body {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        gap: 2rem;
+    }
+    
+    .volleyball-court {
+        width: 250px;
+        height: 170px;
+        padding: 15px;
+        gap: 6px;
+    }
+    
+    .position-number {
+        font-size: 1.2rem;
+    }
+    
+    .position-role {
+        font-size: 0.6rem;
+    }
+}

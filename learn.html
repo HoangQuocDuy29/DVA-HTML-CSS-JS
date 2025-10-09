@@ -50,7 +50,8 @@
                             <a href="gallery.html" class="nav-link">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a href="bonus.html" class="nav-link">Bonus</a>
+                            <a href="donate.html"
+                                class="nav-link active">Donate</a>
                         </li>
                         <li class="nav-item">
                             <a href="shop.html" class="nav-link">Shop</a>
@@ -144,6 +145,195 @@
                     </div>
                 </div>
             </section>
+            <!-- Interactive Learning Tools Section - ADD THIS -->
+            <section class="interactive-tools">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Interactive Learning Tools</h2>
+                        <p>Test your knowledge and learn court positions
+                            interactively</p>
+                    </div>
+
+                    <div class="tools-grid">
+                        <!-- Volleyball Quiz -->
+                        <div class="learning-card">
+                            <div class="card-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Volleyball Knowledge Quiz</h3>
+                                <p>Test your understanding of volleyball rules,
+                                    techniques, and strategies with our
+                                    comprehensive quiz</p>
+                                <div class="quiz-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-list"></i>
+                                        <span>20 Questions</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-clock"></i>
+                                        <span>~5 minutes</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-trophy"></i>
+                                        <span>Achievement Rewards</span>
+                                    </div>
+                                </div>
+                                <button class="quiz-btn"
+                                    onclick="startLearningQuiz()">
+                                    <i class="fas fa-play"></i>
+                                    Start Knowledge Quiz
+                                </button>
+                            </div>
+                            <div class="quiz-preview">
+                                <h4>Sample Questions:</h4>
+                                <ul>
+                                    <li>"How many players are on court per team?"</li>
+                                    <li>"What is the standard net height for men?"</li>
+                                    <li>"What does '6-2' rotation mean?"</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Position Guide -->
+                        <div class="learning-card">
+                            <div class="card-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Interactive Position Guide</h3>
+                                <p>Learn about each court position, their roles,
+                                    and responsibilities in different game
+                                    situations</p>
+                                <div class="position-features">
+                                    <div class="feature">
+                                        <i class="fas fa-mouse-pointer"></i>
+                                        <span>Click to Explore</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>Detailed Explanations</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-arrows-alt"></i>
+                                        <span>Rotation System</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Court -->
+                            <div class="interactive-court">
+                                <div class="court-container">
+                                    <div class="volleyball-court">
+                                        <div class="court-position pos-4"
+                                            data-position="4"
+                                            title="Position 4 - Outside Hitter">
+                                            <span
+                                                class="position-number">4</span>
+                                            <span
+                                                class="position-role">OH</span>
+                                        </div>
+                                        <div class="court-position pos-3"
+                                            data-position="3"
+                                            title="Position 3 - Middle Blocker">
+                                            <span
+                                                class="position-number">3</span>
+                                            <span
+                                                class="position-role">MB</span>
+                                        </div>
+                                        <div class="court-position pos-2"
+                                            data-position="2"
+                                            title="Position 2 - Right Side">
+                                            <span
+                                                class="position-number">2</span>
+                                            <span
+                                                class="position-role">RS</span>
+                                        </div>
+                                        <div class="court-position pos-5"
+                                            data-position="5"
+                                            title="Position 5 - Left Back">
+                                            <span
+                                                class="position-number">5</span>
+                                            <span
+                                                class="position-role">LB</span>
+                                        </div>
+                                        <div class="court-position pos-6"
+                                            data-position="6"
+                                            title="Position 6 - Middle Back/Libero">
+                                            <span
+                                                class="position-number">6</span>
+                                            <span class="position-role">L</span>
+                                        </div>
+                                        <div class="court-position pos-1"
+                                            data-position="1"
+                                            title="Position 1 - Right Back/Server">
+                                            <span
+                                                class="position-number">1</span>
+                                            <span
+                                                class="position-role">RB</span>
+                                        </div>
+                                        <div class="net-line"></div>
+                                    </div>
+
+                                    <!-- Position Information Panel -->
+                                    <div class="position-info-panel"
+                                        id="learn-position-info">
+                                        <div class="info-header">
+                                            <i class="fas fa-info-circle"></i>
+                                            <h4>Court Position Guide</h4>
+                                        </div>
+                                        <div class="info-content"
+                                            id="learn-position-content">
+                                            <p>👆 Click on any position number
+                                                to learn about that player's
+                                                role, responsibilities, and key
+                                                skills required.</p>
+                                            <div class="position-legend">
+                                                <div class="legend-item">
+                                                    <span
+                                                        class="legend-color front-row"></span>
+                                                    <span>Front Row (Positions
+                                                        2, 3, 4)</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span
+                                                        class="legend-color back-row"></span>
+                                                    <span>Back Row (Positions 1,
+                                                        5, 6)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Quiz Modal - ADD THIS -->
+            <div class="learning-modal" id="learning-quiz-modal">
+                <div class="modal-overlay">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <h3>
+                                <i class="fas fa-graduation-cap"></i>
+                                Volleyball Knowledge Quiz
+                            </h3>
+                            <button class="modal-close" title="Close Quiz"
+                                onclick="closeLearningQuiz()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="quiz-container"
+                                id="learning-quiz-container">
+                                <!-- Quiz content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Training Programs -->
             <section class="training-programs">
