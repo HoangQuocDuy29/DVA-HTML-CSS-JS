@@ -10,7 +10,7 @@ const productsData = [
         price: "3,180,000₫",
         priceValue: 3180000,
         description: "Professional volleyball shoes with zoom air cushioning and excellent court grip",
-        image: "images/shop/Nike.jpg",
+        image: "images/shop/products/Nike.jpg",
         features: ["Zoom Air", "Court Grip", "Lightweight"],
         badge: "popular",
         inStock: true
@@ -23,20 +23,20 @@ const productsData = [
         price: "1,750,000₫",
         priceValue: 1750000,
         description: "Ultra-light volleyball shoes designed ",
-        image: "images/shop/Adi.png",
+        image: "images/shop/products/Adi.png",
         features: ["Boost Technology", "Formotion", "Lightweight"],
         badge: "new",
         inStock: true
     },
     {
         id: 3,
-        name: "Mizuno Wave Lightning Z6",
-        brand: "mizuno",
+        name: "Asics Sky Elite FF MT 3",
+        brand: "asics",
         category: "shoes",
         price: "2,590,000₫",
         priceValue: 2590000,
         description: "Premium volleyball shoes with Wave technology for superior stability and comfort",
-        image: "images/products/mizuno-lightning.jpg",
+        image: "images/shop/products/1051A081_103_SR_RT_GLB.webp",
         features: ["Wave Technology", "D-Flex Groove", "Professional"],
         badge: "pro",
         inStock: true
@@ -49,7 +49,7 @@ const productsData = [
         price: "3,435,000₫",
         priceValue: 3435382,
         description: "Reliable volleyball shoes with GEL technology for impact absorption",
-        image: "images/shop/Sky-Elite-FF-MT-3.jpg",
+        image: "images/shop/products/Sky-Elite-FF-MT-3.jpg",
         features: ["GEL Technology", "Impact Absorption", "Durable"],
         badge: "value",
         inStock: true
