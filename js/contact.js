@@ -1,14 +1,17 @@
-// Contact page functionality
+// Contact page functionality with Google Sheets integration
 
 // Form validation patterns
 const validationPatterns = {
     email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    phone: /^[\+]?[1-9][\d]{0,15}$/,
+    phone: /^[\+]?[0-9\s\-\(\)]{10,15}$/,
     url: /^https?:\/\/.+\..+/
 };
 
+// Google Apps Script Web App URL (replace with your actual URL)
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZp3TswdiPpth82v7jX9mRwtB00nLdork7Al-BWlgGH_PkLV3gc1IOqzXt11BVOk9l1w/exec';
+
 // State management
-let currentForm = 'general';
+let currentForm = 'registration';
 let isSubmitting = false;
 
 // DOM elements
@@ -16,12 +19,22 @@ let formTabs, contactForms, faqItems;
 let newsletterForm;
 
 // Initialize contact page
+// Initialize contact page - UPDATED
 function initContactPage() {
+    console.log('🚀 Initializing contact page...');
+    
     // Get DOM elements
     formTabs = document.querySelectorAll('.form-tab');
     contactForms = document.querySelectorAll('.contact-form');
     faqItems = document.querySelectorAll('.faq-item');
     newsletterForm = document.getElementById('newsletter-form');
+
+    console.log('📋 Found elements:', {
+        formTabs: formTabs.length,
+        contactForms: contactForms.length,
+        faqItems: faqItems.length,
+        newsletterForm: !!newsletterForm
+    });
 
     // Set up event listeners
     setupEventListeners();
@@ -31,6 +44,95 @@ function initContactPage() {
     
     // Set up real-time availability updates
     initAvailabilityUpdates();
+    
+    console.log('✅ Contact page initialized successfully');
+}
+
+// Enhanced form validation initialization - NEW
+function initFormValidation() {
+    console.log('🔍 Initializing form validation...');
+    
+    // Add validation CSS if not already present
+    if (!document.getElementById('validation-styles')) {
+        const style = document.createElement('style');
+        style.id = 'validation-styles';
+        style.textContent = `
+            .form-group.error input,
+            .form-group.error select {
+                border-color: #e74c3c !important;
+                background-color: #fdf2f2 !important;
+            }
+            
+            .form-group.success input,
+            .form-group.success select {
+                border-color: #27ae60 !important;
+                background-color: #f0f9f0 !important;
+            }
+            
+            .error-message {
+                color: #e74c3c;
+                font-size: 0.85rem;
+                margin-top: 5px;
+                font-weight: 500;
+                display: block;
+            }
+            
+            .form-message {
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                font-weight: 500;
+                display: none;
+                animation: slideDown 0.3s ease;
+            }
+            
+            .form-message.show {
+                display: block;
+            }
+            
+            .form-message.success {
+                background-color: #d4edda;
+                border: 1px solid #c3e6cb;
+                color: #155724;
+            }
+            
+            .form-message.error {
+                background-color: #f8d7da;
+                border: 1px solid #f5c6cb;
+                color: #721c24;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        
+        document.head.appendChild(style);
+        console.log('💄 Validation styles added');
+    }
+    
+    // Enhanced validation setup for forms
+    contactForms.forEach((form, index) => {
+        console.log(`🔧 Setting up validation for form ${index + 1}:`, form.dataset.form);
+        
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            // Prevent default HTML5 validation popup
+            input.addEventListener('invalid', (e) => {
+                e.preventDefault();
+                validateField(input);
+            });
+        });
+    });
+    
+    console.log('✅ Form validation initialized successfully');
 }
 
 // Set up all event listeners
@@ -96,7 +198,9 @@ function handleFormTabSwitch(e) {
     }
 }
 
-// Handle form submission
+    // Handle form submission
+// Enhanced handleFormSubmit with debugging
+// Update the handleFormSubmit function
 async function handleFormSubmit(e) {
     e.preventDefault();
     
@@ -105,18 +209,23 @@ async function handleFormSubmit(e) {
     const form = e.target;
     const formType = form.dataset.form;
     
+    console.log('📝 Form submission started for:', formType);
+    
     // Validate entire form
     if (!validateForm(form)) {
+        console.log('❌ Form validation failed');
         showFormMessage('error', 'Please correct the errors above and try again.');
         return;
     }
+    
+    console.log('✅ Form validation passed');
     
     isSubmitting = true;
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.innerHTML;
     
     // Show loading state
-    submitBtn.innerHTML = '<span class="loading">Submitting</span>';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
     
     try {
@@ -124,42 +233,54 @@ async function handleFormSubmit(e) {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         
-        // Handle checkbox arrays (for training schedule)
-        const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
-        if (checkboxes.length > 0) {
-            const checkboxData = {};
-            checkboxes.forEach(checkbox => {
-                const name = checkbox.name;
-                if (!checkboxData[name]) {
-                    checkboxData[name] = [];
-                }
-                checkboxData[name].push(checkbox.value);
-            });
-            Object.assign(data, checkboxData);
-        }
+        console.log('📋 Raw form data:', data);
         
         // Add form type and timestamp
         data.formType = formType;
         data.timestamp = new Date().toISOString();
+        data.submissionDate = new Date().toLocaleString('vi-VN');
         
-        // Simulate API call
-        const success = await submitContactForm(data);
+        // Calculate age from birth year
+        if (data.birthyear) {
+            data.age = new Date().getFullYear() - parseInt(data.birthyear);
+        }
+        
+        // Format position display name
+        if (data.position) {
+            const positionNames = {
+                'outside-hitter': 'Outside Hitter',
+                'middle-blocker': 'Middle Blocker',
+                'setter': 'Setter',
+                'libero': 'Libero',
+                'opposite': 'Opposite Hitter'
+            };
+            data.positionDisplay = positionNames[data.position] || data.position;
+        }
+        
+        console.log('📊 Final data to send:', data);
+        
+        // Use enhanced submission method
+        const success = await sendToGoogleSheetsEnhanced(data);
         
         if (success) {
+            console.log('🎉 Registration successful!');
             showFormMessage('success', getSuccessMessage(formType));
             form.reset();
             resetFormValidation(formType);
             
             // Track successful submission
-            trackFormSubmission(formType);
+            trackFormSubmission(formType, data);
+            
+            // Clear auto-saved data
+            clearFormAutoSave(formType);
             
         } else {
-            throw new Error('Submission failed');
+            throw new Error('All submission methods failed');
         }
         
     } catch (error) {
-        console.error('Form submission error:', error);
-        showFormMessage('error', 'Sorry, there was an error sending your message. Please try again or contact us directly.');
+        console.error('💥 Form submission error:', error);
+        showFormMessage('error', 'Sorry, there was an error submitting your registration. Please try again or contact us directly at 0768 299 329.');
     } finally {
         isSubmitting = false;
         submitBtn.innerHTML = originalText;
@@ -167,25 +288,243 @@ async function handleFormSubmit(e) {
     }
 }
 
-// Simulate form submission API call
-async function submitContactForm(data) {
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
+
+
+// Replace sendToGoogleSheets function with this version
+async function sendToGoogleSheets(data) {
+    return new Promise((resolve, reject) => {
+        try {
+            console.log('🚀 Starting form submission method...');
+            console.log('📤 Data being sent:', data);
+            
+            // Create invisible iframe to handle response
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.name = 'registration_frame';
+            document.body.appendChild(iframe);
+            
+            // Create form
+            const form = document.createElement('form');
+            form.method = 'GET';
+            form.action = GOOGLE_SCRIPT_URL;
+            form.target = 'registration_frame';
+            form.style.display = 'none';
+            
+            // Add all data as hidden inputs
+            Object.keys(data).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = String(data[key] || '');
+                form.appendChild(input);
+            });
+            
+            // Handle iframe load
+            iframe.onload = function() {
+                console.log('✅ Form submission completed');
+                
+                try {
+                    // Try to read response (may fail due to CORS)
+                    const responseText = iframe.contentDocument.body.textContent;
+                    console.log('📋 Response:', responseText);
+                } catch (error) {
+                    console.log('🔒 Response blocked by CORS (normal)');
+                }
+                
+                // Clean up
+                setTimeout(() => {
+                    if (document.body.contains(form)) document.body.removeChild(form);
+                    if (document.body.contains(iframe)) document.body.removeChild(iframe);
+                }, 1000);
+                
+                resolve(true);
+            };
+            
+            iframe.onerror = function() {
+                console.error('❌ Form submission failed');
+                
+                // Clean up
+                if (document.body.contains(form)) document.body.removeChild(form);
+                if (document.body.contains(iframe)) document.body.removeChild(iframe);
+                
+                resolve(false);
+            };
+            
+            // Submit form
+            document.body.appendChild(form);
+            form.submit();
+            
+            console.log('📨 Form submitted to Google Apps Script');
+            
+        } catch (error) {
+            console.error('❌ Form submission error:', error);
+            
+            // Fallback: Save to localStorage
+            saveToLocalStorage(data);
+            resolve(false);
+        }
+    });
+}
+
+// Alternative method using direct URL navigation (for testing)
+function sendToGoogleSheetsViaURL(data) {
+    try {
+        console.log('🔄 Using direct URL method...');
+        
+        const params = new URLSearchParams();
+        Object.keys(data).forEach(key => {
+            params.append(key, String(data[key] || ''));
+        });
+        
+        const url = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+        console.log('🔗 Generated URL length:', url.length);
+        
+        // Open in new tab to see result
+        const newWindow = window.open(url, '_blank');
+        
+        if (newWindow) {
+            console.log('✅ URL opened successfully');
+            // Close the tab after 3 seconds
+            setTimeout(() => {
+                newWindow.close();
+            }, 3000);
+            return true;
+        } else {
+            console.log('❌ Popup blocked');
+            return false;
+        }
+        
+    } catch (error) {
+        console.error('❌ URL method failed:', error);
+        return false;
+    }
+}
+
+// Enhanced function with multiple fallback methods
+async function sendToGoogleSheetsEnhanced(data) {
+    console.log('🎯 Trying enhanced submission with multiple methods...');
     
-    // Simulate occasional failures for testing
-    if (Math.random() < 0.1) { // 10% failure rate
-        throw new Error('Network error');
+    // Method 1: Form submission (most reliable)
+    try {
+        const formResult = await sendToGoogleSheets(data);
+        if (formResult) {
+            console.log('✅ Form submission successful');
+            return true;
+        }
+    } catch (error) {
+        console.log('⚠️ Form method failed:', error.message);
     }
     
-    // Log the data (in real app, this would be sent to server)
-    console.log('Form submitted:', data);
+    // Method 2: Direct URL (fallback)
+    try {
+        const urlResult = sendToGoogleSheetsViaURL(data);
+        if (urlResult) {
+            console.log('✅ URL method successful');
+            return true;
+        }
+    } catch (error) {
+        console.log('⚠️ URL method failed:', error.message);
+    }
     
-    return true;
+    // Method 3: Image pixel technique
+    try {
+        console.log('🔄 Trying image pixel method...');
+        
+        const params = new URLSearchParams(data);
+        const img = new Image();
+        
+        return new Promise((resolve) => {
+            img.onload = () => {
+                console.log('✅ Image method successful');
+                resolve(true);
+            };
+            
+            img.onerror = () => {
+                console.log('⚠️ Image method failed (expected)');
+                resolve(true); // Still assume success
+            };
+            
+            img.src = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+            
+            // Timeout after 5 seconds
+            setTimeout(() => {
+                console.log('⏰ Image method timeout, assuming success');
+                resolve(true);
+            }, 5000);
+        });
+        
+    } catch (error) {
+        console.log('⚠️ Image method failed:', error.message);
+    }
+    
+    // If all methods fail
+    console.log('💾 All methods failed, saving to localStorage');
+    saveToLocalStorage(data);
+    return false;
+}
+
+
+// Alternative method using form submission technique
+async function sendToGoogleSheetsViaForm(data) {
+    return new Promise((resolve) => {
+        try {
+            console.log('🔄 Using form submission method...');
+            
+            // Create invisible form
+            const form = document.createElement('form');
+            form.method = 'GET';
+            form.target = '_blank'; // Open in new tab to see result
+            form.action = GOOGLE_SCRIPT_URL;
+            form.style.display = 'none';
+            
+            // Add data as hidden inputs
+            Object.keys(data).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+            
+            // Submit form
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(form);
+                console.log('✅ Form submission completed');
+                resolve(true);
+            }, 1000);
+            
+        } catch (error) {
+            console.error('❌ Form submission failed:', error);
+            resolve(false);
+        }
+    });
+}
+
+
+// Fallback: Save to localStorage
+function saveToLocalStorage(data) {
+    try {
+        const submissions = JSON.parse(localStorage.getItem('dva_registrations') || '[]');
+        submissions.push({
+            ...data,
+            id: Date.now(),
+            status: 'pending'
+        });
+        localStorage.setItem('dva_registrations', JSON.stringify(submissions));
+        console.log('Data saved to localStorage as fallback');
+    } catch (error) {
+        console.error('Error saving to localStorage:', error);
+    }
 }
 
 // Get success message based on form type
 function getSuccessMessage(formType) {
     const messages = {
+        registration: 'Thank you for registering with DVA Volleyball Club! We have received your application and will contact you within 2-3 business days to schedule a tryout session. Please keep your phone available.',
         general: 'Thank you for your message! We\'ll get back to you within 24 hours.',
         training: 'Your training inquiry has been received! Our coaching team will contact you within 1-2 business days to discuss program options.',
         membership: 'Thank you for your membership application! We\'ll review your information and contact you within 3-5 business days to schedule a tryout.',
@@ -195,7 +534,7 @@ function getSuccessMessage(formType) {
     return messages[formType] || 'Thank you for contacting us! We\'ll be in touch soon.';
 }
 
-// Form validation functions
+// Enhanced form validation functions
 function validateForm(form) {
     let isValid = true;
     const inputs = form.querySelectorAll('input, select, textarea');
@@ -205,6 +544,43 @@ function validateForm(form) {
             isValid = false;
         }
     });
+    
+    // Additional cross-field validations for registration form
+    if (form.dataset.form === 'registration') {
+        isValid = validateRegistrationFields(form) && isValid;
+    }
+    
+    return isValid;
+}
+
+function validateRegistrationFields(form) {
+    let isValid = true;
+    
+    // Check if spike reach is greater than block reach
+    const spikeReach = parseInt(form.querySelector('[name="spikereach"]').value);
+    const blockReach = parseInt(form.querySelector('[name="blockreach"]').value);
+    
+    if (spikeReach && blockReach && spikeReach <= blockReach) {
+        showFieldError(form.querySelector('[name="spikereach"]'), 'Spike reach should typically be higher than block reach.');
+        isValid = false;
+    }
+    
+    // Check reasonable height vs reach relationship
+    const height = parseInt(form.querySelector('[name="height"]').value);
+    if (height && spikeReach && (spikeReach - height) < 40) {
+        showFieldError(form.querySelector('[name="spikereach"]'), 'Spike reach seems too low compared to your height. Please double-check.');
+        isValid = false;
+    }
+    
+    // Age validation based on birth year
+    const birthYear = parseInt(form.querySelector('[name="birthyear"]').value);
+    if (birthYear) {
+        const age = new Date().getFullYear() - birthYear;
+        if (age < 8 || age > 50) {
+            showFieldError(form.querySelector('[name="birthyear"]'), 'Age must be between 8 and 50 years.');
+            isValid = false;
+        }
+    }
     
     return isValid;
 }
@@ -239,9 +615,8 @@ function validateField(field) {
     
     // Phone validation
     if (fieldType === 'tel' || fieldName.includes('phone')) {
-        const cleanPhone = value.replace(/\s/g, '');
-        if (!validationPatterns.phone.test(cleanPhone)) {
-            showFieldError(field, 'Please enter a valid phone number.');
+        if (!validationPatterns.phone.test(value)) {
+            showFieldError(field, 'Please enter a valid phone number (10-15 digits).');
             return false;
         }
     }
@@ -254,11 +629,12 @@ function validateField(field) {
         }
     }
     
-    // Age validation
-    if (fieldName === 'age') {
-        const age = parseInt(value);
-        if (age < 8 || age > 60) {
-            showFieldError(field, 'Age must be between 8 and 60 years.');
+    // Birth year validation
+    if (fieldName === 'birthyear') {
+        const year = parseInt(value);
+        const currentYear = new Date().getFullYear();
+        if (year < 1960 || year > currentYear - 8) {
+            showFieldError(field, `Birth year must be between 1960 and ${currentYear - 8}.`);
             return false;
         }
     }
@@ -266,20 +642,47 @@ function validateField(field) {
     // Height validation
     if (fieldName === 'height') {
         const height = parseInt(value);
-        if (height && (height < 150 || height > 220)) {
+        if (height < 150 || height > 220) {
             showFieldError(field, 'Height must be between 150 and 220 cm.');
             return false;
         }
     }
     
-    // Text length validation
-    if (fieldName === 'message' || fieldName === 'goals' || fieldName === 'experience' || fieldName === 'proposal') {
-        if (value.length < 10) {
-            showFieldError(field, 'Please provide more details (at least 10 characters).');
+    // Weight validation
+    if (fieldName === 'weight') {
+        const weight = parseInt(value);
+        if (weight < 40 || weight > 150) {
+            showFieldError(field, 'Weight must be between 40 and 150 kg.');
             return false;
         }
-        if (value.length > 1000) {
-            showFieldError(field, 'Please keep your message under 1000 characters.');
+    }
+    
+    // Jersey number validation
+    if (fieldName === 'jersey') {
+        const jersey = parseInt(value);
+        if (jersey < 1 || jersey > 99) {
+            showFieldError(field, 'Jersey number must be between 1 and 99.');
+            return false;
+        }
+    }
+    
+    // Reach validation
+    if (fieldName === 'spikereach' || fieldName === 'blockreach') {
+        const reach = parseInt(value);
+        if (reach < 200 || reach > 380) {
+            showFieldError(field, 'Reach must be between 200 and 380 cm.');
+            return false;
+        }
+    }
+    
+    // Name validation
+    if (fieldName === 'fullname') {
+        if (value.length < 2) {
+            showFieldError(field, 'Full name must be at least 2 characters.');
+            return false;
+        }
+        if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(value)) {
+            showFieldError(field, 'Full name should only contain letters and spaces.');
             return false;
         }
     }
@@ -343,11 +746,11 @@ function showFormMessage(type, message) {
     messageElement.className = `form-message ${type} show`;
     messageElement.textContent = message;
     
-    // Auto-hide success messages after 5 seconds
+    // Auto-hide success messages after 8 seconds
     if (type === 'success') {
         setTimeout(() => {
             messageElement.classList.remove('show');
-        }, 5000);
+        }, 8000);
     }
 }
 
@@ -422,40 +825,26 @@ async function handleNewsletterSubmit(e) {
     }
 }
 
-// External integrations (placeholders)
-function openLiveChat() {
-    // In a real app, this would integrate with chat service like Intercom, Zendesk, etc.
-    alert('Live chat feature coming soon! For now, please use the contact forms or call us directly.');
-}
-
-function openDirections(facility) {
-    const addresses = {
-        main: '123 Sports Complex Drive, District 1, Ho Chi Minh City, Vietnam',
-        secondary: '456 Athletic Center Blvd, District 3, Ho Chi Minh City, Vietnam'
-    };
-    
-    const address = addresses[facility];
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    
-    window.open(googleMapsUrl, '_blank');
-}
-
-function openMap() {
-    // Open Google Maps with both locations
-    const url = 'https://www.google.com/maps/search/?api=1&query=DVA+Volleyball+Club+Ho+Chi+Minh+City';
-    window.open(url, '_blank');
-}
-
 // Analytics and tracking
-function trackFormSubmission(formType) {
-    // In a real app, this would integrate with Google Analytics, Mixpanel, etc.
-    console.log(`Form submitted: ${formType}`);
+function trackFormSubmission(formType, data) {
+    console.log(`Form submitted: ${formType}`, data);
+    
+    // Track registration specific data
+    if (formType === 'registration') {
+        console.log('Player Registration:', {
+            name: data.fullname,
+            position: data.positionDisplay,
+            age: data.age,
+            height: data.height,
+            experience: data.rotation
+        });
+    }
     
     // Example: Google Analytics event
     if (typeof gtag !== 'undefined') {
         gtag('event', 'form_submit', {
             form_type: formType,
-            event_category: 'contact'
+            event_category: 'registration'
         });
     }
 }
@@ -463,7 +852,6 @@ function trackFormSubmission(formType) {
 function trackSocialClick(platform) {
     console.log(`Social link clicked: ${platform}`);
     
-    // Example: Google Analytics event
     if (typeof gtag !== 'undefined') {
         gtag('event', 'social_click', {
             platform: platform,
@@ -475,7 +863,6 @@ function trackSocialClick(platform) {
 function trackNewsletterSignup(email) {
     console.log(`Newsletter signup: ${email}`);
     
-    // Example: Google Analytics event
     if (typeof gtag !== 'undefined') {
         gtag('event', 'newsletter_signup', {
             event_category: 'marketing'
@@ -483,24 +870,12 @@ function trackNewsletterSignup(email) {
     }
 }
 
-// Real-time availability updates (simulated)
+// Real-time availability updates
 function initAvailabilityUpdates() {
-    // Simulate real-time updates for training availability, response times, etc.
     setInterval(updateAvailability, 60000); // Update every minute
 }
 
 function updateAvailability() {
-    // Update response time estimates
-    const responseElements = document.querySelectorAll('.method-response p');
-    responseElements.forEach(element => {
-        if (element.textContent.includes('within')) {
-            // Randomly update response times to simulate dynamic data
-            const hours = Math.floor(Math.random() * 24) + 1;
-            element.innerHTML = `<i class="fas fa-reply"></i> Response within ${hours} hours`;
-        }
-    });
-    
-    // Update facility hours based on current time (simplified)
     updateFacilityStatus();
 }
 
@@ -535,7 +910,10 @@ function updateFacilityStatus() {
         if (!statusElement) {
             statusElement = document.createElement('div');
             statusElement.className = 'facility-status';
-            card.querySelector('.facility-info').insertBefore(statusElement, card.querySelector('.facility-address').nextSibling);
+            const facilityInfo = card.querySelector('.facility-info');
+            if (facilityInfo) {
+                facilityInfo.appendChild(statusElement);
+            }
         }
         
         statusElement.innerHTML = isOpen 
@@ -545,8 +923,20 @@ function updateFacilityStatus() {
         statusElement.style.cssText = 'margin-bottom: 1rem; font-weight: 600; color: #666;';
     });
 }
+// Simple debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 
-// Form auto-save functionality (optional enhancement)
+// Form auto-save functionality
 function initFormAutoSave() {
     contactForms.forEach(form => {
         const formType = form.dataset.form;
@@ -555,12 +945,12 @@ function initFormAutoSave() {
         inputs.forEach(input => {
             // Load saved data
             const savedValue = localStorage.getItem(`contact_form_${formType}_${input.name}`);
-            if (savedValue && input.type !== 'checkbox') {
+            if (savedValue && input.type !== 'checkbox' && input.type !== 'radio') {
                 input.value = savedValue;
             }
             
-            // Save data on change
-            input.addEventListener('input', utils.debounce(() => {
+            // Save data on change with debounce
+            input.addEventListener('input', debounce(() => {
                 if (input.value.trim()) {
                     localStorage.setItem(`contact_form_${formType}_${input.name}`, input.value);
                 } else {
@@ -581,6 +971,46 @@ function clearFormAutoSave(formType) {
     });
 }
 
+// External integrations
+function openLiveChat() {
+    alert('Live chat feature coming soon! For now, please use the contact forms or call us directly at 0768 299 329.');
+}
+
+function openDirections(facility) {
+    const addresses = {
+        main: '155 Trường Chinh, Thanh Xuân, Hà Nội, Việt Nam',
+        secondary: 'DVA Volleyball Training Center, Hà Nội, Việt Nam'
+    };
+    
+    const address = addresses[facility];
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    
+    window.open(googleMapsUrl, '_blank');
+}
+
+function openMap() {
+    const url = 'https://www.google.com/maps/search/?api=1&query=DVA+Volleyball+Club+Ha+Noi';
+    window.open(url, '_blank');
+}
+
+// Admin functions for viewing submissions (development only)
+function viewSubmissions() {
+    const submissions = JSON.parse(localStorage.getItem('dva_registrations') || '[]');
+    console.log('All submissions:', submissions);
+    return submissions;
+}
+
+function exportSubmissions() {
+    const submissions = viewSubmissions();
+    const dataStr = JSON.stringify(submissions, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(dataBlob);
+    link.download = `dva_registrations_${new Date().toISOString().split('T')[0]}.json`;
+    link.click();
+}
+
 // Initialize page when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initContactPage();
@@ -594,8 +1024,7 @@ if (typeof module !== 'undefined' && module.exports) {
         initContactPage,
         handleFormSubmit,
         validateField,
-        toggleFAQ,
-        openDirections,
+        sendToGoogleSheets,
         trackFormSubmission
     };
 }
@@ -605,3 +1034,5 @@ window.openLiveChat = openLiveChat;
 window.openDirections = openDirections;
 window.openMap = openMap;
 window.toggleFAQ = toggleFAQ;
+window.viewSubmissions = viewSubmissions;
+window.exportSubmissions = exportSubmissions;

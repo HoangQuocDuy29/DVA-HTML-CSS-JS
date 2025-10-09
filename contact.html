@@ -94,10 +94,7 @@
                             <h3>Call Us</h3>
                             <div class="method-details">
                                 <p><strong>Main Office:</strong></p>
-                                <a href="tel:+841234567890">+84 123 456 7890</a>
-
-                                <p><strong>Training Inquiries:</strong></p>
-                                <a href="tel:+841234567891">+84 123 456 7891</a>
+                                <a href="tel:+84768299329">+84 768 299 329</a>
                             </div>
                             <div class="method-hours">
                                 <p><i class="fas fa-clock"></i> Mon-Fri: 6AM -
@@ -113,17 +110,15 @@
                             </div>
                             <h3>Email Us</h3>
                             <div class="method-details">
-                                <p><strong>General Info:</strong></p>
+                                <p><strong>Management:</strong></p>
                                 <a
-                                    href="mailto:info@dvavolleyball.com">info@dvavolleyball.com</a>
+                                    href="mailto:quocduyhoang42@gmail.com">quocduyhoang42@gmail.com</a>
 
-                                <p><strong>Training Programs:</strong></p>
+                                <p><strong>Mall DVA:</strong></p>
                                 <a
-                                    href="mailto:training@dvavolleyball.com">training@dvavolleyball.com</a>
+                                    href="mailto:dvavolleyballclub@gmail.com">dvavolleyballclub@gmail.com</a>
 
-                                <p><strong>Team Inquiries:</strong></p>
-                                <a
-                                    href="mailto:teams@dvavolleyball.com">teams@dvavolleyball.com</a>
+                                
                             </div>
                             <div class="method-response">
                                 <p><i class="fas fa-reply"></i> Response within
@@ -139,15 +134,8 @@
                             <div class="method-details">
                                 <p><strong>Main Training Center:</strong></p>
                                 <address>
-                                    123 Sports Complex Drive<br>
-                                    District 1, Ho Chi Minh City<br>
-                                    Vietnam 70000
-                                </address>
-
-                                <p><strong>Secondary Facility:</strong></p>
-                                <address>
-                                    456 Athletic Center Blvd<br>
-                                    District 3, Ho Chi Minh City<br>
+                                    Nhà thi đấu bóng chuyền Thông Tin<br>
+                                    155 Trường Chinh, Thanh Xuân, Hà Nội<br>
                                     Vietnam 70000
                                 </address>
                             </div>
@@ -445,85 +433,121 @@
                             </button>
                         </form>
 
-                        <!-- Partnership Form -->
-                        <form class="contact-form" id="partnership-form"
-                            data-form="partnership">
+                        <!-- Registration Form -->
+                        <form class="contact-form active" id="registration-form" data-form="registration">
                             <div class="form-header">
-                                <h3>Partnership Opportunities</h3>
-                                <p>Let's work together to grow volleyball!</p>
+                                <h3>Player Registration</h3>
+                                <p>Join DVA Volleyball Club - Register today!</p>
                             </div>
 
                             <div class="form-grid">
+                                <!-- Full Name -->
                                 <div class="form-group">
-                                    <label for="part-name">Contact Name
-                                        *</label>
-                                    <input type="text" id="part-name"
-                                        name="name" required>
+                                    <label for="reg-fullname">Full Name *</label>
+                                    <input type="text" id="reg-fullname" name="fullname" required 
+                                        placeholder="Enter your full name">
                                 </div>
 
+                                <!-- Position -->
                                 <div class="form-group">
-                                    <label for="part-email">Email *</label>
-                                    <input type="email" id="part-email"
-                                        name="email" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label
-                                        for="part-company">Organization/Company
-                                        *</label>
-                                    <input type="text" id="part-company"
-                                        name="company" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="part-phone">Phone Number
-                                        *</label>
-                                    <input type="tel" id="part-phone"
-                                        name="phone" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="part-type">Partnership Type
-                                        *</label>
-                                    <select id="part-type" name="type" required>
-                                        <option value>Select partnership
-                                            type</option>
-                                        <option
-                                            value="sponsorship">Sponsorship</option>
-                                        <option value="equipment">Equipment
-                                            Partner</option>
-                                        <option value="venue">Venue
-                                            Partnership</option>
-                                        <option value="tournament">Tournament
-                                            Organization</option>
-                                        <option value="media">Media
-                                            Partnership</option>
-                                        <option value="other">Other</option>
+                                    <label for="reg-position">Position *</label>
+                                    <select id="reg-position" name="position" required>
+                                        <option value="">Select your position</option>
+                                        <option value="outside-hitter">Outside Hitter</option>
+                                        <option value="middle-blocker">Middle Blocker</option>
+                                        <option value="setter">Setter</option>
+                                        <option value="libero">Libero</option>
+                                        <option value="opposite">Opposite Hitter</option>
                                     </select>
                                 </div>
 
+                                <!-- Birth Year -->
                                 <div class="form-group">
-                                    <label for="part-website">Website</label>
-                                    <input type="url" id="part-website"
-                                        name="website"
-                                        placeholder="https://yourcompany.com">
+                                    <label for="reg-birthyear">Birth Year *</label>
+                                    <input type="number" id="reg-birthyear" name="birthyear" required 
+                                        min="1960" max="2015" placeholder="2002">
+                                </div>
+
+                                <!-- Hometown -->
+                                <div class="form-group">
+                                    <label for="reg-hometown">Hometown *</label>
+                                    <input type="text" id="reg-hometown" name="hometown" required 
+                                        placeholder="Hà Nội, Việt Nam">
+                                </div>
+
+                                <!-- Jersey Number -->
+                                <div class="form-group">
+                                    <label for="reg-jersey">Preferred Jersey Number *</label>
+                                    <input type="number" id="reg-jersey" name="jersey" required 
+                                        min="1" max="99" placeholder="1-99">
+                                </div>
+
+                                <!-- Height -->
+                                <div class="form-group">
+                                    <label for="reg-height">Height (cm) *</label>
+                                    <input type="number" id="reg-height" name="height" required 
+                                        min="150" max="220" placeholder="175">
+                                </div>
+
+                                <!-- Weight -->
+                                <div class="form-group">
+                                    <label for="reg-weight">Weight (kg) *</label>
+                                    <input type="number" id="reg-weight" name="weight" required 
+                                        min="40" max="150" placeholder="65">
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="form-group">
+                                    <label for="reg-phone">Phone Number *</label>
+                                    <input type="tel" id="reg-phone" name="phone" required 
+                                        placeholder="0768 299 329">
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="form-group">
+                                    <label for="reg-gender">Gender *</label>
+                                    <select id="reg-gender" name="gender" required>
+                                        <option value="">Select gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+
+                                <!-- Spike Reach -->
+                                <div class="form-group">
+                                    <label for="reg-spike-reach">Spike Reach (cm) *</label>
+                                    <input type="number" id="reg-spike-reach" name="spikereach" required 
+                                        min="200" max="380" placeholder="310">
+                                    <small class="form-help">Height from ground to fingertips when jumping to spike</small>
+                                </div>
+
+                                <!-- Block Reach -->
+                                <div class="form-group">
+                                    <label for="reg-block-reach">Block Reach (cm) *</label>
+                                    <input type="number" id="reg-block-reach" name="blockreach" required 
+                                        min="240" max="340" placeholder="300">
+                                    <small class="form-help">Height from ground to fingertips when jumping to block</small>
+                                </div>
+
+                                <!-- Rotation Experience -->
+                                <div class="form-group">
+                                    <label for="reg-rotation">Rotation System Experience *</label>
+                                    <select id="reg-rotation" name="rotation" required>
+                                        <option value="">Select your experience</option>
+                                        <option value="5-1">5-1 Rotation System</option>
+                                        <option value="6-2">6-2 Rotation System</option>
+                                        <option value="all">All Systems</option>
+                                        <option value="none">No Experience</option>
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="form-group full-width">
-                                <label for="part-proposal">Partnership Proposal
-                                    *</label>
-                                <textarea id="part-proposal" name="proposal"
-                                    rows="5"
-                                    placeholder="Describe your partnership idea and how we can work together..."
-                                    required></textarea>
-                            </div>
-
                             <button type="submit" class="submit-btn">
-                                <i class="fas fa-handshake"></i>
-                                Submit Partnership Proposal
+                                <i class="fas fa-user-plus"></i>
+                                Submit Registration
                             </button>
                         </form>
+
                     </div>
                 </div>
             </section>
@@ -531,100 +555,6 @@
             <!-- Location & Facilities -->
             <section class="location-facilities">
                 <div class="container">
-                    <div class="section-header">
-                        <h2>Our Facilities</h2>
-                        <p>State-of-the-art training centers designed for
-                            excellence</p>
-                    </div>
-
-                    <div class="facilities-grid">
-                        <div class="facility-card fade-in">
-                            <div class="facility-image">
-                                <i class="fas fa-volleyball-ball"></i>
-                            </div>
-                            <div class="facility-info">
-                                <h3>Main Training Center</h3>
-                                <div class="facility-address">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    123 Sports Complex Drive, District 1
-                                </div>
-                                <div class="facility-features">
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>4 Professional Courts</span>
-                                    </div>
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>Modern Equipment</span>
-                                    </div>
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>Locker Rooms & Showers</span>
-                                    </div>
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>Parking Available</span>
-                                    </div>
-                                </div>
-                                <div class="facility-hours">
-                                    <h4>Operating Hours:</h4>
-                                    <p><strong>Mon-Fri:</strong> 6:00 AM - 10:00
-                                        PM</p>
-                                    <p><strong>Sat-Sun:</strong> 8:00 AM - 8:00
-                                        PM</p>
-                                </div>
-                                <button class="directions-btn"
-                                    onclick="openDirections('main')">
-                                    <i class="fas fa-directions"></i>
-                                    Get Directions
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="facility-card fade-in">
-                            <div class="facility-image">
-                                <i class="fas fa-dumbbell"></i>
-                            </div>
-                            <div class="facility-info">
-                                <h3>Secondary Training Center</h3>
-                                <div class="facility-address">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    456 Athletic Center Blvd, District 3
-                                </div>
-                                <div class="facility-features">
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>2 Training Courts</span>
-                                    </div>
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>Fitness Training Area</span>
-                                    </div>
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>Video Analysis Room</span>
-                                    </div>
-                                    <div class="feature">
-                                        <i class="fas fa-check"></i>
-                                        <span>Refreshment Area</span>
-                                    </div>
-                                </div>
-                                <div class="facility-hours">
-                                    <h4>Operating Hours:</h4>
-                                    <p><strong>Mon-Fri:</strong> 5:00 PM - 10:00
-                                        PM</p>
-                                    <p><strong>Sat-Sun:</strong> 9:00 AM - 6:00
-                                        PM</p>
-                                </div>
-                                <button class="directions-btn"
-                                    onclick="openDirections('secondary')">
-                                    <i class="fas fa-directions"></i>
-                                    Get Directions
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Interactive Map Placeholder -->
                     <div class="map-container">
                         <div class="map-placeholder">
