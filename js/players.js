@@ -13,7 +13,7 @@ const playersData = {
             address: "Hưng Yên",
             born: "2003",
             age: 22,
-            avatar: "images/players/HoangQuocDuyyy.png",
+            avatar: "images/players/middle/HoangQuocDuyyy.png",
             isCaptain: true
         },
         {
@@ -26,7 +26,7 @@ const playersData = {
             address: "Lai Châu",
             born: "2005",
             age: 18,
-            avatar: "images/players/NungGiaBaoo.png"
+            avatar: "images/players/middle/NungGiaBaoo.png"
         },
         {
             id: 3,
@@ -38,7 +38,7 @@ const playersData = {
             address: "Ninh Bình",
             born: "2002",
             age: 23,
-            avatar: "images/players/TrinhVanHuy.png"
+            avatar: "images/players/middle/VanHuy.png"
         },
         {
             id: 4,
@@ -50,7 +50,7 @@ const playersData = {
             address: "Thanh Hoá",
             born: "2006",
             age: 19,
-            avatar: "images/players/HaXuanQuan.png"
+            avatar: "images/players/middle/HaXuanQuan.png"
         },
         {
             id: 5,
@@ -62,7 +62,7 @@ const playersData = {
             address: "Hưng Yên",
             born: "1998",
             age: 26,
-            avatar: "images/players/DuongVanDai.png"
+            avatar: "images/players/middle/DuongVanDai.png"
         },
         {
             id: 6,
@@ -74,7 +74,7 @@ const playersData = {
             address: "Hải Phòng",
             born: "2005",
             age: 20,
-            avatar: "images/players/NguyenDinhVu.png"
+            avatar: "images/players/middle/DinhVu.png"
         },
         {
             id: 7,
@@ -86,7 +86,7 @@ const playersData = {
             address: "Phú Thọ",
             born: "2004",
             age: 21,
-            avatar: "images/players/NguyenQuangHung.png"
+            avatar: "images/players/middle/NguyenQuangHung.png"
         }
     ],
     junior: [
@@ -100,7 +100,7 @@ const playersData = {
             address: "Moscow, Russia",
             born: "2005",
             age: 19,
-            avatar: "images/players/Lyuba.png"
+            avatar: "images/players/junior/Lyuba.png"
         },
         {
             id: 9,
@@ -112,7 +112,7 @@ const playersData = {
             address: "Quảng Bình, Việt Nam",
             born: "2006",
             age: 18,
-            avatar: "images/players/PhamThiThanhBinhh.png"
+            avatar: "images/players/junior/PhamThiThanhBinhh.png"
         },
         {
             id: 10,

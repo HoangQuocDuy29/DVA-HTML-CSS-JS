@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DVA Volleyball Club - Players</title>
+        <title>DVA Volleyball Club - Gallery</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -12,7 +12,7 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/players.css">
+        <link rel="stylesheet" href="css/gallery.css">
     </head>
     <body>
         <!-- Header -->
@@ -25,7 +25,6 @@
                         <span class="logo-text">DVA Club</span>
                     </a>
 
-                    <!-- Update navigation menu -->
                     <ul class="nav-menu" id="nav-menu">
                         <li class="nav-item">
                             <a href="index.html" class="nav-link">Home</a>
@@ -47,7 +46,8 @@
                             <a href="news.html" class="nav-link">News</a>
                         </li>
                         <li class="nav-item">
-                            <a href="gallery.html" class="nav-link">Gallery</a>
+                            <a href="gallery.html"
+                                class="nav-link active">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a href="bonus.html" class="nav-link">Bonus</a>
@@ -71,82 +71,102 @@
 
         <!-- Main Content -->
         <main>
-            <div class="players-header">
+            <!-- Hero Section -->
+            <section class="gallery-hero">
                 <div class="container">
-                    <h1>Our Players</h1>
-                    <p>Meet the talented athletes of DVA Volleyball Club</p>
-                </div>
-            </div>
-
-            <section class="players-section">
-                <div class="container">
-                    <!-- Filters and Search -->
-                    <div class="filters-container">
-                        <div class="search-bar">
-                            <input type="text" id="search-input"
-                                placeholder="Search players..."
-                                class="search-input">
-                            <i class="fas fa-search"></i>
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-images"></i>
+                            <span>DVA Gallery</span>
                         </div>
-
-                        <div class="filters">
-                            <select id="position-filter" class="filter-select"
-                                title="Filter by position">
-                                <option value>All Positions</option>
-                                <option value="Outside Hitter">Outside
-                                    Hitter</option>
-                                <option value="Middle Blocker">Middle
-                                    Blocker</option>
-                                <option value="Setter">Setter</option>
-                                <option value="Libero">Libero</option>
-                                <option value="Opposite">Opposite</option>
-                            </select>
-
-                            <select id="height-filter" class="filter-select"
-                                title="Filter by height">
-                                <option value>All Heights</option>
-                                <option value="under-180">Under 180cm</option>
-                                <option value="180-190">180-190cm</option>
-                                <option value="over-190">Over 190cm</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Team Tabs -->
-                    <div class="team-tabs">
-                        <button class="tab-button active" data-team="middle">DVA
-                            Middle</button>
-                        <button class="tab-button" data-team="junior">DVA
-                            Junior</button>
-                    </div>
-
-                    <!-- DVA Middle Team -->
-                    <div class="team-content active" id="middle-team">
-                        <div class="section-header">
-                            <h2>DVA Middle Team</h2>
-                            <p>Our experienced players competing at the highest
-                                level</p>
-                        </div>
-
-                        <div class="players-grid" id="middle-players">
-                            <!-- Players will be populated by JavaScript -->
-                        </div>
-                    </div>
-
-                    <!-- DVA Junior Team -->
-                    <div class="team-content" id="junior-team">
-                        <div class="section-header">
-                            <h2>DVA Junior Team</h2>
-                            <p>Rising stars and future champions</p>
-                        </div>
-
-                        <div class="players-grid" id="junior-players">
-                            <!-- Players will be populated by JavaScript -->
+                        <h1>Club Gallery</h1>
+                        <p>Capture the moments, celebrate the victories, cherish
+                            the memories</p>
+                        <div class="gallery-stats">
+                            <div class="stat">
+                                <span class="number">500+</span>
+                                <span class="label">Photos</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">50+</span>
+                                <span class="label">Events</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">3</span>
+                                <span class="label">Years</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Gallery Content -->
+            <section class="gallery-content">
+                <div class="container">
+                    <!-- Gallery Filters -->
+                    <div class="gallery-filters">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active"
+                                data-category="all">All Photos</button>
+                            <button class="filter-tab"
+                                data-category="training">Training</button>
+                            <button class="filter-tab"
+                                data-category="matches">Matches</button>
+                            <button class="filter-tab"
+                                data-category="events">Events</button>
+                            <button class="filter-tab"
+                                data-category="team">Team</button>
+                            <button class="filter-tab"
+                                data-category="awards">Awards</button>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Grid -->
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Photos will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more-container">
+                        <button class="btn btn-secondary" id="load-more-photos">
+                            <i class="fas fa-plus"></i>
+                            Load More Photos
+                        </button>
+                    </div>
+                </div>
+            </section>
         </main>
+
+        <!-- Photo Modal -->
+        <div class="photo-modal" id="photo-modal">
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <button class="modal-close" title="Close Photo Modal"
+                        id="modal-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button class="modal-prev" title="Previous Photo"
+                        id="modal-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="modal-next" title="Next Photo"
+                        id="modal-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="modal-image-container">
+                        <img src alt id="modal-image">
+                    </div>
+                    <div class="modal-info">
+                        <h3 id="modal-title"></h3>
+                        <p id="modal-description"></p>
+                        <div class="modal-meta">
+                            <span id="modal-date"></span>
+                            <span id="modal-category"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
@@ -154,7 +174,8 @@
                 <div class="footer-content">
                     <div class="footer-section">
                         <a href="index.html" class="footer-logo">
-                            <i class="fas fa-volleyball-ball"></i>
+                            <img src="images/logo/dva.png" alt="DVA Club"
+                                class="footer-logo-image">
                             <span>DVA Club</span>
                         </a>
                         <p>DVA Volleyball Club - Where talents are nurtured and
@@ -168,6 +189,11 @@
                             <li><a href="ranking.html">Ranking</a></li>
                             <li><a href="players.html">Players</a></li>
                             <li><a href="learn.html">Learn</a></li>
+                            <li><a
+                                    href="requirements.html">Requirements</a></li>
+                            <li><a href="news.html">News</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="bonus.html">Bonus</a></li>
                         </ul>
                     </div>
 
@@ -176,7 +202,7 @@
                         <ul>
                             <li><i class="fas fa-phone"></i> 0768 299 329</li>
                             <li><i class="fas fa-envelope"></i>
-                                dvavolleyball@gmail.com</li>
+                                dvavolleyballclub@gmail.com</li>
                             <li><i class="fas fa-map-marker-alt"></i> 155 Trường
                                 Chinh - Thanh Xuân - Hà Nội</li>
                         </ul>
@@ -190,6 +216,6 @@
         </footer>
 
         <script src="js/common.js"></script>
-        <script src="js/players.js"></script>
+        <script src="js/gallery.js"></script>
     </body>
 </html>
