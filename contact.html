@@ -141,7 +141,7 @@
                 </div>
             </section>
 
-            <!-- Contact Forms Section -->
+            <!-- Registration Form Section -->
             <section class="contact-forms">
                 <div class="container">
                     <div class="form-container">
@@ -381,5 +381,55 @@
 
         <script src="js/common.js"></script>
         <script src="js/contact.js"></script>
+        <!-- Success Registration Modal -->
+        <div class="success-modal" id="registration-success-modal">
+            <div class="modal-overlay">
+                <div class="modal-container">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <div class="checkmark-circle">
+                                <div class="checkmark"></div>
+                            </div>
+                        </div>
+                        
+                        <h3>Registration Successful!</h3>
+                        <p class="success-message">
+                            Thank you for registering with DVA Volleyball Club!<br>
+                            Our Leader will review your application and contact you soon.
+                        </p>
+                        
+                        <div class="success-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Expected Response: 1-2 business days</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone"></i>
+                                <span>Contact: 0768 299 329</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email: quocduyhoang42@gmail.com</span>
+                            </div>
+                        </div>
+                        
+                        <div class="success-actions">
+                            <button class="primary-btn" onclick="closeSuccessModal()">
+                                <i class="fas fa-check"></i>
+                                Got It!
+                            </button>
+                            <button class="secondary-btn" onclick="goToHomePage()">
+                                <i class="fas fa-home"></i>
+                                Back to Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification Container -->
+        <div class="toast-container" id="toast-container"></div>
+
     </body>
 </html>

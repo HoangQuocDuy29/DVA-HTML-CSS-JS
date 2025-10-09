@@ -264,7 +264,8 @@ async function handleFormSubmit(e) {
         
         if (success) {
             console.log('🎉 Registration successful!');
-            showFormMessage('success', getSuccessMessage(formType));
+            // Show success modal instead of simple message
+            showSuccessModal(data);
             form.reset();
             resetFormValidation(formType);
             
@@ -280,15 +281,110 @@ async function handleFormSubmit(e) {
         
     } catch (error) {
         console.error('💥 Form submission error:', error);
-        showFormMessage('error', 'Sorry, there was an error submitting your registration. Please try again or contact us directly at 0768 299 329.');
+        // Show error toast
+        showToast('error', 'Registration Failed', 'Sorry, there was an error submitting your registration. Please try again or contact us directly at 0768 299 329.');
     } finally {
         isSubmitting = false;
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
 }
+// Function to show success modal
+function showSuccessModal(data) {
+    const modal = document.getElementById('registration-success-modal');
+    if (modal) {
+        // Update content with user data
+        const playerName = data.fullname || 'Player';
+        const position = data.positionDisplay || data.position || 'Player';
+        
+        // Customize message
+        const messageElement = modal.querySelector('.success-message');
+        if (messageElement) {
+            messageElement.innerHTML = `
+                Thank you <strong>${playerName}</strong> for registering as a <strong>${position}</strong>!<br>
+                Our Leader will review your application and contact you soon.
+            `;
+        }
+        
+        // Show modal
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        
+        // Show success toast as well
+        showToast('success', 'Registration Submitted!', 'Your application has been sent successfully.');
+        
+        console.log('🎉 Success modal displayed for:', playerName);
+    }
+}
 
+// Function to close success modal
+function closeSuccessModal() {
+    const modal = document.getElementById('registration-success-modal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+}
 
+// Function to go to home page
+function goToHomePage() {
+    closeSuccessModal();
+    window.location.href = 'index.html';
+}
+
+// Enhanced toast notification system
+function showToast(type, title, message, duration = 5000) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    
+    const toastId = 'toast-' + Date.now();
+    const icons = {
+        success: 'fas fa-check',
+        error: 'fas fa-times',
+        warning: 'fas fa-exclamation'
+    };
+    
+    const toast = document.createElement('div');
+    toast.className = `toast-notification ${type}`;
+    toast.id = toastId;
+    toast.innerHTML = `
+        <div class="toast-icon">
+            <i class="${icons[type]}"></i>
+        </div>
+        <div class="toast-content">
+            <div class="toast-title">${title}</div>
+            <div class="toast-message">${message}</div>
+        </div>
+        <button class="toast-close" onclick="closeToast('${toastId}')">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    
+    container.appendChild(toast);
+    
+    // Auto remove after duration
+    setTimeout(() => {
+        closeToast(toastId);
+    }, duration);
+}
+
+// Function to close toast
+function closeToast(toastId) {
+    const toast = document.getElementById(toastId);
+    if (toast) {
+        toast.style.animation = 'toastSlideOut 0.3s ease';
+        setTimeout(() => {
+            if (toast.parentElement) {
+                toast.parentElement.removeChild(toast);
+            }
+        }, 300);
+    }
+}
+
+// Make functions globally available
+window.closeSuccessModal = closeSuccessModal;
+window.goToHomePage = goToHomePage;
+window.closeToast = closeToast;
 
 // Replace sendToGoogleSheets function with this version
 async function sendToGoogleSheets(data) {
