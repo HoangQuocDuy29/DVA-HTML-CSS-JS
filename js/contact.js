@@ -766,15 +766,17 @@ function toggleFAQ(questionElement) {
     const faqItem = questionElement.closest('.faq-item');
     const isActive = faqItem.classList.contains('active');
     
-    // Close all FAQ items
-    faqItems.forEach(item => {
+    // Đóng tất cả FAQ items khác
+    document.querySelectorAll('.faq-item').forEach(item => {
         item.classList.remove('active');
     });
     
-    // Open clicked item if it wasn't active
+    // Mở FAQ item được click (nếu chưa mở)
     if (!isActive) {
         faqItem.classList.add('active');
     }
+    
+    console.log('FAQ toggled:', questionElement.textContent);
 }
 
 // Newsletter form handling
@@ -977,19 +979,23 @@ function openLiveChat() {
 }
 
 function openDirections(facility) {
-    const addresses = {
-        main: '155 Trường Chinh, Thanh Xuân, Hà Nội, Việt Nam',
-        secondary: 'DVA Volleyball Training Center, Hà Nội, Việt Nam'
+    // DVA Volleyball Club location - Nhà thi đấu Bóng chuyền Thông Tin
+    const dvaLocationUrl = 'https://maps.app.goo.gl/jSk4EcfeUHinM7dD7';
+    
+    // For now, both main and secondary point to same location
+    // You can update secondary with different URL if needed
+    const mapUrls = {
+        main: dvaLocationUrl,
+        secondary: dvaLocationUrl // Update this if you have a different secondary location
     };
     
-    const address = addresses[facility];
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    
-    window.open(googleMapsUrl, '_blank');
+    console.log(`🗺️ Opening directions to ${facility} facility`);
+    window.open(mapUrls[facility] || mapUrls.main, '_blank');
 }
 
+
 function openMap() {
-    const url = 'https://www.google.com/maps/search/?api=1&query=DVA+Volleyball+Club+Ha+Noi';
+    const url = 'https://maps.app.goo.gl/jSk4EcfeUHinM7dD7';
     window.open(url, '_blank');
 }
 
@@ -1028,6 +1034,29 @@ if (typeof module !== 'undefined' && module.exports) {
         trackFormSubmission
     };
 }
+// Zalo, Facebook, Instagram, TikTok link tracking
+document.addEventListener('DOMContentLoaded', function() {
+    // Track social media clicks
+    document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const platform = this.classList.contains('facebook') ? 'Facebook' :
+                           this.classList.contains('instagram') ? 'Instagram' :
+                           this.classList.contains('zalo') ? 'Zalo' :
+                           this.classList.contains('tiktok') ? 'TikTok' : 'Unknown';
+            
+            console.log(`🔗 ${platform} link clicked`);
+            
+            // Google Analytics tracking (nếu có)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'social_click', {
+                    'platform': platform,
+                    'event_category': 'social_media'
+                });
+            }
+        });
+    });
+});
+
 
 // Make functions available globally for HTML onclick handlers
 window.openLiveChat = openLiveChat;

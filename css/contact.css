@@ -1132,3 +1132,44 @@
         transform: translateY(0);
     }
 }
+/* Zalo link styling - thay thế YouTube */
+.social-link.zalo {
+    background: linear-gradient(135deg, #0068ff, #0052cc);
+    color: white;
+}
+
+.social-link.zalo:hover {
+    background: linear-gradient(135deg, #0052cc, #003d99);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 104, 255, 0.3);
+}
+
+.social-link.zalo i {
+    color: white;
+}
+
+/* Đảm bảo các social links khác vẫn hoạt động */
+.social-link.facebook {
+    background: linear-gradient(135deg, #1877f2, #166fe5);
+}
+
+.social-link.instagram {
+    background: linear-gradient(135deg, #e4405f, #833ab4, #fccc63);
+}
+
+.social-link.tiktok {
+    background: linear-gradient(135deg, #000000, #ff0050);
+}
+
+.social-link.facebook:hover {
+    background: linear-gradient(135deg, #166fe5, #1464d8);
+}
+
+.social-link.instagram:hover {
+    background: linear-gradient(135deg, #d73447, #7c2d9e, #f4bb44);
+}
+
+.social-link.tiktok:hover {
+    background: linear-gradient(135deg, #ff0050, #000000);
+}
+
