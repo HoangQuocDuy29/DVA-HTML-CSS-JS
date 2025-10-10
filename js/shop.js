@@ -31,7 +31,7 @@ const productsData = [
     },
     {
         id: 3,
-        name: "Asics Sky Elite FF MT 3",
+        name: "Sky Elite FF MT 3",
         brand: "asics",
         category: "shoes",
         price: "2,980,000₫",
@@ -64,7 +64,7 @@ const productsData = [
         priceValue: 2980000,
         description: "Men's Volleyball Shoes",
         image: "images/shop/products/asic5.png",
-        features: ["Cushioning", "Breathable", "Professional"],
+        features: ["Cushioning", "Breathable"],
         badge: "essential",
         inStock: true
     },
@@ -117,7 +117,7 @@ const productsData = [
         priceValue: 2900000,
         description: "Professional volleyball socks with moisture management",
         image: "images/shop/products/mizuno2.png",
-        features: ["Moisture Management", "Comfort", "Durable"],
+        features: ["Moisture Management", "Comfort"],
         badge: "",
         inStock: true
     },
