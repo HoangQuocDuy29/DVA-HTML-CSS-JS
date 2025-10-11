@@ -10,7 +10,7 @@ const playersData = {
             position: "Setter",
             height: "160cm",
             reachHeight: "285cm",
-            address: "Hưng Yên",
+            address: "Thái Bình",
             born: "2003",
             age: 22,
             avatar: "images/players/middle/HoangQuocDuy.png",
@@ -22,11 +22,11 @@ const playersData = {
             number: 12,
             position: "Middle Blocker",
             height: "170cm",
-            reachHeight: "295cm",
+            reachHeight: "285cm",
             address: "Lai Châu",
             born: "2005",
             age: 18,
-            avatar: "images/players/middle/NungGiaBaoo.png"
+            avatar: "images/players/middle/NungGiaBao.png"
         },
         {
             id: 3,
@@ -35,10 +35,10 @@ const playersData = {
             position: "Outside Hitter",
             height: "178cm",
             reachHeight: "300cm",
-            address: "Ninh Bình",
+            address: "Nam Định",
             born: "2002",
             age: 23,
-            avatar: "images/players/middle/VanHuy.png"
+            avatar: "images/players/middle/TrinhVanHuy.png"
         },
         {
             id: 4,
@@ -46,11 +46,11 @@ const playersData = {
             number: 27,
             position: "Opposite Hitter",
             height: "177cm",
-            reachHeight: "308cm",
+            reachHeight: "290cm",
             address: "Thanh Hoá",
             born: "2006",
             age: 19,
-            avatar: "images/players/middle/HaXuanQuan.png"
+            avatar: "images/players/middle/HaXuanQuann.png"
         },
         {
             id: 5,
@@ -58,11 +58,11 @@ const playersData = {
             number: 20,
             position: "Middle Blocker",
             height: "180cm",
-            reachHeight: "315cm",
-            address: "Hưng Yên",
+            reachHeight: "290cm",
+            address: "Thái Bình",
             born: "1998",
             age: 26,
-            avatar: "images/players/middle/DuongVanDai.png"
+            avatar: "images/players/middle/DuongVanDaii.png"
         },
         {
             id: 6,
@@ -70,11 +70,11 @@ const playersData = {
             number: 24,
             position: "Middle Blocker",
             height: "175cm",
-            reachHeight: "305cm",
-            address: "Hải Phòng",
+            reachHeight: "290cm",
+            address: "Hải Dương",
             born: "2005",
             age: 20,
-            avatar: "images/players/middle/DinhVu.png"
+            avatar: "images/players/middle/NguyenDinhVu.png"
         },
         {
             id: 7,
@@ -86,7 +86,7 @@ const playersData = {
             address: "Phú Thọ",
             born: "2004",
             age: 21,
-            avatar: "images/players/middle/NguyenQuangHung.png"
+            avatar: "images/players/middle/NguyenQuangHungg.png"
         }
     ],
     junior: [
@@ -96,11 +96,11 @@ const playersData = {
             number: 1,
             position: "Outside Hitter",
             height: "176cm",
-            reachHeight: "302cm",
+            reachHeight: "285cm",
             address: "Moscow, Russia",
             born: "2005",
             age: 19,
-            avatar: "images/players/junior/Lyuba.png"
+            avatar: "images/players/junior/Liuba.png"
         },
         {
             id: 9,
@@ -108,59 +108,71 @@ const playersData = {
             number: 20,
             position: "Libero",
             height: "160cm",
-            reachHeight: "280cm",
-            address: "Quảng Bình, Việt Nam",
+            reachHeight: "260cm",
+            address: "Quảng Bình",
             born: "2006",
             age: 18,
-            avatar: "images/players/junior/PhamThiThanhBinhh.png"
+            avatar: "images/players/junior/ThanhBinh.png"
         },
         {
             id: 10,
-            name: "Sam Davis",
+            name: "Jang Wooheok",
             number: 4,
-            position: "Setter",
-            height: "180cm",
-            reachHeight: "295cm",
-            address: "Nevada, USA",
-            born: "2007",
+            position: "Outside Hitter",
+            height: "170cm",
+            reachHeight: "280cm",
+            address: "Korea",
+            born: "2008",
             age: 17,
-            avatar: "https://via.placeholder.com/300x300/2980b9/ffffff?text=SD"
+            avatar: "images/players/junior/JangWooheok.png"
         },
         {
             id: 11,
-            name: "Chris Brown",
+            name: "Yelzhas Dualatuly",
             number: 14,
-            position: "Libero",
-            height: "172cm",
-            reachHeight: "285cm",
-            address: "Colorado, USA",
-            born: "2006",
+            position: "Outside Hitter",
+            height: "175cm",
+            reachHeight: "290cm",
+            address: "Kazakhstan",
+            born: "2007",
             age: 18,
-            avatar: "https://via.placeholder.com/300x300/d35400/ffffff?text=CB"
+            avatar: "images/players/junior/YelzhasDualatuly.png"
         },
         {
             id: 12,
-            name: "Noah Garcia",
+            name: "Neo Jackson",
             number: 6,
             position: "Opposite",
-            height: "192cm",
-            reachHeight: "325cm",
-            address: "Utah, USA",
-            born: "2005",
+            height: "172cm",
+            reachHeight: "280cm",
+            address: "India",
+            born: "2008",
             age: 19,
-            avatar: "https://via.placeholder.com/300x300/8e44ad/ffffff?text=NG"
+            avatar: "images/players/junior/NeoJackson.png"
         },
         {
             id: 13,
-            name: "Ethan Lee",
+            name: "Trần Tuấn Kiệt",
             number: 10,
             position: "Middle Blocker",
-            height: "195cm",
-            reachHeight: "330cm",
-            address: "Idaho, USA",
-            born: "2006",
+            height: "176cm",
+            reachHeight: "290cm",
+            address: "Hà Nội",
+            born: "2007",
             age: 18,
-            avatar: "https://via.placeholder.com/300x300/c0392b/ffffff?text=EL"
+            avatar: "images/players/junior/TranTuanKiet.png"
+        },
+        {
+            id: 14,
+            name: "Phùng Kiến Quốc",
+            number: 10,
+            position: "Opposite",
+            height: "170cm",
+            reachHeight: "270cm",
+            address: "Hà Nội",
+            born: "2008",
+            age: 18,
+            avatar: "images/players/junior/PhungKienQuoc.png"
         }
     ]
 };
