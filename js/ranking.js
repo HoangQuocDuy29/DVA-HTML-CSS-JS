@@ -5,7 +5,7 @@ const rankingData = {
     leagueStandings: [
         {
             position: 1,
-            team: "Thunder Bolts",
+            team: "BVC",
             played: 20,
             wins: 17,
             losses: 3,
@@ -18,7 +18,7 @@ const rankingData = {
         },
         {
             position: 2,
-            team: "DVA Middle",
+            team: "Văn Quán",
             played: 18,
             wins: 14,
             losses: 4,
@@ -28,11 +28,11 @@ const rankingData = {
             points: 42,
             form: ['W', 'W', 'L', 'W', 'W'],
             category: 'champions',
-            isDVA: true
+            
         },
         {
             position: 3,
-            team: "Lightning Strikes",
+            team: "DVA Middle",
             played: 19,
             wins: 13,
             losses: 6,
@@ -41,11 +41,12 @@ const rankingData = {
             setDiff: 14,
             points: 39,
             form: ['L', 'W', 'W', 'W', 'L'],
-            category: 'playoffs'
+            category: 'playoffs',
+            isDVA: true
         },
         {
             position: 4,
-            team: "Wave Riders",
+            team: "AVC",
             played: 18,
             wins: 12,
             losses: 6,
@@ -58,7 +59,7 @@ const rankingData = {
         },
         {
             position: 5,
-            team: "DVA Junior",
+            team: "Sharks",
             played: 16,
             wins: 9,
             losses: 7,
@@ -67,12 +68,12 @@ const rankingData = {
             setDiff: 4,
             points: 27,
             form: ['W', 'L', 'W', 'L', 'W'],
-            category: 'playoffs',
-            isDVA: true
+            category: 'playoffs'
+            
         },
         {
             position: 6,
-            team: "Storm Eagles",
+            team: "Nippon",
             played: 18,
             wins: 8,
             losses: 10,
@@ -85,7 +86,7 @@ const rankingData = {
         },
         {
             position: 7,
-            team: "Cyber Wolves",
+            team: "DVA Junior",
             played: 17,
             wins: 7,
             losses: 10,
@@ -94,11 +95,12 @@ const rankingData = {
             setDiff: -8,
             points: 21,
             form: ['W', 'L', 'L', 'W', 'L'],
-            category: 'mid-table'
+            category: 'playoffs',
+            isDVA: true
         },
         {
             position: 8,
-            team: "Phoenix Fire",
+            team: "BUV",
             played: 18,
             wins: 6,
             losses: 12,
@@ -107,11 +109,13 @@ const rankingData = {
             setDiff: -17,
             points: 18,
             form: ['L', 'L', 'W', 'L', 'L'],
-            category: 'mid-table'
+            category: 'playoffs',
+            
+
         },
         {
             position: 9,
-            team: "Ice Bears",
+            team: "Black Cats",
             played: 17,
             wins: 4,
             losses: 13,
@@ -124,7 +128,7 @@ const rankingData = {
         },
         {
             position: 10,
-            team: "Desert Scorpions",
+            team: "TVC",
             played: 16,
             wins: 2,
             losses: 14,
@@ -153,18 +157,18 @@ const rankingData = {
             { name: "Tommy Wave", team: "Wave Riders", stat: "82.7%" }
         ],
         'best-blockers': [
-            { name: "Alex Rodriguez", team: "DVA Middle", stat: 156, isDVA: true },
+            { name: "Alex Rodriguez", team: "DVA Middle", stat: 156, isDVA: true,avatar: "images/ranking/MinhHieu.png" },
             { name: "Giant Mike", team: "Thunder Bolts", stat: 142 },
             { name: "Wall Steve", team: "Lightning Strikes", stat: 138 },
             { name: "Ethan Lee", team: "DVA Junior", stat: 125, isDVA: true },
             { name: "Block King", team: "Storm Eagles", stat: 119 }
         ],
         'best-setters': [
-            { name: "David Chen", team: "DVA Middle", stat: 892, isDVA: true },
-            { name: "Set Master", team: "Thunder Bolts", stat: 856 },
-            { name: "Quick Hands", team: "Wave Riders", stat: 834 },
-            { name: "Sam Davis", team: "DVA Junior", stat: 789, isDVA: true },
-            { name: "Assist Pro", team: "Lightning Strikes", stat: 767 }
+            { name: "Hoàng Quốc Duy", team: "DVA Middle", stat: 892, isDVA: true, avatar: "images/ranking/best-setter/QuocDuy.png" },
+            { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 856, isDVA: true, avatar: "images/ranking/best-setter/HoangMinhHieuu.png" },
+            { name: "Trịnh Duy Đông", team: "DVA Middle", stat: 834, isDVA: true, avatar: "images/ranking/best-setter/DuyDong.png" },
+            { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 789, isDVA: true, avatar: "images/ranking/best-setter/Bao.png" },
+            { name: "Hoàng Đình Trọng", team: "DVA Junior", stat: 767, isDVA: true, avatar: "images/ranking/best-setter/DinhTrong.png" }
         ]
     }
 };
@@ -437,6 +441,169 @@ function renderLeagueTable() {
         });
     });
 }
+// Create player avatar with image path support
+function createPlayerAvatar(player, rank) {
+    const avatarClass = `player-avatar-small rank-${rank}-avatar`;
+    const initials = getPlayerInitials(player.name);
+    
+    // Check if player has avatar path
+    if (player.avatar) {
+        return `
+            <div class="${avatarClass}" data-player="${player.name}">
+                <img src="${player.avatar}" 
+                     alt="${player.name}" 
+                     onerror="handleAvatarError(this, '${initials}')"
+                     onload="handleAvatarLoad(this)">
+            </div>
+        `;
+    } else {
+        // Fallback to initials
+        return `
+            <div class="${avatarClass}" data-player="${player.name}">
+                <span class="avatar-initials">${initials}</span>
+            </div>
+        `;
+    }
+}
+// Get player initials from full name
+function getPlayerInitials(fullName) {
+    return fullName
+        .split(' ')
+        .map(name => name.charAt(0).toUpperCase())
+        .join('')
+        .substring(0, 2); // Limit to 2 characters
+}
+// Handle avatar image load success
+function handleAvatarLoad(imgElement) {
+    const avatarContainer = imgElement.parentElement;
+    avatarContainer.classList.remove('loading', 'error');
+    
+    // Add subtle animation on load
+    imgElement.style.opacity = '0';
+    setTimeout(() => {
+        imgElement.style.opacity = '1';
+    }, 100);
+    
+    console.log('✅ Avatar loaded successfully:', imgElement.alt);
+}
+
+// Handle avatar image load error
+function handleAvatarError(imgElement, initials) {
+    const avatarContainer = imgElement.parentElement;
+    const playerName = imgElement.alt;
+    
+    console.log('❌ Avatar failed to load for:', playerName);
+    
+    // Remove the broken image
+    imgElement.remove();
+    
+    // Add error class and fallback initials
+    avatarContainer.classList.add('error');
+    avatarContainer.innerHTML = `<span class="avatar-initials">${initials}</span>`;
+    
+    // Log for debugging
+    console.log(`🔄 Fallback to initials "${initials}" for ${playerName}`);
+}
+// Enhanced function to add/update player avatar paths
+function updatePlayerAvatars(updates) {
+    // Updates should be in format: { playerName: avatarPath }
+    Object.keys(updates).forEach(playerName => {
+        const avatarPath = updates[playerName];
+        
+        // Update in all stat categories
+        Object.keys(rankingData.playerStats).forEach(category => {
+            const playerIndex = rankingData.playerStats[category].findIndex(
+                player => player.name === playerName
+            );
+            
+            if (playerIndex !== -1) {
+                rankingData.playerStats[category][playerIndex].avatar = avatarPath;
+            }
+        });
+    });
+    
+    console.log('🎨 Updated player avatars:', updates);
+    
+    // Re-render current stats if on player stats page
+    if (currentCategory === 'player') {
+        const activeStatsBtn = document.querySelector('.stats-btn.active');
+        if (activeStatsBtn) {
+            const currentStatsCategory = activeStatsBtn.dataset.stats;
+            renderPlayerStats(currentStatsCategory);
+        }
+    }
+}// Utility function to get player by name
+function getPlayerByName(playerName) {
+    for (const category of Object.keys(rankingData.playerStats)) {
+        const player = rankingData.playerStats[category].find(p => p.name === playerName);
+        if (player) {
+            return player;
+        }
+    }
+    return null;
+}
+
+// Enhanced function to add new player with avatar
+function addPlayerToStats(category, playerData) {
+    if (!rankingData.playerStats[category]) {
+        rankingData.playerStats[category] = [];
+    }
+    
+    // Ensure player has required fields
+    const player = {
+        name: playerData.name,
+        team: playerData.team,
+        stat: playerData.stat,
+        isDVA: playerData.isDVA || false,
+        avatar: playerData.avatar || null
+    };
+    
+    rankingData.playerStats[category].push(player);
+    
+    console.log(`➕ Added player ${player.name} to ${category}`);
+    
+    // Re-render if currently viewing this category
+    const activeStatsBtn = document.querySelector('.stats-btn.active');
+    if (activeStatsBtn && activeStatsBtn.dataset.stats === category) {
+        renderPlayerStats(category);
+    }
+}
+
+// Function to preload avatar images
+function preloadAvatars() {
+    const allPlayers = [];
+    
+    // Collect all players with avatars
+    Object.values(rankingData.playerStats).forEach(category => {
+        category.forEach(player => {
+            if (player.avatar) {
+                allPlayers.push(player);
+            }
+        });
+    });
+    
+    console.log(`🖼️ Preloading ${allPlayers.length} player avatars...`);
+    
+    allPlayers.forEach(player => {
+        const img = new Image();
+        img.onload = () => console.log(`✅ Preloaded: ${player.name}`);
+        img.onerror = () => console.log(`❌ Failed to preload: ${player.name}`);
+        img.src = player.avatar;
+    });
+}
+// Make functions globally available
+window.handleAvatarLoad = handleAvatarLoad;
+window.handleAvatarError = handleAvatarError;
+window.updatePlayerAvatars = updatePlayerAvatars;
+window.addPlayerToStats = addPlayerToStats;
+
+// Initialize avatar preloading when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    initRankingPage();
+    
+    // Preload avatars after a short delay
+    setTimeout(preloadAvatars, 1000);
+});
 
 // Render player stats
 function renderPlayerStats(category) {
@@ -455,9 +622,7 @@ function renderPlayerStats(category) {
     container.innerHTML = stats.map((player, index) => `
         <div class="player-stat-card fade-in ${player.isDVA ? 'dva-player' : ''}" data-player="${player.name}">
             <div class="stat-rank rank-${index + 1}">${index + 1}</div>
-            <div class="player-avatar-small">
-                ${player.name.split(' ').map(n => n[0]).join('')}
-            </div>
+            ${createPlayerAvatar(player, index + 1)}
             <h4 class="player-name">${player.name}</h4>
             <div class="player-team">${player.team}</div>
             <div class="stat-value">${player.stat}${isPercentage ? '' : ''}</div>
