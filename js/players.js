@@ -13,7 +13,7 @@ const playersData = {
             address: "Hưng Yên",
             born: "2003",
             age: 22,
-            avatar: "images/players/middle/HoangQuocDuyyy.png",
+            avatar: "images/players/middle/HoangQuocDuy.png",
             isCaptain: true
         },
         {
