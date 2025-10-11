@@ -110,7 +110,7 @@ const playersData = {
             height: "160cm",
             reachHeight: "260cm",
             address: "Quảng Bình",
-            born: "2006",
+            born: "2007",
             age: 18,
             avatar: "images/players/junior/ThanhBinh.png"
         },
