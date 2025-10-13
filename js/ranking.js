@@ -265,6 +265,12 @@ function handleCategorySwitch(e) {
             case 'player':
                 renderPlayerStats('top-scorers');
                 break;
+            case 'dream-team':
+                // Force re-render every time dream team is accessed
+                setTimeout(() => {
+                    renderDreamTeam();
+                }, 100);
+                break;
             case 'tournament':
                 // Tournament data is static in HTML for this demo
                 break;
@@ -742,3 +748,516 @@ if (typeof module !== 'undefined' && module.exports) {
         handleTableFilter
     };
 }
+// Dream Team data - Updated
+const dreamTeamData = {
+    champions: [
+        {
+            rank: 1,
+            team: "BVC",
+            logo: "images/ranking/dream-team/champions/BVC1.png",
+            title: "Champion",
+            finalScore: "2-1",
+            record: "",
+            tournament: "DVA Open Cup"
+        },
+        {
+            rank: 2,
+            team: "Văn Quán",
+            logo: "images/ranking/dream-team/champions/van-quan.png",
+            title: "Runner-up",
+            finalScore: "1-2",
+            record: "",
+            tournament: "DVA Open Cup"
+        },
+        {
+            rank: 3,
+            team: "DVA Middle",
+            logo: "images/ranking/dream-team/champions/DVA.png",
+            title: "3rd Place",
+            finalScore: "2-1",
+            record: "",
+            tournament: "DVA Open Cup"
+        }
+    ],
+    awards: {
+        'outside-hitters': [
+            {
+                name: "Michael Johnson",
+                team: "DVA Middle",
+                isDVA: true,
+                avatar: "images/ranking/players/michael-johnson.jpg",
+                stats: { attackPercent: "89.5%", points: 342 },
+                award: "gold"
+            },
+            {
+                name: "Alex Thunder",
+                team: "Thunder Bolts",
+                isDVA: false,
+                avatar: "images/ranking/players/alex-thunder.jpg",
+                stats: { attackPercent: "87.2%", points: 318 },
+                award: "silver"
+            }
+        ],
+        'middle-blockers': [
+            {
+                name: "Alex Rodriguez",
+                team: "DVA Middle",
+                isDVA: true,
+                avatar: "images/ranking/players/alex-rodriguez.jpg",
+                stats: { blocks: 156, blockPercent: "78.5%" },
+                award: "gold"
+            },
+            {
+                name: "Giant Mike",
+                team: "Thunder Bolts",
+                isDVA: false,
+                avatar: "images/ranking/players/giant-mike.jpg",
+                stats: { blocks: 142, blockPercent: "76.2%" },
+                award: "silver"
+            }
+        ],
+        'opposite-hitter': [
+            {
+                name: "Ryan Fire",
+                team: "Phoenix Fire",
+                isDVA: false,
+                avatar: "images/ranking/players/ryan-fire.jpg",
+                stats: { attackPercent: "85.8%", points: 289 },
+                award: "gold"
+            }
+        ],
+        'setter': [
+            {
+                name: "Hoàng Quốc Duy",
+                team: "DVA Middle",
+                isDVA: true,
+                avatar: "images/ranking/players/hoang-quoc-duy.jpg",
+                stats: { assists: 892, setPercent: "94.2%" },
+                award: "gold"
+            }
+        ],
+        'libero': [
+            {
+                name: "Libero Master",
+                team: "Lightning Strikes",
+                isDVA: false,
+                avatar: "images/ranking/players/libero-master.jpg",
+                stats: { digs: 456, digPercent: "92.8%" },
+                award: "gold"
+            }
+        ],
+        'mvp': [
+            {
+                name: "Hoàng Quốc Duy", // Changed from Libero Master to match your data
+                team: "DVA Middle",
+                isDVA: true,
+                avatar: "images/ranking/players/hoang-quoc-duy.jpg", // Updated avatar
+                stats: { overallRating: "9.2/10", impactScore: "98.5%" },
+                award: "mvp"
+            }
+        ]
+    }
+};
+function handleCategorySwitch(e) {
+    const category = e.target.dataset.category;
+    if (category !== currentCategory) {
+        currentCategory = category;
+        
+        // Update active button
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Update active content
+        rankingContents.forEach(content => content.classList.remove('active'));
+        document.getElementById(`${category}-content`).classList.add('active');
+        
+        // Load specific content based on category
+        switch (category) {
+            case 'league':
+                renderLeagueTable();
+                break;
+            case 'player':
+                renderPlayerStats('top-scorers');
+                break;
+            case 'dream-team':
+                // Force re-render every time dream team is accessed
+                setTimeout(() => {
+                    renderDreamTeam();
+                }, 100);
+                break;
+            case 'tournament':
+                // Tournament data is static in HTML for this demo
+                break;
+            case 'season':
+                // Season records are static in HTML for this demo
+                break;
+        }
+    }
+}
+
+// Enhanced Render Dream Team content với dynamic rendering
+function renderDreamTeam() {
+    console.log('🏆 Rendering Dream Team content dynamically');
+    
+    // Always clear and re-render
+    clearDreamTeamContent();
+    
+    // Render Championship Podium
+    renderChampionshipPodium();
+    
+    // Render Dream Team Awards  
+    renderDreamTeamAwards();
+    
+    // Add animations with delay to ensure content is rendered
+    setTimeout(() => {
+        animatePodiumCards();
+        animateDreamTeamCards();
+        setupDreamTeamInteractions();
+    }, 200);
+}
+// Clear existing content before re-rendering
+function clearDreamTeamContent() {
+    const podiumContainer = document.querySelector('.podium-container');
+    const dreamTeamGrid = document.querySelector('.dream-team-grid');
+    
+    if (podiumContainer) {
+        podiumContainer.innerHTML = '<div class="loading">Loading champions...</div>';
+    }
+    
+    if (dreamTeamGrid) {
+        dreamTeamGrid.innerHTML = '<div class="loading">Loading awards...</div>';
+    }
+}
+// Render Championship Podium dynamically
+function renderChampionshipPodium() {
+    const podiumContainer = document.querySelector('.podium-container');
+    if (!podiumContainer) {
+        console.error('❌ Podium container not found');
+        return;
+    }
+    
+    console.log('🏆 Rendering championship podium...');
+    
+    // Sort champions: 2nd, 1st, 3rd for podium display
+    const sortedChampions = [
+        dreamTeamData.champions.find(c => c.rank === 2), // Second place
+        dreamTeamData.champions.find(c => c.rank === 1), // First place  
+        dreamTeamData.champions.find(c => c.rank === 3)  // Third place
+    ].filter(Boolean);
+    
+    if (sortedChampions.length === 0) {
+        podiumContainer.innerHTML = '<div class="no-data">No championship data available</div>';
+        return;
+    }
+    
+    podiumContainer.innerHTML = sortedChampions.map((champion, index) => {
+        const position = champion.rank === 1 ? 'first-place' : 
+                        champion.rank === 2 ? 'second-place' : 'third-place';
+        
+        const crownClass = champion.rank === 1 ? 'champion' : '';
+        const logoClass = champion.rank === 1 ? 'champion-logo' : '';
+        const crownIcon = champion.rank === 1 ? 'fas fa-crown' : 'fas fa-medal';
+        
+        return `
+            <div class="podium-card ${position}" data-rank="${champion.rank}">
+                <div class="rank-crown ${crownClass}">
+                    <i class="${crownIcon}"></i>
+                    <span class="rank-number">${champion.rank}</span>
+                </div>
+                <div class="team-logo ${logoClass}">
+                    <img src="${champion.logo}" alt="${champion.team}" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="logo-placeholder" style="display: none;">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                </div>
+                <h4 class="team-name">${champion.team}</h4>
+                <div class="rank-title">${champion.title}</div>
+                ${champion.rank === 1 ? `
+                    <div class="champion-badge">
+                        <i class="fas fa-trophy"></i>
+                        <span>${champion.tournament} Winner</span>
+                    </div>
+                ` : ''}
+                <div class="team-stats">
+                    <div class="stat">
+                        <span class="label">${champion.rank === 3 ? '3rd Place Game' : 'Final Score'}</span>
+                        <span class="value">${champion.finalScore}</span>
+                    </div>
+                    ${champion.record ? `
+                        <div class="stat">
+                            <span class="label">Record</span>
+                            <span class="value">${champion.record}</span>
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    console.log('✅ Championship podium rendered successfully');
+}
+
+// Render Dream Team Awards dynamically
+function renderDreamTeamAwards() {
+    const dreamTeamGrid = document.querySelector('.dream-team-grid');
+    if (!dreamTeamGrid) {
+        console.error('❌ Dream team grid not found');
+        return;
+    }
+    
+    console.log('🏅 Rendering dream team awards...');
+    
+    // Award categories configuration
+    const awardCategories = [
+        {
+            key: 'outside-hitters',
+            title: 'Best Outside Hitters',
+            icon: 'fas fa-volleyball-ball',
+            isMultiple: true
+        },
+        {
+            key: 'middle-blockers', 
+            title: 'Best Middle Blockers',
+            icon: 'fas fa-shield-alt',
+            isMultiple: true
+        },
+        {
+            key: 'opposite-hitter',
+            title: 'Best Opposite Hitter', 
+            icon: 'fas fa-crosshairs',
+            isMultiple: false
+        },
+        {
+            key: 'setter',
+            title: 'Best Setter',
+            icon: 'fas fa-hands', 
+            isMultiple: false
+        },
+        {
+            key: 'libero',
+            title: 'Best Libero',
+            icon: 'fas fa-user-shield',
+            isMultiple: false
+        },
+        {
+            key: 'mvp',
+            title: 'Most Valuable Player',
+            icon: 'fas fa-star',
+            isMultiple: false
+        }
+    ];
+    
+    dreamTeamGrid.innerHTML = awardCategories.map(category => {
+        const awards = dreamTeamData.awards[category.key] || [];
+        
+        if (awards.length === 0) {
+            return `
+                <div class="award-category">
+                    <h4 class="category-title">
+                        <i class="${category.icon}"></i>
+                        ${category.title}
+                    </h4>
+                    <div class="awards-group ${!category.isMultiple ? 'single-award' : ''}">
+                        <div class="no-awards">No awards data available</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        return `
+            <div class="award-category" data-category="${category.key}">
+                <h4 class="category-title">
+                    <i class="${category.icon}"></i>
+                    ${category.title}
+                </h4>
+                <div class="awards-group ${!category.isMultiple ? 'single-award' : ''}">
+                    ${awards.map((player, index) => createPlayerAwardCard(player, index)).join('')}
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    console.log('✅ Dream team awards rendered successfully');
+}
+
+// Create individual player award card
+function createPlayerAwardCard(player, index) {
+    const awardClass = player.award === 'mvp' ? 'mvp-award' : 
+                      player.award === 'gold' ? 'gold-award' : 
+                      player.award === 'silver' ? 'silver-award' : 'gold-award';
+    
+    const badgeIcon = player.award === 'mvp' ? 'fas fa-crown' : 'fas fa-medal';
+    const badgeText = player.award === 'mvp' ? 'MVP' : 
+                     player.award === 'gold' ? 'Gold' : 'Silver';
+    
+    const initials = getPlayerInitials(player.name);
+    
+    // Generate stats HTML based on what stats are available
+    const statsHTML = generateStatsHTML(player.stats);
+    
+    return `
+        <div class="dream-team-card ${awardClass}" data-player="${player.name}" data-award="${player.award}">
+            <div class="award-badge ${player.award === 'mvp' ? 'mvp-badge' : ''}">
+                <i class="${badgeIcon}"></i>
+                <span>${badgeText}</span>
+            </div>
+            <div class="player-avatar-dream">
+                <img src="${player.avatar}" alt="${player.name}" 
+                     onerror="handleAvatarError(this, '${initials}')">
+            </div>
+            <h5 class="player-name">${player.name}</h5>
+            <div class="player-team ${player.isDVA ? 'dva-team' : ''}">${player.team}</div>
+            <div class="award-stats">
+                ${statsHTML}
+            </div>
+        </div>
+    `;
+}
+
+// Add debugging function to test data changes
+function testDreamTeamUpdate() {
+    console.log('🧪 Testing Dream Team update...');
+    
+    // Update MVP player name as example
+    updatePlayerAward('mvp', 'Hoàng Quốc Duy', {
+        name: 'Hoàng Quốc Duy - Updated',
+        stats: { overallRating: "9.8/10", impactScore: "99.9%" }
+    });
+    
+    console.log('✅ Test update completed');
+}
+
+// Add CSS for loading and no-data states
+const additionalStyles = `
+<style>
+.loading, .no-data, .no-awards {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.loading i {
+    font-size: 2rem;
+    color: #e74c3c;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.no-data, .no-awards {
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px dashed #ddd;
+}
+</style>
+`;
+
+// Add styles to head if not already present
+if (!document.getElementById('dream-team-dynamic-styles')) {
+    const styleElement = document.createElement('div');
+    styleElement.id = 'dream-team-dynamic-styles';
+    styleElement.innerHTML = additionalStyles;
+    document.head.appendChild(styleElement);
+}
+
+// Generate stats HTML based on available stats
+function generateStatsHTML(stats) {
+    const statMappings = {
+        attackPercent: 'Attack %',
+        points: 'Points',
+        blocks: 'Blocks', 
+        blockPercent: 'Block %',
+        assists: 'Assists',
+        setPercent: 'Set %',
+        digs: 'Digs',
+        digPercent: 'Dig %',
+        overallRating: 'Overall Rating',
+        impactScore: 'Impact Score'
+    };
+    
+    return Object.entries(stats).map(([key, value]) => {
+        const label = statMappings[key] || key;
+        return `
+            <div class="stat">
+                <span class="label">${label}</span>
+                <span class="value">${value}</span>
+            </div>
+        `;
+    }).join('');
+}
+
+// Update Dream Team data function
+function updateDreamTeamData(newData) {
+    // Merge new data with existing data
+    if (newData.champions) {
+        dreamTeamData.champions = newData.champions;
+    }
+    
+    if (newData.awards) {
+        Object.keys(newData.awards).forEach(category => {
+            dreamTeamData.awards[category] = newData.awards[category];
+        });
+    }
+    
+    // Re-render if currently viewing dream team
+    if (currentCategory === 'dream-team') {
+        renderDreamTeam();
+    }
+    
+    console.log('🔄 Dream Team data updated and re-rendered');
+}
+
+// Add new award category
+function addAwardCategory(categoryKey, categoryData) {
+    dreamTeamData.awards[categoryKey] = categoryData;
+    
+    // Re-render if currently viewing dream team
+    if (currentCategory === 'dream-team') {
+        renderDreamTeam();
+    }
+    
+    console.log(`➕ Added new award category: ${categoryKey}`);
+}
+
+// Update specific player award
+function updatePlayerAward(categoryKey, playerName, newData) {
+    const category = dreamTeamData.awards[categoryKey];
+    if (!category) return false;
+    
+    const playerIndex = category.findIndex(p => p.name === playerName);
+    if (playerIndex === -1) return false;
+    
+    // Merge new data with existing player data
+    dreamTeamData.awards[categoryKey][playerIndex] = {
+        ...dreamTeamData.awards[categoryKey][playerIndex],
+        ...newData
+    };
+    
+    // Re-render if currently viewing dream team
+    if (currentCategory === 'dream-team') {
+        renderDreamTeam();
+    }
+    
+    console.log(`🔄 Updated ${playerName} in ${categoryKey}`);
+    return true;
+}
+
+// Export new functions
+window.updateDreamTeamData = updateDreamTeamData;
+window.addAwardCategory = addAwardCategory;
+window.updatePlayerAward = updatePlayerAward;
+window.testDreamTeamUpdate = testDreamTeamUpdate;
+console.log('🔄 Dynamic Dream Team system updated - HTML content will now sync with JS data');
+// Update initialization to use dynamic rendering
+document.addEventListener('DOMContentLoaded', () => {
+    initRankingPage();
+    
+    // Initialize dream team rendering if it's the active category
+    if (currentCategory === 'dream-team') {
+        setTimeout(renderDreamTeam, 100);
+    }
+});
+
+console.log('🏆 Dynamic Dream Team rendering system loaded');

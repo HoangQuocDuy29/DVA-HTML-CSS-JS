@@ -1048,3 +1048,443 @@
         font-size: 1.2rem;
     }
 }
+/* Championship Podium Styles */
+.championship-section {
+    margin-bottom: 4rem;
+}
+
+.championship-section h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.championship-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+    border-radius: 2px;
+}
+
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.podium-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 280px;
+    border: 3px solid transparent;
+}
+
+.podium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.podium-card.first-place {
+    border-color: #f39c12;
+    background: linear-gradient(135deg, #fff, #fff9e6);
+    transform: scale(1.1);
+    z-index: 3;
+    height: 500px;
+}
+
+.podium-card.second-place {
+    border-color: #95a5a6;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    z-index: 2;
+    height: 420px;
+}
+
+.podium-card.third-place {
+    border-color: #cd7f32;
+    background: linear-gradient(135deg, #fff, #fdf4e6);
+    z-index: 1;
+    height: 340px;
+}
+
+.rank-crown {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rank-crown.champion {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+}
+
+.podium-card.second-place .rank-crown {
+    background: linear-gradient(135deg, #95a5a6, #bdc3c7);
+}
+
+.podium-card.third-place .rank-crown {
+    background: linear-gradient(135deg, #cd7f32, #d4ac6a);
+}
+
+.team-logo {
+    width: 100px;
+    height: 100px;
+    margin: 2rem auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.team-logo.champion-logo {
+    border-color: #f39c12;
+    width: 120px;
+    height: 120px;
+}
+
+.team-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.podium-card .team-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.rank-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.champion-badge {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.team-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.team-stats .stat {
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-stats .label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.team-stats .value {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Dream Team Awards Styles */
+.dream-team-section {
+    margin-top: 4rem;
+}
+
+.dream-team-section h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.dream-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.award-category {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #e74c3c;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.category-title i {
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+.awards-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.awards-group.single-award {
+    justify-content: center;
+}
+
+.dream-team-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    border: 2px solid transparent;
+}
+
+.dream-team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dream-team-card.gold-award {
+    background: linear-gradient(135deg, #fff9e6, #ffffff);
+    border-color: #f39c12;
+}
+
+.dream-team-card.silver-award {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-color: #95a5a6;
+}
+
+.award-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.silver-award .award-badge {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+}
+
+.player-avatar-dream {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dream-team-card.gold-award .player-avatar-dream {
+    border-color: #f39c12;
+}
+
+.dream-team-card.silver-award .player-avatar-dream {
+    border-color: #95a5a6;
+}
+
+.player-avatar-dream:hover {
+    transform: scale(1.05);
+}
+
+.player-avatar-dream img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dream-team-card .player-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.dream-team-card .player-team {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.dream-team-card .player-team.dva-team {
+    color: #e74c3c;
+}
+
+.award-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.award-stats .stat {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.award-stats .label {
+    color: #666;
+}
+
+.award-stats .value {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dream-team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .podium-card.first-place {
+        order: -1;
+        transform: none;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .podium-card {
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+    
+    .team-logo,
+    .team-logo.champion-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .dream-team-grid {
+        gap: 2rem;
+    }
+    
+    .award-category {
+        padding: 1.5rem;
+    }
+    
+    .awards-group {
+        flex-direction: column;
+    }
+    
+    .dream-team-card {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .podium-card {
+        min-width: 220px;
+        padding: 1rem;
+    }
+    
+    .championship-section h3,
+    .dream-team-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+    
+    .player-avatar-dream {
+        width: 60px;
+        height: 60px;
+    }
+}
+
