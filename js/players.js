@@ -82,7 +82,7 @@ const playersData = {
             number: 9,
             position: "Outside Hitter",
             height: "180cm",
-            reachHeight: "330cm",
+            reachHeight: "320cm",
             address: "Phú Thọ",
             born: "2004",
             age: 21,
@@ -99,11 +99,96 @@ const playersData = {
             born: "2005",
             age: 18,
             avatar: "images/players/middle/NungGiaBao.png"
-        }
+        },
+        {
+            id: 17,
+            name: "Bùi Ngọc Chiến",
+            number: 21,
+            position: "Outside Hitter",
+            height: "175cm",
+            reachHeight: "310cm",
+            address: "Ninh Bình",
+            born: "2004",
+            age: 21,
+            avatar: "images/players/middle/NgocChien.png"
+        },
+        {
+            id: 18,
+            name: "Hải Đăng",
+            number: 18,
+            position: "Setter",
+            height: "165cm",
+            reachHeight: "285cm",
+            address: "Nghệ An",
+            born: "---",
+            age: 21,
+            avatar: "images/players/middle/HaiDangg.png"
+        },
+        {
+            id: 19,
+            name: "Phạm Anh Quân",
+            number: 45,
+            position: "Outside Hitter",
+            height: "177cm",
+            reachHeight: "305cm",
+            address: "Hoà Bình",
+            born: "2004",
+            age: 21,
+            avatar: "images/players/middle/PhamAnhQuan.png"
+        },
+        {
+            id: 20,
+            name: "Lê Hải Dương",
+            number: 11,
+            position: "Outside Hitter",
+            height: "175cm",
+            reachHeight: "305cm",
+            address: "Hải Dương",
+            born: "2004",
+            age: 21,
+            avatar: "images/players/middle/LeHaiDuong.png"
+        },
+        {
+            id: 21,
+            name: "Nguyễn Tiến Bảo Hưng",
+            number: 11,
+            position: "Outside Hitter",
+            height: "175cm",
+            reachHeight: "300cm",
+            address: "Nghệ An",
+            born: "2004",
+            age: 21,
+            avatar: "images/players/middle/BaoHung.png"
+        },
+        {
+            id: 22,
+            name: "Lê Hải Nam",
+            number: 11,
+            position: "Middle Blocker",
+            height: "172cm",
+            reachHeight: "300cm",
+            address: "---",
+            born: "2005",
+            age: 21,
+            avatar: "images/players/middle/HaiNam.png"
+        },
+        {
+            id: 23,
+            name: "Đồng Hữu Hiếu",
+            number: 22,
+            position: "Outside Hitter",
+            height: "178cm",
+            reachHeight: "320cm",
+            address: "Hải Dương",
+            born: "1997",
+            age: 26,
+            avatar: "images/players/middle/HuuHieu.png"
+        },
+        
     ],
     junior: [
         {
-            id: 1,
+            id: 9,
             name: "Artiukh Lyubov",
             number: 1,
             position: "Outside Hitter",
@@ -115,7 +200,7 @@ const playersData = {
             avatar: "images/players/junior/Liuba.png"
         },
         {
-            id: 2,
+            id: 10,
             name: "Phạm Thị Thanh Bình",
             number: 20,
             position: "Libero",
@@ -127,11 +212,11 @@ const playersData = {
             avatar: "images/players/junior/ThanhBinh.png"
         },
         {
-            id: 3,
+            id: 11,
             name: "Jang Wooheok",
             number: 4,
             position: "Outside Hitter",
-            height: "170cm",
+            height: "173cm",
             reachHeight: "280cm",
             address: "Korea",
             born: "2008",
@@ -139,7 +224,7 @@ const playersData = {
             avatar: "images/players/junior/JangWooheok.png"
         },
         {
-            id: 4,
+            id: 12,
             name: "Yelzhas Dualatuly",
             number: 14,
             position: "Outside Hitter",
@@ -151,7 +236,7 @@ const playersData = {
             avatar: "images/players/junior/YelzhasDualatuly.png"
         },
         {
-            id: 5,
+            id: 13,
             name: "Neo Jackson",
             number: 6,
             position: "Opposite",
@@ -163,7 +248,7 @@ const playersData = {
             avatar: "images/players/junior/NeoJackson.png"
         },
         {
-            id: 6,
+            id: 14,
             name: "Trần Tuấn Kiệt",
             number: 10,
             position: "Middle Blocker",
@@ -175,7 +260,7 @@ const playersData = {
             avatar: "images/players/junior/TranTuanKiet.png"
         },
         {
-            id: 7,
+            id: 15,
             name: "Phùng Kiến Quốc",
             number: 10,
             position: "Opposite",
@@ -187,7 +272,7 @@ const playersData = {
             avatar: "images/players/junior/PhungKienQuoc.png"
         },
          {
-            id: 8,
+            id: 16,
             name: "Ali Nam Janjua",
             number: 11,
             position: "Middle Blocker",

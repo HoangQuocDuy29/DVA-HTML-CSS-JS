@@ -32,7 +32,7 @@ const rankingData = {
         },
         {
             position: 3,
-            team: "DVA Middle",
+            team: "AVC",
             played: 19,
             wins: 13,
             losses: 6,
@@ -42,11 +42,11 @@ const rankingData = {
             points: 39,
             form: ['L', 'W', 'W', 'W', 'L'],
             category: 'playoffs',
-            isDVA: true
+            
         },
         {
             position: 4,
-            team: "AVC",
+            team: "Sharks",
             played: 18,
             wins: 12,
             losses: 6,
@@ -59,7 +59,7 @@ const rankingData = {
         },
         {
             position: 5,
-            team: "Sharks",
+            team: "DVA Middle",
             played: 16,
             wins: 9,
             losses: 7,
@@ -68,7 +68,8 @@ const rankingData = {
             setDiff: 4,
             points: 27,
             form: ['W', 'L', 'W', 'L', 'W'],
-            category: 'playoffs'
+            category: 'playoffs',
+            isDVA: true
             
         },
         {
@@ -143,28 +144,39 @@ const rankingData = {
     
     playerStats: {
         'top-scorers': [
-            { name: "Michael Johnson", team: "DVA Middle", stat: 342, isDVA: true },
-            { name: "Alex Thunder", team: "Thunder Bolts", stat: 318 },
-            { name: "Ryan Martinez", team: "Lightning Strikes", stat: 295 },
-            { name: "James Wilson", team: "DVA Middle", stat: 287, isDVA: true },
-            { name: "Kevin Storm", team: "Storm Eagles", stat: 276 }
+            { name: "Đặng Văn Huy", team: "BVC", stat: 350, avatar: "images/ranking/top-scorers/VanHuy.png" },
+            { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 342, isDVA: true, avatar: "images/ranking/top-scorers/HoangMinhHieuu.png" },
+            { name: "Nguyễn Đức Hoàng", team: "DVA Middle", stat: 318, isDVA: true, avatar: "images/ranking/top-scorers/NguyenDucHoang.png" },
+            { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 287, isDVA: true, avatar: "images/ranking/top-scorers/NguyenNgocBao.jpg" },
+            { name: "Phạm Huy Giáp", team: "Sharks", stat: 280, avatar: "images/ranking/top-scorers/PhamHuyGiap.png" },
+            { name: "Trần Duy Nhất", team: "GEVC", stat: 276, avatar: "images/ranking/top-scorers/Nhat.png" },
+            { name: "Bùi Ngọc Chiến", team: "DVA Middle", stat: 260, isDVA: true, avatar: "images/ranking/top-scorers/BuiNgocChien.png" },
+            { name: "Lê Quang Duy", team: "BUV", stat: 256, avatar: "images/ranking/top-scorers/LeDuyy.png" },
+            { name: "Lê Xuân Khánh", team: "AVC", stat: 276, avatar: "images/ranking/top-scorers/LeXuanKhanhh.png" },
+            { name: "Ngô Thành Công", team: "Nippon", stat: 270, avatar: "images/ranking/top-scorers/ThanhCong.png" },
+            { name: "Hà Minh Huy", team: "Nippon", stat: 269, avatar: "images/ranking/top-scorers/Pho.png" },
+            { name: "Lê Hải Nam", team: "DVA Middle", stat: 265, avatar: "images/ranking/top-scorers/HaiNam.png" },
+
         ],
         'best-attackers': [
-            { name: "James Wilson", team: "DVA Middle", stat: "89.5%", isDVA: true },
-            { name: "Alex Thunder", team: "Thunder Bolts", stat: "87.2%" },
-            { name: "Ryan Fire", team: "Phoenix Fire", stat: "85.8%" },
-            { name: "Michael Johnson", team: "DVA Middle", stat: "84.3%", isDVA: true },
-            { name: "Tommy Wave", team: "Wave Riders", stat: "82.7%" }
+            { name: "Bùi Ngọc Chiến", team: "DVA Middle", stat: "89.5%", isDVA: true, avatar: "images/ranking/best-attacker/BuiNgocChien.png" },
+            { name: "Nguyễn Quang Hưng", team: "DVA Middle", stat: "87.2%", avatar: "images/ranking/best-attacker/QuangHung.png"  },
+            { name: "Phan Tiến Nam", team: "DVA Middle", stat: "85.8%", avatar: "images/ranking/best-attacker/PhanTienNam.png"  },
+            { name: "Phạm Anh Quân", team: "DVA Middle", stat: "84.3%", isDVA: true, avatar: "images/ranking/best-attacker/PhamAnhQuan.png"  },
+            { name: "Cao Minh Chiến", team: "DVA Middle", stat: "82.7%", avatar: "images/ranking/best-attacker/CaoMinhChien.png"  },
+            { name: "Hồ Nam Giang", team: "DVA Middle", stat: "81.7%", avatar: "images/ranking/best-attacker/HoNamGiang.png"  }
         ],
         'best-blockers': [
-            { name: "Alex Rodriguez", team: "DVA Middle", stat: 156, isDVA: true,avatar: "images/ranking/MinhHieu.png" },
-            { name: "Giant Mike", team: "Thunder Bolts", stat: 142 },
-            { name: "Wall Steve", team: "Lightning Strikes", stat: 138 },
-            { name: "Ethan Lee", team: "DVA Junior", stat: 125, isDVA: true },
-            { name: "Block King", team: "Storm Eagles", stat: 119 }
+            { name: "Đoàn Nam Cường", team: "DVA Middle", stat: 156, isDVA: true,avatar: "images/ranking/best-blocker/DoanNamCuong.png" },
+            { name: "Nguyễn Đức Linh", team: "DVA Middle", stat: 142, isDVA: true, avatar: "images/ranking/best-blocker/NguyenDucLinh.png" },
+            { name: "Nguyễn Minh Tuấn Anh", team: "DVA Middle", stat: 138, isDVA: true, avatar: "images/ranking/best-blocker/NguyenMinhTuanAnh.png" },
+            { name: "Dương Văn Đại", team: "DVA Middle", stat: 125, isDVA: true, avatar: "images/ranking/best-blocker/DuongVanDai.png" },
+            { name: "Lê Hải Dương", team: "DVA Middle", stat: 119, isDVA: true, avatar: "images/ranking/best-blocker/LeHaiDuong.png" },
+            { name: "Nguyễn Văn Thắng", team: "DVA Middle", stat: 110, isDVA: true, avatar: "images/ranking/best-blocker/NguyenVanThang.png" }
         ],
         'best-setters': [
             { name: "Hoàng Quốc Duy", team: "DVA Middle", stat: 892, isDVA: true, avatar: "images/ranking/best-setter/QuocDuy.png" },
+            { name: "Nguyễn Đức Hoàng", team: "DVA Middle", stat: 870, isDVA: true, avatar: "images/ranking/best-setter/NguyenDucHoang.png" },
             { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 856, isDVA: true, avatar: "images/ranking/best-setter/HoangMinhHieuu.png" },
             { name: "Trịnh Duy Đông", team: "DVA Middle", stat: 834, isDVA: true, avatar: "images/ranking/best-setter/DuyDong.png" },
             { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 789, isDVA: true, avatar: "images/ranking/best-setter/Bao.png" },
@@ -771,10 +783,10 @@ const dreamTeamData = {
         },
         {
             rank: 3,
-            team: "DVA Middle",
-            logo: "images/ranking/dream-team/champions/DVA.png",
+            team: "AVC",
+            logo: "images/ranking/dream-team/champions/AVC.png",
             title: "3rd Place",
-            finalScore: "2-1",
+            finalScore: "2-0",
             record: "",
             tournament: "DVA Open Cup"
         }
@@ -782,16 +794,16 @@ const dreamTeamData = {
     awards: {
         'outside-hitters': [
             {
-                name: "Michael Johnson",
-                team: "DVA Middle",
+                name: "Phong",
+                team: "BVC",
                 isDVA: true,
                 avatar: "images/ranking/players/michael-johnson.jpg",
                 stats: { attackPercent: "89.5%", points: 342 },
                 award: "gold"
             },
             {
-                name: "Alex Thunder",
-                team: "Thunder Bolts",
+                name: "Cao Cường",
+                team: "Văn Quán",
                 isDVA: false,
                 avatar: "images/ranking/players/alex-thunder.jpg",
                 stats: { attackPercent: "87.2%", points: 318 },
@@ -800,16 +812,16 @@ const dreamTeamData = {
         ],
         'middle-blockers': [
             {
-                name: "Alex Rodriguez",
-                team: "DVA Middle",
+                name: "Văn Phương",
+                team: "BVC",
                 isDVA: true,
                 avatar: "images/ranking/players/alex-rodriguez.jpg",
                 stats: { blocks: 156, blockPercent: "78.5%" },
                 award: "gold"
             },
             {
-                name: "Giant Mike",
-                team: "Thunder Bolts",
+                name: "Đình Hưởng",
+                team: "AVC",
                 isDVA: false,
                 avatar: "images/ranking/players/giant-mike.jpg",
                 stats: { blocks: 142, blockPercent: "76.2%" },
@@ -818,8 +830,8 @@ const dreamTeamData = {
         ],
         'opposite-hitter': [
             {
-                name: "Ryan Fire",
-                team: "Phoenix Fire",
+                name: "Đình Khang",
+                team: "Văn Quán",
                 isDVA: false,
                 avatar: "images/ranking/players/ryan-fire.jpg",
                 stats: { attackPercent: "85.8%", points: 289 },
@@ -828,8 +840,8 @@ const dreamTeamData = {
         ],
         'setter': [
             {
-                name: "Hoàng Quốc Duy",
-                team: "DVA Middle",
+                name: "Đặng Văn Huy",
+                team: "BVC",
                 isDVA: true,
                 avatar: "images/ranking/players/hoang-quoc-duy.jpg",
                 stats: { assists: 892, setPercent: "94.2%" },
@@ -838,8 +850,8 @@ const dreamTeamData = {
         ],
         'libero': [
             {
-                name: "Libero Master",
-                team: "Lightning Strikes",
+                name: "Tuấn Vinh",
+                team: "Sharks",
                 isDVA: false,
                 avatar: "images/ranking/players/libero-master.jpg",
                 stats: { digs: 456, digPercent: "92.8%" },
@@ -848,8 +860,8 @@ const dreamTeamData = {
         ],
         'mvp': [
             {
-                name: "Hoàng Quốc Duy", // Changed from Libero Master to match your data
-                team: "DVA Middle",
+                name: "Đăng Hải",
+                team: "BVC",
                 isDVA: true,
                 avatar: "images/ranking/players/hoang-quoc-duy.jpg", // Updated avatar
                 stats: { overallRating: "9.2/10", impactScore: "98.5%" },
