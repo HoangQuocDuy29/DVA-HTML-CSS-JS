@@ -150,7 +150,7 @@
                         <form class="contact-form active" id="registration-form"
                             data-form="registration">
                             <div class="form-header">
-                                <h3>Player Registration</h3>
+                                <h3>Form Đăng Ký</h3>
                                 <p>Join DVA Volleyball Club - Register
                                     today!</p>
                             </div>
@@ -158,34 +158,35 @@
                             <div class="form-grid">
                                 <!-- Full Name -->
                                 <div class="form-group">
-                                    <label for="reg-fullname">Full Name
+                                    <label for="reg-fullname">Họ và Tên
                                         *</label>
                                     <input type="text" id="reg-fullname"
                                         name="fullname" required
-                                        placeholder="Enter your full name">
+                                        placeholder="Nhập họ và tên của bạn">
                                 </div>
 
                                 <!-- Position -->
                                 <div class="form-group">
-                                    <label for="reg-position">Position *</label>
+                                    <label for="reg-position">Vị trí *</label>
                                     <select id="reg-position" name="position"
                                         required>
-                                        <option value>Select your
-                                            position</option>
+                                        <option value>Chọn vị trí sở trường của
+                                            bạn trên sân bóng</option>
                                         <option value="outside-hitter">Outside
-                                            Hitter</option>
+                                            Hitter (Chủ Sông)</option>
                                         <option value="middle-blocker">Middle
-                                            Blocker</option>
-                                        <option value="setter">Setter</option>
+                                            Blocker(Phụ Công)</option>
+                                        <option value="setter">Setter(Chuyền
+                                            2)</option>
                                         <option value="libero">Libero</option>
                                         <option value="opposite">Opposite
-                                            Hitter</option>
+                                            Hitter(Đối Chuyền)</option>
                                     </select>
                                 </div>
 
                                 <!-- Birth Year -->
                                 <div class="form-group">
-                                    <label for="reg-birthyear">Birth Year
+                                    <label for="reg-birthyear">Năm Sinh
                                         *</label>
                                     <input type="number" id="reg-birthyear"
                                         name="birthyear" required
@@ -195,7 +196,7 @@
 
                                 <!-- Hometown -->
                                 <div class="form-group">
-                                    <label for="reg-hometown">Hometown *</label>
+                                    <label for="reg-hometown">Quê quán *</label>
                                     <input type="text" id="reg-hometown"
                                         name="hometown" required
                                         placeholder="Hà Nội, Việt Nam">
@@ -203,8 +204,8 @@
 
                                 <!-- Jersey Number -->
                                 <div class="form-group">
-                                    <label for="reg-jersey">Preferred Jersey
-                                        Number *</label>
+                                    <label for="reg-jersey">Số áo yêu thích
+                                        *</label>
                                     <input type="number" id="reg-jersey"
                                         name="jersey" required
                                         min="1" max="99" placeholder="1-99">
@@ -212,7 +213,7 @@
 
                                 <!-- Height -->
                                 <div class="form-group">
-                                    <label for="reg-height">Height (cm)
+                                    <label for="reg-height">Chiều cao (cm)
                                         *</label>
                                     <input type="number" id="reg-height"
                                         name="height" required
@@ -221,7 +222,7 @@
 
                                 <!-- Weight -->
                                 <div class="form-group">
-                                    <label for="reg-weight">Weight (kg)
+                                    <label for="reg-weight">Cân nặng (kg)
                                         *</label>
                                     <input type="number" id="reg-weight"
                                         name="weight" required
@@ -230,7 +231,7 @@
 
                                 <!-- Phone Number -->
                                 <div class="form-group">
-                                    <label for="reg-phone">Phone Number
+                                    <label for="reg-phone">Số điện thoại (Zalo)
                                         *</label>
                                     <input type="tel" id="reg-phone"
                                         name="phone" required
@@ -239,61 +240,66 @@
 
                                 <!-- Gender -->
                                 <div class="form-group">
-                                    <label for="reg-gender">Gender *</label>
+                                    <label for="reg-gender">Giới tính *</label>
                                     <select id="reg-gender" name="gender"
                                         required>
-                                        <option value>Select gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
+                                        <option value>Chọn giới tính</option>
+                                        <option value="male">Nam</option>
+                                        <option value="female">Nữ</option>
                                     </select>
                                 </div>
 
                                 <!-- Spike Reach -->
                                 <div class="form-group">
-                                    <label for="reg-spike-reach">Spike Reach
+                                    <label for="reg-spike-reach">Độ cao bật đà
                                         (cm) *</label>
                                     <input type="number" id="reg-spike-reach"
                                         name="spikereach" required
                                         min="200" max="380" placeholder="310">
-                                    <small class="form-help">Height from ground
-                                        to fingertips when jumping to
-                                        spike</small>
+                                    <small class="form-help">Chiều cao từ mặt
+                                        đất
+                                        đến đầu ngón tay khi bật nhảy để
+                                        đập bóng</small>
                                 </div>
 
                                 <!-- Block Reach -->
                                 <div class="form-group">
-                                    <label for="reg-block-reach">Block Reach
+                                    <label for="reg-block-reach">Độ cao chắn
+                                        bóng
                                         (cm) *</label>
                                     <input type="number" id="reg-block-reach"
                                         name="blockreach" required
                                         min="240" max="340" placeholder="300">
-                                    <small class="form-help">Height from ground
-                                        to fingertips when jumping to
-                                        block</small>
+                                    <small class="form-help">Chiều cao từ mặt
+                                        đất
+                                        đến đầu ngón tay khi bật nhảy để
+                                        chắn bóng</small>
                                 </div>
 
                                 <!-- Rotation Experience -->
                                 <div class="form-group">
-                                    <label for="reg-rotation">Rotation System
-                                        Experience *</label>
+                                    <label for="reg-rotation">Đổi cầu
+                                        *</label>
                                     <select id="reg-rotation" name="rotation"
                                         required>
-                                        <option value>Select your
-                                            experience</option>
+                                        <option value>Chọn hệ thống đổi cầu bạn
+                                            hay dùng</option>
                                         <option value="5-1">5-1 Rotation
-                                            System</option>
+                                            System (Đổi cầu 5-1)</option>
                                         <option value="6-2">6-2 Rotation
-                                            System</option>
-                                        <option value="all">All Systems</option>
+                                            System (Đổi cầu 6-2)</option>
+                                        <option value="all">All Systems (Tất cả
+                                            các hệ thống)</option>
                                         <option value="none">No
-                                            Experience</option>
+                                            Experience (Chưa có kinh nghiệm đổi
+                                            cầu)</option>
                                     </select>
                                 </div>
                             </div>
 
                             <button type="submit" class="submit-btn">
                                 <i class="fas fa-user-plus"></i>
-                                Submit Registration
+                                Xác nhận đăng ký
                             </button>
                         </form>
 

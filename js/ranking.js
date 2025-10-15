@@ -141,48 +141,48 @@ const rankingData = {
             category: 'relegation'
         }
     ],
-    
+
     playerStats: {
         'top-scorers': [
-            { name: "Đặng Văn Huy", team: "BVC", stat: 350, avatar: "images/ranking/top-scorers/VanHuy.png" },
-            { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 342, isDVA: true, avatar: "images/ranking/top-scorers/HoangMinhHieuu.png" },
-            { name: "Nguyễn Đức Hoàng", team: "DVA Middle", stat: 318, isDVA: true, avatar: "images/ranking/top-scorers/NguyenDucHoang.png" },
-            { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 287, isDVA: true, avatar: "images/ranking/top-scorers/NguyenNgocBao.jpg" },
-            { name: "Phạm Huy Giáp", team: "Sharks", stat: 280, avatar: "images/ranking/top-scorers/PhamHuyGiap.png" },
-            { name: "Nguyễn Văn Phương", team: "BVC", stat: 276, avatar: "images/ranking/top-scorers/VanPhuong.png" },
-            { name: "Bùi Ngọc Chiến", team: "DVA Middle", stat: 260, isDVA: true, avatar: "images/ranking/top-scorers/BuiNgocChien.png" },
-            { name: "Lê Quang Duy", team: "BUV", stat: 256, avatar: "images/ranking/top-scorers/LeDuyy.png" },
-            { name: "Lê Xuân Khánh", team: "AVC", stat: 276, avatar: "images/ranking/top-scorers/LeXuanKhanhh.png" },
-            { name: "Ngô Thành Công", team: "Nippon", stat: 270, avatar: "images/ranking/top-scorers/ThanhCong.png" },
-            { name: "Hà Minh Huy", team: "Nippon", stat: 269, avatar: "images/ranking/top-scorers/Pho.png" },
-            { name: "Lê Hải Nam", team: "DVA Middle", stat: 265, avatar: "images/ranking/top-scorers/HaiNam.png" },
+            { name: "Đặng Văn Huy", team: "BVC", stat: 350, avatar: "images/ranking/top-scorers/VanHuy.webp" },
+            { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 342, isDVA: true, avatar: "images/ranking/top-scorers/HoangMinhHieuu.webp" },
+            { name: "Nguyễn Đức Hoàng", team: "DVA Middle", stat: 318, isDVA: true, avatar: "images/ranking/top-scorers/NguyenDucHoang.webp" },
+            { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 287, isDVA: true, avatar: "images/ranking/top-scorers/NguyenNgocBao.webp" },
+            { name: "Phạm Huy Giáp", team: "Sharks", stat: 280, avatar: "images/ranking/top-scorers/PhamHuyGiap.webp" },
+            { name: "Nguyễn Văn Phương", team: "BVC", stat: 276, avatar: "images/ranking/top-scorers/VanPhuong.webp" },
+            { name: "Bùi Ngọc Chiến", team: "DVA Middle", stat: 260, isDVA: true, avatar: "images/ranking/top-scorers/BuiNgocChien.webp" },
+            { name: "Lê Quang Duy", team: "BUV", stat: 256, avatar: "images/ranking/top-scorers/LeDuyy.webp" },
+            { name: "Lê Xuân Khánh", team: "AVC", stat: 276, avatar: "images/ranking/top-scorers/LeXuanKhanhh.webp" },
+            { name: "Ngô Thành Công", team: "Nippon", stat: 270, avatar: "images/ranking/top-scorers/ThanhCong.webp" },
+            { name: "Hà Minh Huy", team: "Nippon", stat: 269, avatar: "images/ranking/top-scorers/Pho.webp" },
+            { name: "Lê Hải Nam", team: "DVA Middle", stat: 265, avatar: "images/ranking/top-scorers/HaiNam.webp" },
 
         ],
         'best-attackers': [
-            { name: "Bùi Ngọc Chiến", team: "DVA Middle", stat: "89.5%", isDVA: true, avatar: "images/ranking/best-attacker/BuiNgocChien.png" },
-            { name: "Nguyễn Quang Hưng", team: "DVA Middle", stat: "87.2%", avatar: "images/ranking/best-attacker/QuangHung.png"  },
-            { name: "Phan Tiến Nam", team: "DVA Middle", stat: "85.8%", avatar: "images/ranking/best-attacker/PhanTienNam.png"  },
-            { name: "Phạm Anh Quân", team: "DVA Middle", stat: "84.3%", isDVA: true, avatar: "images/ranking/best-attacker/PhamAnhQuan.png"  },
-            { name: "Cao Minh Chiến", team: "DVA Middle", stat: "82.7%", avatar: "images/ranking/best-attacker/CaoMinhChien.png"  },
-            { name: "Hồ Nam Giang", team: "DVA Middle", stat: "81.7%", avatar: "images/ranking/best-attacker/HoNamGiang.png"  },
-            { name: "Nguyễn Kim Phong", team: "BVC", stat: "80.7%", avatar: "images/ranking/best-attacker/Phong.png"  },
-            { name: "Đăng Hải", team: "BVC", stat: "83.5%", avatar: "images/ranking/best-attacker/DangHai.png"  }
+            { name: "Bùi Ngọc Chiến", team: "DVA Middle", stat: "89.5%", isDVA: true, avatar: "images/ranking/best-attacker/BuiNgocChien.webp" },
+            { name: "Nguyễn Quang Hưng", team: "DVA Middle", stat: "87.2%", avatar: "images/ranking/best-attacker/QuangHung.webp"  },
+            { name: "Phan Tiến Nam", team: "DVA Middle", stat: "85.8%", avatar: "images/ranking/best-attacker/PhanTienNam.webp"  },
+            { name: "Phạm Anh Quân", team: "DVA Middle", stat: "84.3%", isDVA: true, avatar: "images/ranking/best-attacker/PhamAnhQuan.webp"  },
+            { name: "Cao Minh Chiến", team: "DVA Middle", stat: "82.7%", avatar: "images/ranking/best-attacker/CaoMinhChien.webp"  },
+            { name: "Hồ Nam Giang", team: "DVA Middle", stat: "81.7%", avatar: "images/ranking/best-attacker/HoNamGiang.webp"  },
+            { name: "Nguyễn Kim Phong", team: "BVC", stat: "80.7%", avatar: "images/ranking/best-attacker/Phong.webp"  },
+            { name: "Đăng Hải", team: "BVC", stat: "83.5%", avatar: "images/ranking/best-attacker/DangHai.webp"  }
         ],
         'best-blockers': [
-            { name: "Đoàn Nam Cường", team: "DVA Middle", stat: 156, isDVA: true,avatar: "images/ranking/best-blocker/DoanNamCuong.png" },
-            { name: "Nguyễn Văn Phương", team: "BVC", stat: 142, isDVA: true, avatar: "images/ranking/best-blocker/VanPhuong.png" },
-            { name: "Nguyễn Minh Tuấn Anh", team: "DVA Middle", stat: 138, isDVA: true, avatar: "images/ranking/best-blocker/TuanAnh.png" },
-            { name: "Dương Văn Đại", team: "DVA Middle", stat: 125, isDVA: true, avatar: "images/ranking/best-blocker/DuongVanDai.png" },
-            { name: "Lê Hải Dương", team: "DVA Middle", stat: 119, isDVA: true, avatar: "images/ranking/best-blocker/LeHaiDuong.png" },
-            { name: "Đặng Đình Hưởng", team: "AVC", stat: 110, isDVA: true, avatar: "images/ranking/best-blocker/DinhHuong.png" }
+            { name: "Đoàn Nam Cường", team: "DVA Middle", stat: 156, isDVA: true,avatar: "images/ranking/best-blocker/DoanNamCuong.webp" },
+            { name: "Nguyễn Văn Phương", team: "BVC", stat: 142, isDVA: true, avatar: "images/ranking/best-blocker/VanPhuong.webp" },
+            { name: "Nguyễn Minh Tuấn Anh", team: "DVA Middle", stat: 138, isDVA: true, avatar: "images/ranking/best-blocker/TuanAnh.webp" },
+            { name: "Dương Văn Đại", team: "DVA Middle", stat: 125, isDVA: true, avatar: "images/ranking/best-blocker/DuongVanDai.webp" },
+            { name: "Lê Hải Dương", team: "DVA Middle", stat: 119, isDVA: true, avatar: "images/ranking/best-blocker/LeHaiDuong.webp" },
+            { name: "Đặng Đình Hưởng", team: "AVC", stat: 110, isDVA: true, avatar: "images/ranking/best-blocker/DinhHuong.webp" }
         ],
         'best-setters': [
-            { name: "Hoàng Quốc Duy", team: "DVA Middle", stat: 892, isDVA: true, avatar: "images/ranking/best-setter/QuocDuy.png" },
-            { name: "Nguyễn Đức Hoàng", team: "DVA Middle", stat: 870, isDVA: true, avatar: "images/ranking/best-setter/NguyenDucHoang.png" },
-            { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 856, isDVA: true, avatar: "images/ranking/best-setter/HoangMinhHieuu.png" },
-            { name: "Trịnh Duy Đông", team: "DVA Middle", stat: 834, isDVA: true, avatar: "images/ranking/best-setter/DuyDong.png" },
-            { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 789, isDVA: true, avatar: "images/ranking/best-setter/Bao.png" },
-            { name: "Hoàng Đình Trọng", team: "DVA Junior", stat: 767, isDVA: true, avatar: "images/ranking/best-setter/DinhTrong.png" }
+            { name: "Hoàng Quốc Duy", team: "DVA Middle", stat: 892, isDVA: true, avatar: "images/ranking/best-setter/QuocDuy.webp" },
+            { name: "Nguyễn Đức Hoàng", team: "DVA Middle", stat: 870, isDVA: true, avatar: "images/ranking/best-setter/NguyenDucHoang.webp" },
+            { name: "Hoàng Minh Hiếu", team: "DVA Middle", stat: 856, isDVA: true, avatar: "images/ranking/best-setter/HoangMinhHieuu.webp" },
+            { name: "Trịnh Duy Đông", team: "DVA Middle", stat: 834, isDVA: true, avatar: "images/ranking/best-setter/DuyDong.webp" },
+            { name: "Nguyễn Ngọc Bảo", team: "DVA Middle", stat: 789, isDVA: true, avatar: "images/ranking/best-setter/Bao.webp" },
+            { name: "Hoàng Đình Trọng", team: "DVA Junior", stat: 767, isDVA: true, avatar: "images/ranking/best-setter/DinhTrong.webp" }
         ]
     }
 };
@@ -768,7 +768,7 @@ const dreamTeamData = {
         {
             rank: 1,
             team: "BVC",
-            logo: "images/ranking/dream-team/champions/BVC1.png",
+            logo: "images/ranking/dream-team/champions/BVC.webp",
             title: "Champion",
             finalScore: "2-1",
             record: "",
@@ -777,7 +777,7 @@ const dreamTeamData = {
         {
             rank: 2,
             team: "Văn Quán",
-            logo: "images/ranking/dream-team/champions/van-quan.png",
+            logo: "images/ranking/dream-team/champions/van-quan.webp",
             title: "Runner-up",
             finalScore: "1-2",
             record: "",
@@ -786,7 +786,7 @@ const dreamTeamData = {
         {
             rank: 3,
             team: "AVC",
-            logo: "images/ranking/dream-team/champions/AVC.png",
+            logo: "images/ranking/dream-team/champions/AVC.webp",
             title: "3rd Place",
             finalScore: "2-0",
             record: "",
@@ -799,7 +799,7 @@ const dreamTeamData = {
                 name: "Kim Phong",
                 team: "BVC",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/Phong.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/Phong.webp",
                 stats: { attackPercent: "89.5%", points: 342 },
                 award: "gold"
             },
@@ -807,7 +807,7 @@ const dreamTeamData = {
                 name: "Cao Cường",
                 team: "Văn Quán",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/CaoCuong.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/CaoCuong.webp",
                 stats: { attackPercent: "87.2%", points: 318 },
                 award: "silver"
             }
@@ -817,7 +817,7 @@ const dreamTeamData = {
                 name: "Văn Phương",
                 team: "BVC",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/VanPhuong.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/VanPhuong.webp",
                 stats: { blocks: 156, blockPercent: "78.5%" },
                 award: "gold"
             },
@@ -825,7 +825,7 @@ const dreamTeamData = {
                 name: "Đình Hưởng",
                 team: "AVC",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/DinhHuong.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/DinhHuong.webp",
                 stats: { blocks: 142, blockPercent: "76.2%" },
                 award: "silver"
             }
@@ -835,7 +835,7 @@ const dreamTeamData = {
                 name: "Đình Khang",
                 team: "Văn Quán",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/DinhKhang.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/DinhKhang.webp",
                 stats: { attackPercent: "85.8%", points: 289 },
                 award: "gold"
             }
@@ -845,7 +845,7 @@ const dreamTeamData = {
                 name: "Văn Huy",
                 team: "BVC",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/VanHuy.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/VanHuy.webp",
                 stats: { assists: 892, setPercent: "94.2%" },
                 award: "gold"
             }
@@ -855,7 +855,7 @@ const dreamTeamData = {
                 name: "Duy Phan",
                 team: "Sharks",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/DuyPhan.png",
+                avatar: "images/ranking/dream-team/dream-team-awards/DuyPhan.webp",
                 stats: { digs: 456, digPercent: "92.8%" },
                 award: "gold"
             }
@@ -865,7 +865,7 @@ const dreamTeamData = {
                 name: "Đăng Hải",
                 team: "BVC",
                 isDVA: false,
-                avatar: "images/ranking/dream-team/dream-team-awards/DangHai.png", // Updated avatar
+                avatar: "images/ranking/dream-team/dream-team-awards/DangHai.webp", // Updated avatar
                 stats: { overallRating: "9.2/10", impactScore: "98.5%" },
                 award: "mvp"
             }

@@ -13,7 +13,7 @@ const playersData = {
             address: "Thái Bình",
             born: "2003",
             age: 22,
-            avatar: "images/players/middle/HoangQuocDuy.png",
+            avatar: "images/players/middle/HoangQuocDuy.webp",
             isCaptain: true
         },
         {
@@ -26,7 +26,7 @@ const playersData = {
             address: "Bắc Giang",
             born: "1996",
             age: 29,
-            avatar: "images/players/middle/MinhHieu.png"
+            avatar: "images/players/middle/MinhHieu.webp"
         },
         {
             id: 3,
@@ -38,7 +38,7 @@ const playersData = {
             address: "Nam Định",
             born: "2002",
             age: 23,
-            avatar: "images/players/middle/TrinhVanHuy.png"
+            avatar: "images/players/middle/TrinhVanHuy.webp"
         },
         {
             id: 4,
@@ -50,7 +50,7 @@ const playersData = {
             address: "Thanh Hoá",
             born: "2006",
             age: 19,
-            avatar: "images/players/middle/HaXuanQuann.png"
+            avatar: "images/players/middle/HaXuanQuann.webp"
         },
         {
             id: 5,
@@ -62,7 +62,7 @@ const playersData = {
             address: "Thái Bình",
             born: "1998",
             age: 26,
-            avatar: "images/players/middle/DuongVanDaii.png"
+            avatar: "images/players/middle/DuongVanDaii.webp"
         },
         {
             id: 6,
@@ -74,7 +74,7 @@ const playersData = {
             address: "Hải Dương",
             born: "2005",
             age: 20,
-            avatar: "images/players/middle/NguyenDinhVu.png"
+            avatar: "images/players/middle/NguyenDinhVu.webp"
         },
         {
             id: 7,
@@ -86,7 +86,7 @@ const playersData = {
             address: "Phú Thọ",
             born: "2004",
             age: 21,
-            avatar: "images/players/middle/NguyenQuangHungg.png"
+            avatar: "images/players/middle/NguyenQuangHungg.webp"
         },
         {
             id: 8,
@@ -98,7 +98,7 @@ const playersData = {
             address: "Lai Châu",
             born: "2005",
             age: 18,
-            avatar: "images/players/middle/NungGiaBao.png"
+            avatar: "images/players/middle/NungGiaBao.webp"
         },
         {
             id: 17,
@@ -110,7 +110,7 @@ const playersData = {
             address: "Ninh Bình",
             born: "2004",
             age: 21,
-            avatar: "images/players/middle/NgocChien.png"
+            avatar: "images/players/middle/NgocChien.webp"
         },
         {
             id: 18,
@@ -122,7 +122,7 @@ const playersData = {
             address: "Nghệ An",
             born: "---",
             age: 21,
-            avatar: "images/players/middle/HaiDangg.png"
+            avatar: "images/players/middle/HaiDangg.webp"
         },
         {
             id: 19,
@@ -134,7 +134,7 @@ const playersData = {
             address: "Hoà Bình",
             born: "2004",
             age: 21,
-            avatar: "images/players/middle/PhamAnhQuan.png"
+            avatar: "images/players/middle/PhamAnhQuan.webp"
         },
         {
             id: 20,
@@ -146,7 +146,7 @@ const playersData = {
             address: "Hải Dương",
             born: "2004",
             age: 21,
-            avatar: "images/players/middle/LeHaiDuong.png"
+            avatar: "images/players/middle/LeHaiDuong.webp"
         },
         {
             id: 21,
@@ -158,7 +158,7 @@ const playersData = {
             address: "Nghệ An",
             born: "2004",
             age: 21,
-            avatar: "images/players/middle/BaoHung.png"
+            avatar: "images/players/middle/BaoHung.webp"
         },
         {
             id: 22,
@@ -170,7 +170,7 @@ const playersData = {
             address: "---",
             born: "2005",
             age: 21,
-            avatar: "images/players/middle/HaiNam.png"
+            avatar: "images/players/middle/HaiNam.webp"
         },
         {
             id: 23,
@@ -182,7 +182,7 @@ const playersData = {
             address: "Hải Dương",
             born: "1997",
             age: 26,
-            avatar: "images/players/middle/HuuHieu.png"
+            avatar: "images/players/middle/HuuHieu.webp"
         },
         
     ],
@@ -197,7 +197,7 @@ const playersData = {
             address: "Moscow, Russia",
             born: "2005",
             age: 19,
-            avatar: "images/players/junior/Liuba.png"
+            avatar: "images/players/junior/Liuba.webp"
         },
         {
             id: 10,
@@ -209,7 +209,7 @@ const playersData = {
             address: "Quảng Bình",
             born: "2007",
             age: 18,
-            avatar: "images/players/junior/ThanhBinh.png"
+            avatar: "images/players/junior/ThanhBinh.webp"
         },
         {
             id: 11,
@@ -221,7 +221,7 @@ const playersData = {
             address: "Korea",
             born: "2008",
             age: 17,
-            avatar: "images/players/junior/JangWooheok.png"
+            avatar: "images/players/junior/JangWooheok.webp"
         },
         {
             id: 12,
@@ -233,7 +233,7 @@ const playersData = {
             address: "Kazakhstan",
             born: "2007",
             age: 18,
-            avatar: "images/players/junior/YelzhasDualatuly.png"
+            avatar: "images/players/junior/YelzhasDualatuly.webp"
         },
         {
             id: 13,
@@ -245,7 +245,7 @@ const playersData = {
             address: "India",
             born: "2008",
             age: 19,
-            avatar: "images/players/junior/NeoJackson.png"
+            avatar: "images/players/junior/NeoJackson.webp"
         },
         {
             id: 14,
@@ -257,7 +257,7 @@ const playersData = {
             address: "Hà Nội",
             born: "2007",
             age: 18,
-            avatar: "images/players/junior/TranTuanKiet.png"
+            avatar: "images/players/junior/TranTuanKiet.webp"
         },
         {
             id: 15,
@@ -269,7 +269,7 @@ const playersData = {
             address: "Hà Nội",
             born: "2008",
             age: 18,
-            avatar: "images/players/junior/PhungKienQuoc.png"
+            avatar: "images/players/junior/PhungKienQuoc.webp"
         },
          {
             id: 16,
@@ -281,7 +281,7 @@ const playersData = {
             address: "Nam Định",
             born: "2006",
             age: 18,
-            avatar: "images/players/junior/Ali.png"
+            avatar: "images/players/junior/Ali.webp"
         }
     ]
 };
