@@ -1,6 +1,7 @@
-// Players page functionality
+// Players page functionality - Load ALL Images Immediately
+// Đã tối ưu để hiển thị TẤT CẢ ảnh ngay lập tức
 
-// Updated player data with new fields
+// Updated player data - GIỮ NGUYÊN TOÀN BỘ
 const playersData = {
     middle: [
         {
@@ -183,8 +184,7 @@ const playersData = {
             born: "1997",
             age: 26,
             avatar: "images/players/middle/HuuHieu.webp"
-        },
-        
+        }
     ],
     junior: [
         {
@@ -271,7 +271,7 @@ const playersData = {
             age: 18,
             avatar: "images/players/junior/PhungKienQuoc.webp"
         },
-         {
+        {
             id: 16,
             name: "Ali Nam Janjua",
             number: 11,
@@ -286,7 +286,67 @@ const playersData = {
     ]
 };
 
-// State management
+// Performance Configuration - Simplified for immediate loading
+const PERFORMANCE_CONFIG = {
+    DEBOUNCE_DELAY: 200, // Debounce delay for search
+    ANIMATION_DELAY: 30, // Faster animations
+    PRELOAD_ALL_IMAGES: true // Load all images immediately
+};
+
+// Simplified Image Cache for immediate loading
+class ImagePreloader {
+    constructor() {
+        this.loadedImages = new Set();
+    }
+
+    // Preload ALL images immediately
+    async preloadAllImages() {
+        const allAvatars = [
+            ...playersData.middle.map(p => p.avatar),
+            ...playersData.junior.map(p => p.avatar)
+        ].filter(Boolean);
+
+        console.log(`🖼️ Loading ALL ${allAvatars.length} player images immediately...`);
+
+        const promises = allAvatars.map(url => this.preloadSingle(url));
+        
+        try {
+            await Promise.allSettled(promises);
+            console.log('✅ All player images loaded');
+        } catch (error) {
+            console.warn('⚠️ Some images failed to load');
+        }
+    }
+
+    // Load single image
+    preloadSingle(url) {
+        return new Promise((resolve, reject) => {
+            if (this.loadedImages.has(url)) {
+                resolve();
+                return;
+            }
+
+            const img = new Image();
+            
+            img.onload = () => {
+                this.loadedImages.add(url);
+                resolve();
+            };
+
+            img.onerror = () => {
+                console.warn(`❌ Failed to load: ${url}`);
+                resolve(); // Don't reject, continue with other images
+            };
+
+            img.src = url;
+        });
+    }
+}
+
+// Global instance
+const imagePreloader = new ImagePreloader();
+
+// State management - GIỮ NGUYÊN
 let currentTeam = 'middle';
 let filteredPlayers = [];
 let currentFilters = {
@@ -295,12 +355,23 @@ let currentFilters = {
     height: ''
 };
 
-// DOM elements
+// DOM elements - GIỮ NGUYÊN
 let searchInput, positionFilter, heightFilter, tabButtons, teamContents;
 
-// Initialize players page
-function initPlayersPage() {
-    // Get DOM elements
+// Optimized debounce utility
+function debounce(func, delay) {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
+// Enhanced initialization - PRELOAD ALL IMAGES
+async function initPlayersPage() {
+    console.log('🚀 Initializing players page - Loading ALL images...');
+
+    // Get DOM elements - GIỮ NGUYÊN
     searchInput = document.getElementById('search-input');
     positionFilter = document.getElementById('position-filter');
     heightFilter = document.getElementById('height-filter');
@@ -310,18 +381,24 @@ function initPlayersPage() {
     // Set up event listeners
     setupEventListeners();
     
-    // Initial render
+    // Preload ALL images immediately
+    await imagePreloader.preloadAllImages();
+    
+    // Initial render - GIỮ NGUYÊN
     renderPlayers();
+
+    console.log('✅ Players page fully loaded with ALL images');
 }
 
-// Set up all event listeners
+// Standard event listeners setup
 function setupEventListeners() {
-    // Search input
+    // Enhanced search with debounce
     if (searchInput) {
-        searchInput.addEventListener('input', utils.debounce(handleSearch, 300));
+        const debouncedSearch = debounce(handleSearch, PERFORMANCE_CONFIG.DEBOUNCE_DELAY);
+        searchInput.addEventListener('input', debouncedSearch);
     }
 
-    // Filter selects
+    // Filter selects - GIỮ NGUYÊN
     if (positionFilter) {
         positionFilter.addEventListener('change', handlePositionFilter);
     }
@@ -330,31 +407,13 @@ function setupEventListeners() {
         heightFilter.addEventListener('change', handleHeightFilter);
     }
 
-    // Team tabs
+    // Team tabs - GIỮ NGUYÊN
     tabButtons.forEach(button => {
         button.addEventListener('click', handleTeamSwitch);
     });
 }
 
-// Handle search functionality
-function handleSearch(e) {
-    currentFilters.search = e.target.value.toLowerCase();
-    renderPlayers();
-}
-
-// Handle position filter
-function handlePositionFilter(e) {
-    currentFilters.position = e.target.value;
-    renderPlayers();
-}
-
-// Handle height filter
-function handleHeightFilter(e) {
-    currentFilters.height = e.target.value;
-    renderPlayers();
-}
-
-// Handle team switching
+// Team switch handler - GIỮ NGUYÊN
 function handleTeamSwitch(e) {
     const team = e.target.dataset.team;
     if (team !== currentTeam) {
@@ -368,13 +427,30 @@ function handleTeamSwitch(e) {
         teamContents.forEach(content => content.classList.remove('active'));
         document.getElementById(`${team}-team`).classList.add('active');
         
-        // Reset filters when switching teams
+        // Reset filters and render
         resetFilters();
         renderPlayers();
+
+        console.log(`🔄 Switched to ${team} team`);
     }
 }
 
-// Reset all filters
+// All handler functions - GIỮ NGUYÊN
+function handleSearch(e) {
+    currentFilters.search = e.target.value.toLowerCase();
+    renderPlayers();
+}
+
+function handlePositionFilter(e) {
+    currentFilters.position = e.target.value;
+    renderPlayers();
+}
+
+function handleHeightFilter(e) {
+    currentFilters.height = e.target.value;
+    renderPlayers();
+}
+
 function resetFilters() {
     currentFilters = {
         search: '',
@@ -387,7 +463,7 @@ function resetFilters() {
     if (heightFilter) heightFilter.value = '';
 }
 
-// Filter players based on current filters
+// Filter function - GIỮ NGUYÊN
 function filterPlayers(players) {
     return players.filter(player => {
         // Search filter
@@ -422,7 +498,7 @@ function filterPlayers(players) {
     });
 }
 
-// Create modern player card HTML - Without footer
+// Player card creation - LOAD IMAGE IMMEDIATELY
 function createPlayerCard(player) {
     const captainBadge = player.isCaptain ? `
         <div class="captain-badge">
@@ -430,16 +506,21 @@ function createPlayerCard(player) {
             <span>C</span>
         </div>
     ` : '';
+
+    const initials = player.name.split(' ').map(n => n[0]).join('');
     
     return `
         <div class="player-card fade-in" data-player-id="${player.id}">
             ${captainBadge}
             <div class="player-avatar">
-                <img src="${player.avatar}" alt="${player.name}" 
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <img src="${player.avatar}" 
+                     alt="${player.name}" 
+                     class="player-image"
+                     onload="this.classList.add('loaded')"
+                     onerror="handleImageError(this, '${initials}')">
                 <div class="placeholder" style="display: none;">
                     <i class="fas fa-user"></i>
-                    <span>${player.name.split(' ').map(n => n[0]).join('')}</span>
+                    <span>${initials}</span>
                 </div>
                 <div class="player-number">${player.number}</div>
             </div>
@@ -487,22 +568,23 @@ function createPlayerCard(player) {
     `;
 }
 
-
-// Render players grid
+// Render all players at once - NO LAZY LOADING
 function renderPlayers() {
     const container = document.getElementById(`${currentTeam}-players`);
     if (!container) return;
     
-    // Show loading state
+    console.log('🎨 Rendering ALL players immediately...');
+    
+    // Show loading state briefly
     container.innerHTML = `
         <div class="loading-players">
-            <i class="fas fa-spinner"></i>
+            <div class="loading-spinner"></div>
             <p>Loading players...</p>
         </div>
     `;
     
-    // Simulate loading delay
-    setTimeout(() => {
+    // Render immediately without delay
+    requestAnimationFrame(() => {
         const players = playersData[currentTeam] || [];
         filteredPlayers = filterPlayers(players);
         
@@ -517,46 +599,59 @@ function renderPlayers() {
             return;
         }
         
-        // Render player cards
+        // Render ALL players at once
         container.innerHTML = filteredPlayers
             .map(player => createPlayerCard(player))
             .join('');
         
-        // Add click event listeners to player cards
-        container.querySelectorAll('.player-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Don't trigger if clicking on action buttons
-                if (e.target.closest('.action-btn')) return;
-                
-                const playerId = card.dataset.playerId;
-                handlePlayerClick(playerId);
-            });
-        });
+        // Setup interactions immediately
+        setupPlayerInteractions(container);
         
-        // Trigger fade in animation
+        // Animate all cards
         setTimeout(() => {
-            container.querySelectorAll('.fade-in').forEach((el, index) => {
+            container.querySelectorAll('.fade-in').forEach((card, index) => {
                 setTimeout(() => {
-                    el.classList.add('visible');
-                }, index * 100);
+                    card.classList.add('visible');
+                }, index * PERFORMANCE_CONFIG.ANIMATION_DELAY);
             });
-        }, 100);
-        
-    }, 500); // Simulate loading time
+        }, 50);
+    });
 }
 
-// Handle player card click
+// Setup player interactions
+function setupPlayerInteractions(container) {
+    container.addEventListener('click', (e) => {
+        const card = e.target.closest('.player-card');
+        if (card && !e.target.closest('.action-btn')) {
+            const playerId = card.dataset.playerId;
+            handlePlayerClick(playerId);
+        }
+    });
+}
+
+// Image error handler
+function handleImageError(img, initials) {
+    console.warn(`❌ Failed to load: ${img.src}`);
+    
+    const placeholder = img.nextElementSibling;
+    if (placeholder && placeholder.classList.contains('placeholder')) {
+        img.style.display = 'none';
+        placeholder.style.display = 'flex';
+        placeholder.querySelector('span').textContent = initials;
+    }
+}
+
+// Player click handler - GIỮ NGUYÊN
 function handlePlayerClick(playerId) {
     const player = [...playersData.middle, ...playersData.junior]
         .find(p => p.id == playerId);
     
     if (player) {
-        // In a real app, this would navigate to a player detail page
         showPlayerModal(player);
     }
 }
 
-// Show player modal (enhanced version)
+// Modal functions - GIỮ NGUYÊN
 function showPlayerModal(player) {
     const modalHTML = `
         <div class="player-modal-overlay" onclick="closePlayerModal()">
@@ -570,7 +665,7 @@ function showPlayerModal(player) {
                 <div class="modal-content">
                     <div class="modal-avatar">
                         <img src="${player.avatar}" alt="${player.name}" 
-                             onerror="this.src='https://via.placeholder.com/200x200/667eea/ffffff?text=${player.name.split(' ').map(n => n[0]).join('')}'">
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzY2N2VlYSIvPjx0ZXh0IHg9IjEwMCIgeT0iMTIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNjAiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSI+JHtwbGF5ZXIubmFtZS5zcGxpdCgnICcpLm1hcChuID0+IG5bMF0pLmpvaW4oJycpfTwvdGV4dD48L3N2Zz4='">
                         <div class="modal-number">#${player.number}</div>
                     </div>
                     <div class="modal-info">
@@ -610,7 +705,6 @@ function showPlayerModal(player) {
     document.body.style.overflow = 'hidden';
 }
 
-// Close player modal
 function closePlayerModal() {
     const modal = document.querySelector('.player-modal-overlay');
     if (modal) {
@@ -619,14 +713,13 @@ function closePlayerModal() {
     }
 }
 
-// Player action functions
+// Utility functions - GIỮ NGUYÊN
 function viewPlayerStats(playerId) {
     const player = [...playersData.middle, ...playersData.junior]
         .find(p => p.id == playerId);
     
     if (player) {
         alert(`Viewing stats for ${player.name}`);
-        // In real app, this would show detailed statistics
     }
 }
 
@@ -641,7 +734,6 @@ function sharePlayer(playerId) {
             url: window.location.href
         });
     } else if (player) {
-        // Fallback for browsers without native sharing
         const text = `Check out ${player.name}, ${player.position} for DVA Club - ${window.location.href}`;
         navigator.clipboard.writeText(text).then(() => {
             alert('Player info copied to clipboard!');
@@ -649,34 +741,53 @@ function sharePlayer(playerId) {
     }
 }
 
-// Export data for other modules (if needed)
 function exportPlayerData(team) {
     return playersData[team] || [];
 }
 
-// Search by player number
 function searchByNumber(number) {
     const allPlayers = [...playersData.middle, ...playersData.junior];
     return allPlayers.find(player => player.number == number);
 }
 
-// Get players by position
 function getPlayersByPosition(position) {
     const allPlayers = [...playersData.middle, ...playersData.junior];
     return allPlayers.filter(player => player.position === position);
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initPlayersPage();
+// Service Worker registration for caching
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('📦 Service Worker registered:', registration);
+            })
+            .catch(error => {
+                console.log('❌ Service Worker failed:', error);
+            });
+    }
+}
+
+// Initialize when DOM is loaded - LOAD ALL IMAGES
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('⚡ Starting players page - Loading ALL images immediately...');
+    
+    // Register service worker
+    registerServiceWorker();
+    
+    // Initialize page and load ALL images
+    await initPlayersPage();
+    
+    console.log('✅ ALL players and images loaded successfully');
 });
 
-// Make functions available globally
+// Make functions globally available
+window.handleImageError = handleImageError;
 window.viewPlayerStats = viewPlayerStats;
 window.sharePlayer = sharePlayer;
 window.closePlayerModal = closePlayerModal;
 
-// Export functions for testing
+// Export for testing
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         initPlayersPage,
@@ -687,3 +798,5 @@ if (typeof module !== 'undefined' && module.exports) {
         getPlayersByPosition
     };
 }
+
+console.log('🚀 Players module loaded - ALL images will load immediately');

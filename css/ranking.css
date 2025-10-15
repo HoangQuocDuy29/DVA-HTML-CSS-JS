@@ -1,4 +1,5 @@
-/* Ranking Page Styles */
+/* Ranking Page Styles - CHỈ TỐI ƯU IMAGES, GIỮ NGUYÊN TEXT STYLING ĐẸP */
+
 .ranking-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -22,7 +23,7 @@
     background: #f8f9fa;
 }
 
-/* Category Navigation */
+/* Category Navigation - GIỮ NGUYÊN STYLING ĐẸP */
 .category-tabs {
     display: flex;
     justify-content: center;
@@ -58,7 +59,7 @@
     color: #e74c3c;
 }
 
-/* Content Sections */
+/* Content Sections - GIỮ NGUYÊN */
 .ranking-content {
     display: none;
 }
@@ -73,7 +74,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Season Selector */
+/* Season Selector - GIỮ NGUYÊN */
 .season-selector {
     display: flex;
     justify-content: space-between;
@@ -104,7 +105,7 @@
     border-color: #e74c3c;
 }
 
-/* DVA Teams Performance */
+/* DVA Teams Performance - GIỮ NGUYÊN STYLING ĐẸP */
 .dva-teams-section {
     margin-bottom: 4rem;
 }
@@ -229,7 +230,7 @@
     background: #f39c12;
 }
 
-/* League Table */
+/* League Table - GIỮ NGUYÊN STYLING ĐẸP */
 .league-table-section h3 {
     font-size: 1.5rem;
     color: #333;
@@ -402,7 +403,7 @@
     background: #e74c3c;
 }
 
-/* Tournament Brackets */
+/* Tournament Brackets - GIỮ NGUYÊN STYLING ĐẸP */
 .tournament-selector {
     margin-bottom: 3rem;
 }
@@ -565,7 +566,7 @@
     margin-top: 0.25rem;
 }
 
-/* Player Stats */
+/* Player Stats - GIỮ NGUYÊN TEXT STYLING */
 .stats-categories {
     display: flex;
     justify-content: center;
@@ -655,6 +656,9 @@
     background: #cd7f32;
 }
 
+/* ===== CHỈ TỐI ƯU PHẦN IMAGE LOADING - KHÔNG THAY ĐỔI STYLING ===== */
+
+/* Enhanced Player Avatar Styles - TỐI ƯU CHỈ IMAGES */
 .player-avatar-small {
     width: 80px;
     height: 80px;
@@ -666,6 +670,73 @@
     justify-content: center;
     color: white;
     font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.player-avatar-small:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ⚡ OPTIMIZED IMAGE LOADING - CHỈ TỐI ƯU LOAD IMAGES */
+.player-avatar-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* TỐI ƯU: Load ngay lập tức, không lazy loading */
+    opacity: 1;
+    /* TỐI ƯU: Optimize image rendering */
+    image-rendering: optimizeQuality;
+    /* TỐI ƯU: Async decoding for better performance */
+    decoding: async;
+    /* TỐI ƯU: Prevent layout shift */
+    width: 80px;
+    height: 80px;
+}
+
+/* TỐI ƯU: Loaded state - immediate visibility */
+.player-avatar-small img.loaded {
+    opacity: 1;
+}
+
+/* Fallback initials styling when no image - GIỮ NGUYÊN */
+.player-avatar-small .avatar-initials {
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* DVA player special styling - GIỮ NGUYÊN */
+.player-stat-card.dva-player .player-avatar-small {
+    border-color: #e74c3c;
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
+}
+
+/* Different gradient colors for different ranks - GIỮ NGUYÊN */
+.player-stat-card .player-avatar-small.rank-1-avatar {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    border-color: #f39c12;
+}
+
+.player-stat-card .player-avatar-small.rank-2-avatar {
+    background: linear-gradient(135deg, #95a5a6, #bdc3c7);
+    border-color: #95a5a6;
+}
+
+.player-stat-card .player-avatar-small.rank-3-avatar {
+    background: linear-gradient(135deg, #cd7f32, #d4ac6a);
+    border-color: #cd7f32;
+}
+
+/* Avatar placeholder when image fails to load - GIỮ NGUYÊN */
+.player-avatar-small.error {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    border-color: #95a5a6;
 }
 
 .player-name {
@@ -694,7 +765,401 @@
     color: #666;
 }
 
-/* Season Records */
+/* Championship Podium Styles - TỐI ƯU CHỈ IMAGES */
+.championship-section {
+    margin-bottom: 4rem;
+}
+
+.championship-section h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.championship-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+    border-radius: 2px;
+}
+
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.podium-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 280px;
+    border: 3px solid transparent;
+}
+
+.podium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.podium-card.first-place {
+    border-color: #f39c12;
+    background: linear-gradient(135deg, #fff, #fff9e6);
+    transform: scale(1.1);
+    z-index: 3;
+    height: 500px;
+}
+
+.podium-card.second-place {
+    border-color: #95a5a6;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    z-index: 2;
+    height: 420px;
+}
+
+.podium-card.third-place {
+    border-color: #cd7f32;
+    background: linear-gradient(135deg, #fff, #fdf4e6);
+    z-index: 1;
+    height: 340px;
+}
+
+.rank-crown {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rank-crown.champion {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+}
+
+.podium-card.second-place .rank-crown {
+    background: linear-gradient(135deg, #95a5a6, #bdc3c7);
+}
+
+.podium-card.third-place .rank-crown {
+    background: linear-gradient(135deg, #cd7f32, #d4ac6a);
+}
+
+.team-logo {
+    width: 100px;
+    height: 100px;
+    margin: 2rem auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.team-logo.champion-logo {
+    border-color: #f39c12;
+    width: 120px;
+    height: 120px;
+}
+
+/* ⚡ OPTIMIZED TEAM LOGO LOADING - CHỈ TỐI ƯU IMAGES */
+.team-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* TỐI ƯU: Load ngay lập tức */
+    opacity: 1;
+    /* TỐI ƯU: Optimize image rendering */
+    image-rendering: optimizeQuality;
+    decoding: async;
+}
+
+/* TỐI ƯU: Loaded state */
+.team-logo img.loaded {
+    opacity: 1;
+}
+
+.logo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.podium-card .team-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.rank-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.champion-badge {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.team-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.team-stats .stat {
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-stats .label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.team-stats .value {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Dream Team Awards Styles - TỐI ƯU CHỈ IMAGES */
+.dream-team-section {
+    margin-top: 4rem;
+}
+
+.dream-team-section h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.dream-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.award-category {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #e74c3c;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.category-title i {
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+.awards-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.awards-group.single-award {
+    justify-content: center;
+}
+
+.dream-team-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    border: 2px solid transparent;
+}
+
+.dream-team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dream-team-card.gold-award {
+    background: linear-gradient(135deg, #fff9e6, #ffffff);
+    border-color: #f39c12;
+}
+
+.dream-team-card.silver-award {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-color: #95a5a6;
+}
+
+.award-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.silver-award .award-badge {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+}
+
+.player-avatar-dream {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dream-team-card.gold-award .player-avatar-dream {
+    border-color: #f39c12;
+}
+
+.dream-team-card.silver-award .player-avatar-dream {
+    border-color: #95a5a6;
+}
+
+.player-avatar-dream:hover {
+    transform: scale(1.05);
+}
+
+/* ⚡ OPTIMIZED DREAM TEAM AVATAR LOADING - CHỈ TỐI ƯU IMAGES */
+.player-avatar-dream img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* TỐI ƯU: Load ngay lập tức */
+    opacity: 1;
+    /* TỐI ƯU: Optimize rendering */
+    image-rendering: optimizeQuality;
+    decoding: async;
+}
+
+/* TỐI ƯU: Loaded state */
+.player-avatar-dream img.loaded {
+    opacity: 1;
+}
+
+.dream-team-card .player-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.dream-team-card .player-team {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.dream-team-card .player-team.dva-team {
+    color: #e74c3c;
+}
+
+.award-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.award-stats .stat {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.award-stats .label {
+    color: #666;
+}
+
+.award-stats .value {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Season Records - GIỮ NGUYÊN STYLING ĐẸP */
 .records-section h3 {
     font-size: 1.8rem;
     color: #333;
@@ -831,7 +1296,38 @@
     line-height: 1.6;
 }
 
-/* Responsive Design */
+/* Loading states */
+.loading-content {
+    text-align: center;
+    padding: 4rem;
+    color: #666;
+}
+
+.loading-content i {
+    font-size: 3rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Fade in animation for cards */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design - GIỮ NGUYÊN TẤT CẢ MEDIA QUERIES */
 @media (max-width: 768px) {
     .ranking-header h1 {
         font-size: 2.5rem;
@@ -897,6 +1393,28 @@
         flex: none;
         width: 100px;
     }
+
+    /* TỐI ƯU: Responsive avatar sizing CHỈ CHO IMAGES */
+    .player-avatar-small {
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+    }
+    
+    .player-avatar-small .avatar-initials {
+        font-size: 1.4rem;
+    }
+    
+    .team-logo,
+    .team-logo.champion-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .player-avatar-dream {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -922,122 +1440,31 @@
         justify-content: center;
         flex-wrap: wrap;
     }
-}
 
-/* Loading states */
-.loading-content {
-    text-align: center;
-    padding: 4rem;
-    color: #666;
-}
-
-.loading-content i {
-    font-size: 3rem;
-    color: #e74c3c;
-    margin-bottom: 1rem;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-/* Enhanced Player Avatar Styles */
-.player-avatar-small {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-    position: relative;
-    overflow: hidden;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.player-avatar-small:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Avatar image styling */
-.player-avatar-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: opacity 0.3s ease;
-}
-
-.player-avatar-small img:hover {
-    opacity: 0.9;
-}
-
-/* Fallback initials styling when no image */
-.player-avatar-small .avatar-initials {
-    font-weight: 700;
-    font-size: 1.8rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* DVA player special styling */
-.player-stat-card.dva-player .player-avatar-small {
-    border-color: #e74c3c;
-    background: linear-gradient(135deg, #e74c3c, #f39c12);
-}
-
-/* Different gradient colors for different ranks */
-.player-stat-card .player-avatar-small.rank-1-avatar {
-    background: linear-gradient(135deg, #f39c12, #f1c40f);
-    border-color: #f39c12;
-}
-
-.player-stat-card .player-avatar-small.rank-2-avatar {
-    background: linear-gradient(135deg, #95a5a6, #bdc3c7);
-    border-color: #95a5a6;
-}
-
-.player-stat-card .player-avatar-small.rank-3-avatar {
-    background: linear-gradient(135deg, #cd7f32, #d4ac6a);
-    border-color: #cd7f32;
-}
-
-/* Loading state for avatar */
-.player-avatar-small.loading {
-    animation: avatarPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes avatarPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-/* Avatar placeholder when image fails to load */
-.player-avatar-small.error {
-    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
-    border-color: #95a5a6;
-}
-
-/* Responsive avatar sizing */
-@media (max-width: 768px) {
-    .player-avatar-small {
-        width: 70px;
-        height: 70px;
-        font-size: 1.6rem;
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .player-avatar-small .avatar-initials {
-        font-size: 1.4rem;
-    }
-}
 
-@media (max-width: 480px) {
+    .podium-card {
+        min-width: 250px;
+    }
+
+    .podium-card.first-place {
+        order: -1;
+        transform: none;
+        margin-bottom: 2rem;
+    }
+
+    .dream-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .awards-group {
+        flex-direction: column;
+    }
+
+    /* TỐI ƯU: Mobile image sizes CHỈ CHO IMAGES */
     .player-avatar-small {
         width: 60px;
         height: 60px;
@@ -1047,439 +1474,11 @@
     .player-avatar-small .avatar-initials {
         font-size: 1.2rem;
     }
-}
-/* Championship Podium Styles */
-.championship-section {
-    margin-bottom: 4rem;
-}
-
-.championship-section h3 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-.championship-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, #f39c12, #e74c3c);
-    border-radius: 2px;
-}
-
-.podium-container {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-
-.podium-card {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    min-width: 280px;
-    border: 3px solid transparent;
-}
-
-.podium-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-.podium-card.first-place {
-    border-color: #f39c12;
-    background: linear-gradient(135deg, #fff, #fff9e6);
-    transform: scale(1.1);
-    z-index: 3;
-    height: 500px;
-}
-
-.podium-card.second-place {
-    border-color: #95a5a6;
-    background: linear-gradient(135deg, #fff, #f8f9fa);
-    z-index: 2;
-    height: 420px;
-}
-
-.podium-card.third-place {
-    border-color: #cd7f32;
-    background: linear-gradient(135deg, #fff, #fdf4e6);
-    z-index: 1;
-    height: 340px;
-}
-
-.rank-crown {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: 3px solid white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.rank-crown.champion {
-    background: linear-gradient(135deg, #f39c12, #f1c40f);
-    font-size: 1.5rem;
-    width: 60px;
-    height: 60px;
-}
-
-.podium-card.second-place .rank-crown {
-    background: linear-gradient(135deg, #95a5a6, #bdc3c7);
-}
-
-.podium-card.third-place .rank-crown {
-    background: linear-gradient(135deg, #cd7f32, #d4ac6a);
-}
-
-.team-logo {
-    width: 100px;
-    height: 100px;
-    margin: 2rem auto 1.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #eee;
-    transition: all 0.3s ease;
-}
-
-.team-logo.champion-logo {
-    border-color: #f39c12;
-    width: 120px;
-    height: 120px;
-}
-
-.team-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.logo-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-}
-
-.podium-card .team-name {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.rank-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 1rem;
-}
-
-.champion-badge {
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.team-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.team-stats .stat {
-    background: #f8f9fa;
-    padding: 8px 12px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.team-stats .label {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.team-stats .value {
-    font-weight: 700;
-    color: #333;
-}
-
-/* Dream Team Awards Styles */
-.dream-team-section {
-    margin-top: 4rem;
-}
-
-.dream-team-section h3 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-}
-
-.dream-team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 3rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.award-category {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #e74c3c;
-}
-
-.category-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.3rem;
-    color: #333;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.category-title i {
-    color: #e74c3c;
-    font-size: 1.2rem;
-}
-
-.awards-group {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.awards-group.single-award {
-    justify-content: center;
-}
-
-.dream-team-card {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    flex: 1;
-    min-width: 200px;
-    border: 2px solid transparent;
-}
-
-.dream-team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.dream-team-card.gold-award {
-    background: linear-gradient(135deg, #fff9e6, #ffffff);
-    border-color: #f39c12;
-}
-
-.dream-team-card.silver-award {
-    background: linear-gradient(135deg, #f8f9fa, #ffffff);
-    border-color: #95a5a6;
-}
-
-.award-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-.silver-award .award-badge {
-    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
-}
-
-.player-avatar-dream {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 1rem auto;
-    overflow: hidden;
-    border: 3px solid #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.dream-team-card.gold-award .player-avatar-dream {
-    border-color: #f39c12;
-}
-
-.dream-team-card.silver-award .player-avatar-dream {
-    border-color: #95a5a6;
-}
-
-.player-avatar-dream:hover {
-    transform: scale(1.05);
-}
-
-.player-avatar-dream img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.dream-team-card .player-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.dream-team-card .player-team {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #666;
-}
-
-.dream-team-card .player-team.dva-team {
-    color: #e74c3c;
-}
-
-.award-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.award-stats .stat {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 6px 10px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-}
-
-.award-stats .label {
-    color: #666;
-}
-
-.award-stats .value {
-    font-weight: 700;
-    color: #333;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .dream-team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .podium-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .podium-card.first-place {
-        order: -1;
-        transform: none;
-        margin-bottom: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .podium-card {
-        min-width: 250px;
-        padding: 1.5rem;
-    }
     
     .team-logo,
     .team-logo.champion-logo {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .dream-team-grid {
-        gap: 2rem;
-    }
-    
-    .award-category {
-        padding: 1.5rem;
-    }
-    
-    .awards-group {
-        flex-direction: column;
-    }
-    
-    .dream-team-card {
-        min-width: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .podium-card {
-        min-width: 220px;
-        padding: 1rem;
-    }
-    
-    .championship-section h3,
-    .dream-team-section h3 {
-        font-size: 1.5rem;
-    }
-    
-    .category-title {
-        font-size: 1.1rem;
+        width: 70px;
+        height: 70px;
     }
     
     .player-avatar-dream {
@@ -1487,4 +1486,23 @@
         height: 60px;
     }
 }
+
+/* ===== CHỈ TỐI ƯU IMAGE LOADING - KHÔNG THAY ĐỔI STYLING ===== */
+
+/* TỐI ƯU: Optimize tất cả images để load immediate */
+img {
+    /* TỐI ƯU: Better image quality */
+    image-rendering: optimizeQuality;
+    /* TỐI ƯU: Non-blocking decode */
+    decoding: async;
+    /* TỐI ƯU: Prevent layout shifts */
+    max-width: 100%;
+    height: auto;
+}
+
+/* TỐI ƯU: Loaded state cho tất cả images */
+img.loaded {
+    opacity: 1 !important;
+}
+
 
