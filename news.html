@@ -14,9 +14,11 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/news.css">
+        <!-- ⚡ PRELOAD CRITICAL IMAGES -->
+        <link rel="preload" as="image" href="images/news/VinUni.webp">
     </head>
     <body>
-        <!-- Header -->
+        <!-- Header (giữ nguyên) -->
         <header class="header">
             <nav class="navbar">
                 <div class="nav-container">
@@ -45,9 +47,6 @@
                         </li>
                         <li class="nav-item">
                             <a href="news.html" class="nav-link active">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="gallery.html" class="nav-link">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a href="donate.html"
@@ -104,57 +103,9 @@
             <!-- News Content -->
             <section class="news-content">
                 <div class="container">
-                    <!-- Featured News -->
-                    <div class="featured-news">
-                        <div class="section-header">
-                            <h2>Featured News</h2>
-                            <p>Most important updates from DVA Club</p>
-                        </div>
-
-                        <div class="featured-article">
-                            <div class="featured-image">
-                                <img src="images/news/VinUni.webp"
-                                    alt="DVA Championship Win"
-                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image"
-                                    style="display: none;">
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Championship Victory</span>
-                                </div>
-                                <div class="featured-badge">Featured</div>
-                            </div>
-                            <div class="featured-content">
-                                <div class="article-meta">
-                                    <span
-                                        class="category championship">Friendly
-                                        Match</span>
-                                    <span class="date">October 12, 2025</span>
-                                    <span class="read-time">5 min read</span>
-                                </div>
-                                <h3>Volleyball Friendly Match</h3>
-                                <p>A friendly volleyball match between 3 teams:
-                                    DVA Club - HORIZON - Spike VinUniversity.
-                                    The match took place at House K of
-                                    VinUniversity. The match was for the purpose
-                                    of friendship and learning for all 3
-                                    teams.</p>
-                                <div class="article-stats">
-                                    <div class="stat-item">
-                                        <i class="fas fa-eye"></i>
-                                        <span>1,250 views</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <i class="fas fa-thumbs-up"></i>
-                                        <span>89 likes</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <i class="fas fa-comment"></i>
-                                        <span>23 comments</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                    <!-- ✅ DYNAMIC FEATURED NEWS SECTION - Rendered by JavaScript -->
+                    <div class="featured-news" id="featured-news-container">
+                        <!-- Featured articles will be dynamically rendered here -->
                     </div>
 
                     <!-- News Filters -->
@@ -189,7 +140,7 @@
             </section>
         </main>
 
-        <!-- Footer -->
+        <!-- Footer (giữ nguyên) -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">

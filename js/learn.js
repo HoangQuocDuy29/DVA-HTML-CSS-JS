@@ -4,8 +4,8 @@
 const coachesData = [
     {
         id: 1,
-        name: "Maria Rodriguez",
-        title: "Head Coach & Founder",
+        name: "Trần Hà Linh",
+        title: "Head Coach",
         avatar: "https://via.placeholder.com/300x300/e74c3c/ffffff?text=MR",
         specialties: ["Technical Skills", "Team Strategy", "Youth Development"],
         experience: "12 years coaching experience",
@@ -20,7 +20,7 @@ const coachesData = [
     },
     {
         id: 2,
-        name: "James Wilson",
+        name: "Trịnh Anh Thắng",
         title: "Skills Development Coach",
         avatar: "https://via.placeholder.com/300x300/3498db/ffffff?text=JW",
         specialties: ["Attack Training", "Blocking Technique", "Physical Conditioning"],
@@ -36,8 +36,8 @@ const coachesData = [
     },
     {
         id: 3,
-        name: "Sarah Kim",
-        title: "Junior Development Coach",
+        name: "Ngô Thành Công",
+        title: "Development Coach",
         avatar: "https://via.placeholder.com/300x300/9b59b6/ffffff?text=SK",
         specialties: ["Beginner Training", "Basic Fundamentals", "Youth Motivation"],
         experience: "6 years coaching experience",
@@ -52,9 +52,9 @@ const coachesData = [
     },
     {
         id: 4,
-        name: "Alex Thompson",
-        title: "Defense Specialist Coach",
-        avatar: "https://via.placeholder.com/300x300/27ae60/ffffff?text=AT",
+        name: "Nguyễn Linh Chi",
+        title: "Specialist Coach",
+        avatar: "images\learn\Chi.png",
         specialties: ["Defensive Systems", "Libero Training", "Reception Skills"],
         experience: "10 years coaching experience",
         rating: 4.7,
@@ -64,38 +64,6 @@ const coachesData = [
             "Defensive Systems Expert",
             "10 Years Club Coaching",
             "National Team Assistant Coach (2020-2022)"
-        ]
-    },
-    {
-        id: 5,
-        name: "Lisa Chen",
-        title: "Setting & Strategy Coach",
-        avatar: "https://via.placeholder.com/300x300/f39c12/ffffff?text=LC",
-        specialties: ["Setting Technique", "Game Strategy", "Team Coordination"],
-        experience: "9 years coaching experience",
-        rating: 4.8,
-        bio: "Lisa is a master strategist who excels in developing game plans and training setters. Her tactical knowledge and ability to read opponents makes her invaluable for competitive teams. She focuses on game intelligence.",
-        achievements: [
-            "Former College All-American Setter",
-            "Tactical Analysis Specialist",
-            "Team Strategy Development Expert",
-            "Coached 3 Championship Teams"
-        ]
-    },
-    {
-        id: 6,
-        name: "Michael Foster",
-        title: "Elite Performance Coach",
-        avatar: "https://via.placeholder.com/300x300/e67e22/ffffff?text=MF",
-        specialties: ["Elite Training", "Competition Prep", "Mental Coaching"],
-        experience: "15 years coaching experience",
-        rating: 4.9,
-        bio: "Michael works with our most advanced players, preparing them for collegiate and professional opportunities. His comprehensive approach includes mental conditioning and competition psychology. He's helped dozens of players earn scholarships.",
-        achievements: [
-            "15 Years Elite Level Coaching",
-            "Mental Performance Specialist",
-            "50+ Scholarship Recipients",
-            "Olympic Training Center Consultant"
         ]
     }
 ];
@@ -181,7 +149,7 @@ function renderCoaches() {
     // Show loading state
     coachesContainer.innerHTML = `
         <div class="loading-coaches">
-            <i class="fas fa-spinner"></i>
+            <div class="loading-spinner"></div>
             <p>Loading our expert coaches...</p>
         </div>
     `;
@@ -191,8 +159,14 @@ function renderCoaches() {
         coachesContainer.innerHTML = coachesData.map(coach => `
             <div class="coach-card fade-in" data-coach-id="${coach.id}">
                 <div class="coach-avatar">
-                    <img src="${coach.avatar}" alt="${coach.name}" 
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="${coach.avatar}" 
+                         alt="${coach.name}"
+                         class="coach-image"
+                         loading="eager"
+                         decoding="async"
+                         crossorigin="anonymous"
+                         referrerpolicy="no-referrer"
+                         onerror="handleCoachImageError(this, '${coach.name}');">
                     <div class="placeholder" style="display: none;">
                         <span>${coach.name.split(' ').map(n => n[0]).join('')}</span>
                     </div>
@@ -233,9 +207,46 @@ function renderCoaches() {
             });
         }, 100);
         
-    }, 1000); // Simulate loading time
+    }, 800); // Reduced loading time
 }
+// ✅ ENHANCED IMAGE ERROR HANDLER
+function handleCoachImageError(img, coachName) {
+    console.warn(`❌ Failed to load coach image: ${img.src}`);
+    
+    // Hide broken image, show placeholder
+    img.style.display = 'none';
+    const placeholder = img.nextElementSibling;
+    if (placeholder && placeholder.classList.contains('placeholder')) {
+        placeholder.style.display = 'flex';
+        // Update initials
+        const span = placeholder.querySelector('span');
+        if (span) {
+            span.textContent = coachName.split(' ').map(n => n[0]).join('');
+        }
+    }
+}
+// ✅ BACKUP ALTERNATIVE - Use different image services
+const alternativeImageServices = [
+    'https://placehold.co/300x300/{color}/ffffff?text={initials}&font=roboto',
+    'https://dummyimage.com/300x300/{color}/ffffff?text={initials}',
+    'https://ui-avatars.com/api/?name={name}&size=300&background={color}&color=ffffff&format=png'
+];
+function generateBackupAvatar(name, color) {
+    const initials = name.split(' ').map(n => n[0]).join('');
+    const colorCode = color.replace('#', '');
+    
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=300&background=${colorCode}&color=ffffff&format=png&rounded=true`;
+}
+// Enhanced coaches data with backup avatars
+const enhancedCoachesData = coachesData.map(coach => ({
+    ...coach,
+    backupAvatar: generateBackupAvatar(coach.name, getRandomColor())
+}));
 
+function getRandomColor() {
+    const colors = ['e74c3c', '3498db', '9b59b6', '27ae60', 'f39c12', '2c3e50'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
 // Generate star rating HTML
 function generateStars(rating) {
     const fullStars = Math.floor(rating);
@@ -258,7 +269,7 @@ function generateStars(rating) {
     return starsHTML;
 }
 
-// Open coach detail modal
+// ✅ ENHANCED MODAL WITH BETTER IMAGE HANDLING
 function openCoachModal(coachId) {
     const coach = coachesData.find(c => c.id === coachId);
     if (!coach || !coachModal) return;
@@ -267,8 +278,12 @@ function openCoachModal(coachId) {
     modalBody.innerHTML = `
         <div class="coach-detail">
             <div class="coach-detail-avatar">
-                <img src="${coach.avatar}" alt="${coach.name}" 
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <img src="${coach.avatar}" 
+                     alt="${coach.name}"
+                     class="coach-modal-image"
+                     loading="eager"
+                     decoding="async"
+                     onerror="handleModalImageError(this, '${coach.name}');">
                 <div class="placeholder" style="display: none;">
                     <span>${coach.name.split(' ').map(n => n[0]).join('')}</span>
                 </div>
@@ -310,7 +325,20 @@ function openCoachModal(coachId) {
     coachModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
-
+// ✅ MODAL IMAGE ERROR HANDLER
+function handleModalImageError(img, coachName) {
+    console.warn(`❌ Failed to load modal image: ${img.src}`);
+    
+    img.style.display = 'none';
+    const placeholder = img.nextElementSibling;
+    if (placeholder && placeholder.classList.contains('placeholder')) {
+        placeholder.style.display = 'flex';
+        const span = placeholder.querySelector('span');
+        if (span) {
+            span.textContent = coachName.split(' ').map(n => n[0]).join('');
+        }
+    }
+}
 // Open enrollment modal - called from HTML onclick
 function openEnrollmentModal(program) {
     if (!enrollmentModal || !programInput) return;
@@ -495,76 +523,77 @@ if (typeof module !== 'undefined' && module.exports) {
 // Position data for learning
 const learnPositionData = {
     1: {
-        name: "Position 1 - Right Back",
-        role: "Server/Right Back Defender", 
-        description: "The primary server position. Must have consistent serving technique and strong back-row defense skills.",
+        name: "Position 1 - Setter (S)",
+        role: "Primary Playmaker/Secondary Server",
+        description: "The quarterback of the team in 5-1 rotation. Controls the offense and distributes sets to attackers.",
         responsibilities: [
-            "Serve to start each rally",
-            "Right-side back row defense", 
-            "Cover right corner attacks",
-            "Communicate with teammates"
+            "Set all balls to attackers (front & back row)",
+            "Lead offensive plays and strategies",
+            "Serve from right back position",
+            "Back row defense when rotated to positions 1, 6, 5"
         ],
-        skills: ["Serving accuracy", "Defensive positioning", "Court awareness", "Communication"]
+        skills: ["Setting precision", "Court vision", "Decision making", "Leadership", "Serving accuracy"]
     },
     2: {
-        name: "Position 2 - Right Side Hitter",
+        name: "Position 2 - Opposite Hitter (OP/OPP)",
         role: "Right Side Attacker/Blocker",
-        description: "Versatile position requiring both offensive and defensive skills. Often the secondary attacker.",
+        description: "Positioned opposite to the setter. Primary attacker when setter is front row, key blocker against opponent's OH.",
         responsibilities: [
-            "Right-side attacking",
-            "Blocking opposing outside hitters",
-            "Setting when setter is in back row",
-            "Serve receive coverage"
+            "Attack from right side (front & back row)",
+            "Block opponent's Outside Hitter (position 4)",
+            "Secondary setting option when setter digs",
+            "Right side defense coverage"
         ],
-        skills: ["Attacking technique", "Blocking timing", "Setting ability", "Court vision"]
+        skills: ["Power hitting", "Blocking technique", "Back row attacking", "Setting backup", "Court awareness"]
     },
-    3: {
-        name: "Position 3 - Middle Blocker", 
-        role: "Middle Attacker/Primary Blocker",
-        description: "The defensive anchor and quick attack specialist. Usually the tallest player.",
+    3:  {
+        name: "Position 3 - Middle Blocker (MB)",
+        role: "Quick Attacker/Primary Blocker",
+        description: "The defensive wall and quick attack specialist. Tallest player, crucial for blocking system.",
         responsibilities: [
-            "Quick attacks in the middle",
-            "Primary blocking responsibility",
-            "Reading opponent's offense",
-            "Transition blocking"
+            "Execute quick attacks (1st tempo: quick, slide)",
+            "Lead blocking on both sides (read or commit)",
+            "Close block with OH/OP on wings",
+            "Cover middle zone defense"
         ],
-        skills: ["Quick attack timing", "Blocking technique", "Reading skills", "Footwork"]
+        skills: ["Quick attack timing", "Blocking footwork", "Reading opponent's sets", "Transition speed", "Slide technique"]
     },
     4: {
-        name: "Position 4 - Outside Hitter",
-        role: "Primary Attacker/Passer",
-        description: "The go-to attacker and primary ball handler. Most versatile position on court.",
+        name: "Position 4 - Outside Hitter (OH)",
+        role: "Primary Attacker/Main Passer",
+        description: "The most versatile and go-to attacker. Receives most sets, especially in critical situations.",
         responsibilities: [
-            "Primary attacking option",
-            "Serve receive passing",
-            "Left-side blocking", 
-            "Back-row attacking when rotated"
+            "Primary attacking option from left side",
+            "Lead serve receive passing (Zone 4-5-6)",
+            "Block opponent's Opposite (position 2)",
+            "Back row attack (pipe/D) when rotated back"
         ],
-        skills: ["Attacking power", "Passing accuracy", "Ball control", "Leadership"]
+        skills: ["Powerful attacking", "Consistent passing", "High ball control", "Blocking", "All-around versatility"]
     },
     5: {
-        name: "Position 5 - Left Back",
-        role: "Left Back Defender",
-        description: "Defensive specialist covering the left side of the court and supporting serve receive.",
+        name: "Position 5 - Outside Hitter (OH) / Libero",
+        role: "Left Back Defender/Passer",
+        description: "Back row position often covered by Libero or OH rotated back. Critical for serve receive and defense.",
         responsibilities: [
-            "Left-side back row defense",
-            "Serve receive support",
-            "Covering deep court areas",
-            "Transition defense"
+            "Key serve receive position (left back)",
+            "Dig balls from opponent's right side attacks",
+            "Cover deep corner and line shots",
+            "Support transition offense"
         ],
-        skills: ["Defensive positioning", "Digging technique", "Court coverage", "Anticipation"]
+        skills: ["Passing accuracy", "Defensive positioning", "Digging technique", "Court coverage", "Ball control"]
     },
     6: {
-        name: "Position 6 - Middle Back/Libero",
-        role: "Defensive Specialist/Libero", 
-        description: "The defensive anchor, often played by the libero. Controls the back court defense.",
+        name: "Position 6 - Libero/Middle Back",
+        role: "Defensive Anchor/Passing Leader",
+        description: "The heart of back row defense, usually played by Libero. Commands serve receive and defensive formations.",
         responsibilities: [
-            "Middle back defense coordination",
-            "Serve receive leadership", 
-            "Covering tips and roll shots",
-            "Defensive communication"
+            "Anchor middle back defense",
+            "Lead serve receive system (call plays)",
+            "Dig tips, roll shots, and off-speed attacks",
+            "Communicate defensive adjustments",
+            "Replace MB in back row (Libero rule)"
         ],
-        skills: ["Digging expertise", "Passing consistency", "Court leadership", "Reading opponent"]
+        skills: ["Elite passing", "Defensive reading", "Leadership", "Communication", "Quick reflexes"]
     }
 };
 
@@ -867,6 +896,8 @@ function closeLearningQuiz() {
 }
 
 // Make functions globally available
+window.handleCoachImageError = handleCoachImageError;
+window.handleModalImageError = handleModalImageError;
 window.startLearningQuiz = startLearningQuiz;
 window.selectLearningAnswer = selectLearningAnswer;
 window.nextLearningQuestion = nextLearningQuestion;
