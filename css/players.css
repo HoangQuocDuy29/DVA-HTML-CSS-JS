@@ -174,8 +174,12 @@ img {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    justify-items: center;        /* ✅ Center individual cards */
+    justify-content: center;      /* ✅ CENTER THE ENTIRE GRID */
     justify-items: center;
     padding: 0 1rem;
+    max-width: 100%;             /* ✅ Ensure grid doesn't overflow */
+    margin: 0 auto;              /* ✅ Additional centering for container */
 }
 
 /* Player Card - Optimized Mobile First */
@@ -634,8 +638,11 @@ img {
 /* Small tablets and large phones (≥576px) */
 @media (min-width: 36em) {
     .players-grid {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        justify-content: center;     /* ✅ Keep centered */
         padding: 0;
+        max-width: 1200px;          /* ✅ Limit maximum width */
+        margin: 0 auto;             /* ✅ Center the container */
     }
     
     .filters {
@@ -651,6 +658,10 @@ img {
 
 /* Medium tablets (≥768px) */
 @media (min-width: 48em) {
+    .players-grid {
+        justify-content: center;     /* ✅ Keep centered */
+        max-width: 1400px;          /* ✅ Limit maximum width */
+    }
     .players-header {
         padding: 100px 0 70px;
     }
@@ -736,6 +747,13 @@ img {
 
 /* Large tablets and small desktops (≥1024px) */
 @media (min-width: 64em) {
+    .players-grid {
+        grid-template-columns: repeat(auto-fill, minmax(340px, 340px));
+        justify-content: center;     /* ✅ CENTER CARDS ON LARGE SCREENS */
+        gap: 2rem;
+        max-width: 1600px;          /* ✅ Maximum container width */
+        margin: 0 auto;             /* ✅ Center container */
+    }
     .players-header {
         padding: 120px 0 80px;
     }
