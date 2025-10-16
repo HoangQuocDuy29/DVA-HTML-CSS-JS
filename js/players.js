@@ -61,7 +61,7 @@ const playersData = {
             height: "178cm",
             reachHeight: "290cm",
             address: "Thái Bình",
-            born: "1998",
+            born: "1992",
             age: 26,
             avatar: "images/players/middle/DuongVanDaii.webp"
         },
